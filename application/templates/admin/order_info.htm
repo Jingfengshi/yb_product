@@ -1,0 +1,10 @@
+<div class="modal-header" style="height:30px; background:#000;">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#FFF; height:1em; line-height:1em; width:1em;">x</button>
+    <h4 style="color:#fff; margin-top:5px;">
+        【订单--<{$re.id}>】详情
+    </h4>
+</div>
+<iframe src="<{'order/order_info_1'|site_url}>/?id=<{$re.id}>&act_id=<{$re.act_id}>" style="width:98%;height:300px;" ></iframe>
+<div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn">Close</button>
+</div>

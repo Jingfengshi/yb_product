@@ -1,0 +1,1513 @@
+seller------url[Sproduct/product_list]----
+  【sql报错语句】  select `b`.`cname` as name, `a`.`c.num`, `a`.`price`,`b`.`mz`,`b`.`price` as sell_price,`b`.`cb_price`  from dferp_seller_product as `a` left join dferp_stock as `b` on `a`.`stock_id` = `b`.`id` where `a`.`userid`=1 and `a`.`c_num`>0
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'a.c.num' in 'field list'
+
+seller------url[Sproduct/product_list]----
+  【sql报错语句】  select `b`.`cname` as name, `a`.`c_num`, `a`.`price`,`b`.`mz`,（`b`.`price`-`b`.`cb_price`）as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp_id   from dferp_seller_product as `a` left join dferp_stock as `b` on `a`.`stock_id` = `b`.`id` left joindferp_sp_product as c on `c`.`stock_id`= `a`.`stock_id` where `a`.`userid`=1 and `a`.`c_num`>0
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`price`-`b`.`cb_price`）as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp_id  ' at line 1
+
+seller------url[Sproduct/product_list]----
+  【sql报错语句】  select `b`.`cname` as name, `a`.`c_num`, `a`.`price`,`b`.`mz`,（`b`.`price`-`b`.`cb_price`）as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp_id   from dferp_seller_product as `a` left join dferp_stock as `b` on `a`.`stock_id` = `b`.`id` left join dferp_sp_product as c on `c`.`stock_id`= `a`.`stock_id` where `a`.`userid`=1 and `a`.`c_num`>0
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`price`-`b`.`cb_price`）as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp_id  ' at line 1
+
+seller------url[Sproduct/product_list]----
+  【sql报错语句】  select `b`.`cname` as name, `a`.`c_num`, `a`.`price`,`b`.`mz`,（`b`.`price` - `b`.`cb_price`）as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp_id   from dferp_seller_product as `a` left join dferp_stock as `b` on `a`.`stock_id` = `b`.`id` left join dferp_sp_product as c on `c`.`stock_id`= `a`.`stock_id` where `a`.`userid`=1 and `a`.`c_num`>0
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`price` - `b`.`cb_price`）as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp_id' at line 1
+
+seller------url[Sproduct/product_list]----
+  【sql报错语句】  select `b`.`cname` as name, `a`.`c_num`, `a`.`price`,`b`.`mz`,(`b`.`price` as sell_price -`b`.`cb_price`) as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp_id   from dferp_seller_product as `a` left join dferp_stock as `b` on `a`.`stock_id` = `b`.`id` left join dferp_sp_product as c on `c`.`stock_id`= `a`.`stock_id` where `a`.`userid`=1 and `a`.`c_num`>0
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as sell_price -`b`.`cb_price`) as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp' at line 1
+
+seller------url[Sproduct/product_list]----
+  【sql报错语句】  select `b`.`cname` as name,`a`.`stock_id`,`a`.`userid`,``a`.`id` as seller_product_id, `a`.`c_num` as num, `a`.`price`,`b`.`mz` as weight,`b`.`price`-`b`.`cb_price` as sp_price,`c`.`userid` as sp_uid,`c`.`id` as sp_id   from dferp_seller_product as `a` left join dferp_stock as `b` on `a`.`stock_id` = `b`.`id` left join dferp_sp_product as c on `c`.`stock_id`= `a`.`stock_id` where `a`.`userid`=1 and `a`.`c_num`>0
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`.`id` as seller_product_id, `a`.`c_num` as num, `a`.`price`,`b`.`mz` as weight,' at line 1
+
+seller------url[Sproduct/product_list]----
+  【sql报错语句】 INSERT INTO `dferp_order_pro` (0, 1) VALUES (Array, Array)
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 36
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\Sproduct.php line: 60---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0, 1) VALUES (Array, Array)' at line 1
+
+admin------url[Order/order_table_upload]----
+  【sql报错语句】 SELECT company FROM dferp_sp_user WHERE id=�
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Order/order_table_upload]----
+  【sql报错语句】 SELECT company FROM dferp_sp_user WHERE id=�
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 UPDATE `dferp_sp_produc` SET c_num = c_num+10WHERE `stock_id` IS NULL
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 325
+[1]  line: ---Table 'yb_product.dferp_sp_produc' doesn't exist
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 UPDATE `dferp_sp_produc` SET c_num = c_num+20WHERE `stock_id` IS NULL
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 325
+[1]  line: ---Table 'yb_product.dferp_sp_produc' doesn't exist
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 UPDATE `dferp_sp_produc` SET c_num = c_num+10WHERE `stock_id` = '10000000'
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 325
+[1]  line: ---Table 'yb_product.dferp_sp_produc' doesn't exist
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 UPDATE `dferp_sp_produc` SET c_num = c_num+20WHERE `stock_id` = '10000001'
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 325
+[1]  line: ---Table 'yb_product.dferp_sp_produc' doesn't exist
+
+seller------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order  where  userid='1'   limit 0,15 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC' at line 1
+
+admin------url[Order/order_info_1]----
+  【sql报错语句】 SELECT `company` FROM dferp_sp_userWHERE id=2
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2' at line 1
+
+admin------url[Order/order_info_1]----
+  【sql报错语句】 SELECT `company` FROM dferp_sp_userWHERE id=2
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2' at line 1
+
+admin------url[Seller_product/product_edit_batch]----
+  【sql报错语句】 SELECT `a`.id,`a`.`mark_price`,`a`.`price`,`b`.`cname` FROM dferp_seller_product AS `a` LEFT JOIN dferp_stock AS `b` ON `a`.`stock_id` = `b`.`stock_id` WHERE `a`.id=10005
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'b.stock_id' in 'on clause'
+
+admin------url[Seller_product/product_edit_batch]----
+  【sql报错语句】 SELECT `a`.id,`a`.`mark_price`,`a`.`price`,`a`.`status``b`.`cname` FROM dferp_seller_product AS `a` LEFT JOIN dferp_stock AS `b` ON `a`.`stock_id` = `b`.`id` WHERE `a`.id=10009
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'a.status`b.cname' in 'field list'
+
+admin------url[Seller_product/seller_product_list]----
+  【sql报错语句】 select  a.*,b.warehouse_id,b.cname,b.brand,b.is_shop,b.rate,b.is_shop,(b.price-b.cb_price) as s_price ,`c`.`company` 		      from  dferp_seller_product as  a  		      left join  dferp_stock  as   b  on a.stock_id=b.id left joindferp_seller_user as `c` on `c`.`id`=`a`.`userid`   where  1=1  
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'joindferp_seller_user as `c` on `c`.`id`=`a`.`userid`   where  1=1' at line 3
+
+admin------url[Seller_product/seller_product_list]----
+  【sql报错语句】 select  a.*,b.warehouse_id,b.cname,b.brand,b.is_shop,b.rate,b.is_shop,(b.price-b.cb_price) as s_price ,`c`.`company` 		      from  dferp_seller_product as  a  		      left join  dferp_stock  as   b  on a.stock_id=b.id left joindferp_seller_user as `c` on `c`.`id`=`a`.`userid`   where  1=1   limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'joindferp_seller_user as `c` on `c`.`id`=`a`.`userid`   where  1=1   limit 0,15' at line 3
+
+admin------url[Spuser/spuser_product_check_list]----
+  【sql报错语句】 SELECT `product_sp_id`, `userid`, `name`, `desc`, `brand`, `catname`, `cat_id`, `country`, `countryid`, `length`, `width`, `height`, `barcode`, `mark_price`, `cf`, `gn`, `type`, `mz`, `jz`, `gg`, `con`, `shop_addr`, `shop_type`, `pic`FROM `dferp_sp_product_content`WHERE `product_sp_id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Sp_Product_model.php line: 139
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Spuser.php line: 96---Unknown column 'pic' in 'field list'
+
+admin------url[Spuser/spuser_product_check_list]----
+  【sql报错语句】 SELECT `product_sp_id`, `userid`, `name`, `desc`, `brand`, `catname`, `cat_id`, `country`, `countryid`, `length`, `width`, `height`, `barcode`, `mark_price`, `cf`, `gn`, `type`, `mz`, `jz`, `gg`, `con`, `shop_addr`, `shop_type`, `pic`FROM `dferp_sp_product_content`WHERE `product_sp_id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Sp_Product_model.php line: 139
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Spuser.php line: 96---Unknown column 'pic' in 'field list'
+
+admin------url[Spuser/spuser_product_check_list]----
+  【sql报错语句】 SELECT `product_sp_id`, `userid`, `name`, `desc`, `brand`, `catname`, `cat_id`, `country`, `countryid`, `length`, `width`, `height`, `barcode`, `mark_price`, `cf`, `gn`, `type`, `mz`, `jz`, `gg`, `con`, `shop_addr`, `shop_type`, `pic`FROM `dferp_sp_product_content`WHERE `product_sp_id` = '7'
+[0] D:\phpstudy\WWW\yb_product\application\models\Sp_Product_model.php line: 139
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Spuser.php line: 100---Unknown column 'pic' in 'field list'
+
+admin------url[Spuser/spuser_product_check_list]----
+  【sql报错语句】 select  `a`.`id`,`a`.`stock_id`,`a`.`name`,`a`.`barcode`,`a`.`userid`,`a`.`c_num`		                        ,`a`.`online_num`,`a`.`send_num`,`a`.`sell_num`, `a`.`price`,`a`.`status`,`b`.`price` as 		                        from  dferp_sp_product as `a` left join  dferp_stock as `b` on `a`.`stock_id`=`b`.`id`  where `a`.id in(0,1,2,3,4,5,6,7,8) 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from  dferp_sp_product as `a` left join  dferp_stock as `b` on `a`.`stock_id`=`b' at line 3
+
+admin------url[Order/order_info_1]----
+  【sql报错语句】 select * from dferp_order_pro where `order_id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Order/order_info_1]----
+  【sql报错语句】 select * from dferp_order_pro where `order_id`= limit 0,5
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,5' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`= WHERE id=143
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=143' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`= WHERE id=144
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=144' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`= WHERE id=145
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=145' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`= WHERE id=146
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=146' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`= WHERE id=147
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=147' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`=  WHERE id=143
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=143' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`=  WHERE id=144
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=144' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`=  WHERE id=145
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=145' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`=  WHERE id=146
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=146' at line 1
+
+admin------url[Order/order_pro_change]----
+  【sql报错语句】 UPDATE dferp_order_pro SET `num`=  WHERE id=147
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id=147' at line 1
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_pro` () VALUES ('婴儿奶粉','7',72,'20.00','10005','2','100.00','2','10000001','1','0'), ('奶粉奶粉','8',72,'12354.00','10006','3','111.00','2','10000002','1','0'), ('奶粉奶粉','3',72,'113.00','10007','4','111.00','2','10000003','1','0'), Array
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 36
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 383---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Array' at line 1
+
+admin------url[Admin_index/image_list]----
+  【sql报错语句】 select upload_name,url,user_id,add_time,id,size   from  dferp_base_image
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Table 'yb_product.dferp_base_image' doesn't exist
+
+admin------url[Admin_index/image_list]----
+  【sql报错语句】 select upload_name,url,user_id,add_time,id,size   from  dferp_base_image order by id desc limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Table 'yb_product.dferp_base_image' doesn't exist
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_sp_order` (`sp_id`, `order_id`, `sp_total`, `seller_total`, `logcs_total_weight`) VALUES (2, 76, 61550, 277750, 0)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Unknown column 'order_id' in 'field list'
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_sp_order` (`sp_id`, `order_id`, `sp_total`, `seller_total`, `logcs_total_weight`) VALUES (3, 76, 333, 339, 0)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Unknown column 'order_id' in 'field list'
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (NULL, '1', '2', '2017-03-17 09:23:51', '10000001', '20.00', '10.00', '8', '婴儿奶粉')
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 434
+[1]  line: ---Column 'order_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (NULL, '1', '3', '2017-03-17 09:23:51', '10000002', '12354.00', '111.00', '8', '奶粉奶粉')
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 434
+[1]  line: ---Column 'order_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (NULL, '1', '3', '2017-03-17 09:23:51', '10000003', '113.00', '111.00', '3', '奶粉奶粉')
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 434
+[1]  line: ---Column 'order_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (NULL, '1', '2', '2017-03-17 09:23:51', '10000005', '5555.00', '1231.00', '50', '213123123')
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 434
+[1]  line: ---Column 'order_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `sp_order_id`) VALUES (78, NULL, NULL, '2017-03-17 15:12:00', NULL, NULL, NULL, NULL, NULL, 4)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 445
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `sp_order_id`) VALUES (78, NULL, NULL, '2017-03-17 15:12:00', NULL, NULL, NULL, NULL, NULL, 4)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 445
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `sp_order_id`) VALUES (79, NULL, NULL, '2017-03-17 15:16:05', NULL, NULL, NULL, NULL, NULL, 6)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 445
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `sp_order_id`) VALUES (79, NULL, NULL, '2017-03-17 15:16:05', NULL, NULL, NULL, NULL, NULL, 6)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 445
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `sp_order_id`) VALUES (80, NULL, NULL, '2017-03-17 15:22:37', NULL, NULL, NULL, NULL, NULL, 8)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 445
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `sp_order_id`) VALUES (80, NULL, NULL, '2017-03-17 15:22:37', NULL, NULL, NULL, NULL, NULL, 8)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 445
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (82, 10, NULL, NULL, '2017-03-17 15:26:46', NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 438
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (82, 10, NULL, NULL, '2017-03-17 15:26:46', NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 438
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (84, 11, NULL, NULL, '2017-03-17 15:32:22', NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 433
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (84, 11, NULL, NULL, '2017-03-17 15:32:22', NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 433
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (84, 12, NULL, NULL, '2017-03-17 15:32:22', NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 433
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done1]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`) VALUES (84, 12, NULL, NULL, '2017-03-17 15:32:22', NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 433
+[1]  line: ---Column 'seller_id' cannot be null
+
+sp------url[Order/order_check]----
+  【sql报错语句】 UPDATE  dferp_order SET `logcs_price`=`logcs_price`+250,SET `logcs_weight`=`logcs_weight`+400 WHERE id=Array
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET `logcs_weight`=`logcs_weight`+400 WHERE id=Array' at line 1
+
+sp------url[Order/order_check]----
+  【sql报错语句】 UPDATE  dferp_order SET `logcs_price`=`logcs_price`+100,SET `logcs_weight`=`logcs_weight`+300 WHERE id=89
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET `logcs_weight`=`logcs_weight`+300 WHERE id=89' at line 1
+
+sp------url[Order/order_check]----
+  【sql报错语句】 UPDATE  dferp_order SET logcs_price = logcs_price +100.00,SET  logcs_weight = logcs_weight +250 WHERE id=89
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET  logcs_weight = logcs_weight +250 WHERE id=89' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000001 AND `order_id`=92
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000001 AND `order_id`=92' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000005 AND `order_id`=92
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000005 AND `order_id`=92' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000002 AND `order_id`=92
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000002 AND `order_id`=92' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000003 AND `order_id`=92
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000003 AND `order_id`=92' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000001 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000001 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000005 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000005 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000002 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000002 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000003 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000003 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000001 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000001 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000005 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000005 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000002 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000002 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000003 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000003 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000001 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000001 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000005 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000005 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000002 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000002 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=2 WHERE `stock_id`=10000003 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=2 WHERE `stock_id`=10000003 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000001 AND `order_id`=2
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000001 AND `order_id`=2' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000005 AND `order_id`=2
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000005 AND `order_id`=2' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `delivery_status` = ArrayWHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 737---Unknown column 'Array' in 'where clause'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000002 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000002 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000003 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000003 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `delivery_status` = ArrayWHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 707---Unknown column 'Array' in 'where clause'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `delivery_status` = '1'WHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 737---Unknown column 'Array' in 'where clause'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000002 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000002 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000003 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000003 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `delivery_status` = '-1'WHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 707---Unknown column 'Array' in 'where clause'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `delivery_status` = '1'WHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 738---Unknown column 'Array' in 'where clause'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000002 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000002 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000003 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000003 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `delivery_status` = '-1'WHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 708---Unknown column 'Array' in 'where clause'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000002 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000002 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`=-1 WHERE `stock_id`=10000003 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=-1 WHERE `stock_id`=10000003 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`= '-1' WHERE `stock_id`=10000002 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '-1' WHERE `stock_id`=10000002 AND `order_id`=1' at line 1
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 UPDATE dferp_order_pro `status`= '-1' WHERE `stock_id`=10000003 AND `order_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '-1' WHERE `stock_id`=10000003 AND `order_id`=1' at line 1
+
+sp------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order   where  sp_id='2' order by id desc   AND `status`!=-1  
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `status`!=-1' at line 1
+
+sp------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order   where  sp_id='2' order by id desc   AND `status`!=-1   limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `status`!=-1   limit 0,15' at line 1
+
+sp------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order   where  sp_id='2   AND `status`!=-1   order by id desc 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2   AND `status`!=-1   order by id desc' at line 1
+
+sp------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order   where  sp_id='2   AND `status`!=-1   order by id desc  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2   AND `status`!=-1   order by id desc  limit 0,15' at line 1
+
+sp------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order   where  sp_id='2   AND `status`!=-1   order by id desc 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2   AND `status`!=-1   order by id desc' at line 1
+
+sp------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order   where  sp_id='2   AND `status`!=-1   order by id desc  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2   AND `status`!=-1   order by id desc  limit 0,15' at line 1
+
+sp------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order   where  sp_id='2 '  AND `status`!=-1   order by id desc 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'status' in 'where clause'
+
+sp------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order   where  sp_id='2 '  AND `status`!=-1   order by id desc  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'status' in 'where clause'
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order   AND `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `status`!=-1 order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order   AND `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `status`!=-1 order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order  where  AND `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `status`!=-1 order by  id DESC' at line 1
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order  where  AND `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `status`!=-1 order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order  where   `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'status' in 'where clause'
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order  where   `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'status' in 'where clause'
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order  where   `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'status' in 'where clause'
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 select  *  from  dferp_sp_order  where   `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'status' in 'where clause'
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 SELECT company from dferp_seller_user WHERE id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 SELECT company from dferp_seller_user WHERE id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and order_id like '%1%' `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and order_id like '%1%' `status`!=-1 order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and order_id like '%1%' `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and order_id like '%1%' `status`!=-1 order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and order_id like '%1%' `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and order_id like '%1%' `status`!=-1 order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and order_id like '%1%' `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and order_id like '%1%' `status`!=-1 order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and order_id like '%2%' `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and order_id like '%2%' `status`!=-1 order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and order_id like '%2%' `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and order_id like '%2%' `status`!=-1 order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and id='2' `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and id='2' `status`!=-1 order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and id='2' `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and id='2' `status`!=-1 order by  id DESC  limit 0,15' at line 1
+
+seller------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order  where  userid='1'   and order_id like '%1%' AND `status`!=-1 order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'order_id' in 'where clause'
+
+seller------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order  where  userid='1'   and order_id like '%1%' AND `status`!=-1 order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---Unknown column 'order_id' in 'where clause'
+
+sp------url[Sp_index/index]----
+  【sql报错语句】 SELECT *FROM `dferp_sp_order` as `a`LEFT JOIN `order` as `b` ON `a`.`order_id`=`b`.`id`WHERE `a`.`delivery_status` =0 and `b`.`payment_status` = 2 and (`b`.`status` = 3 or `b`.`status` = 4 )
+[0] D:\phpstudy\WWW\yb_product\application\controllers\sp\Sp_index.php line: 20
+[1]  line: ---Table 'yb_product.order' doesn't exist
+
+sp------url[Sp_index/index]----
+  【sql报错语句】 SELECT *FROM `dferp_sp_order` as `a`LEFT JOIN `order` as `b` ON `a`.`order_id`=`b`.`id`WHERE `a`.`delivery_status` =0 and `b`.`payment_status` = 2 and `b`.`status` = 3 or `b`.`status` = 4 
+[0] D:\phpstudy\WWW\yb_product\application\controllers\sp\Sp_index.php line: 20
+[1]  line: ---Table 'yb_product.order' doesn't exist
+
+admin------url[Cat/cat_list]----
+  【sql报错语句】 SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` DESC
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Cat_model.php line: 11
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Cat.php line: 53---Unknown column 'pid' in 'field list'
+
+admin------url[Cat/cat_list]----
+  【sql报错语句】 SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` DESC
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Cat_model.php line: 11
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Cat.php line: 53---Unknown column 'pid' in 'field list'
+
+admin------url[Cat/cat_list]----
+  【sql报错语句】 SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` DESC
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Cat_model.php line: 11
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Cat.php line: 53---Unknown column 'pid' in 'field list'
+
+admin------url[Cat/cat_list]----
+  【sql报错语句】 SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` DESC
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Cat_model.php line: 11
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Cat.php line: 53---Unknown column 'pid' in 'field list'
+
+admin------url[Cat/cat_list]----
+  【sql报错语句】 SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` DESC
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Cat_model.php line: 11
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Cat.php line: 53---Unknown column 'pid' in 'field list'
+
+admin------url[Cat/cat_list]----
+  【sql报错语句】 SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` DESC
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Cat_model.php line: 11
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Cat.php line: 53---Unknown column 'pid' in 'field list'
+
+admin------url[Cat/cat_list]----
+  【sql报错语句】 SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` DESC
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Cat_model.php line: 11
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Cat.php line: 53---Unknown column 'pid' in 'field list'
+
+admin------url[Order/reconciliation_no]----
+  【sql报错语句】 SELECT `id` FROM dferp_sp_order WHERE `delivery_status`=1 AND `delivery_time`>=2017-03-21 00:00:00 AND `delivery_time`>=2017-03-21 23:59;59
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND `delivery_time`>=2017-03-21 23:59;59' at line 1
+
+admin------url[Order/reconciliation_no]----
+  【sql报错语句】 SELECT `id` FROM dferp_sp_order WHERE `delivery_status`=1 AND `delivery_time`>=2017-03-21 00:00:00 AND `delivery_time`>=2017-03-21 23:59:59
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND `delivery_time`>=2017-03-21 23:59:59' at line 1
+
+admin------url[Order/reconciliation_no]----
+  【sql报错语句】 SELECT `id` FROM dferp_sp_order WHERE `delivery_status`=1 AND `delivery_time`>=2017-03-21 00:00:00 AND `delivery_time`>=2017-03-21 23:59:59
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND `delivery_time`>=2017-03-21 23:59:59' at line 1
+
+admin------url[Order/reconciliation_no]----
+  【sql报错语句】 SELECT `id` FROM dferp_sp_order WHERE `delivery_status`=1 AND `delivery_time`>=2017-03-21 00:00:00 AND `delivery_time`<=2017-03-21 23:59:59
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND `delivery_time`<=2017-03-21 23:59:59' at line 1
+
+admin------url[Order/reconciliation_no]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `reconciliation_no` = '2017-03-212017-03-21', `reconciliation_status` = 1WHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 1046---Unknown column 'Array' in 'where clause'
+
+admin------url[Order/sp_order_list]----
+  【sql报错语句】 SELECT `company` FROM  dferp_sp_user WHERE `id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 519---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Seller_user/seller_add]----
+  【sql报错语句】 INSERT INTO `dferp_seller_user` (`mobile`, `company`, `user`, `pass`, `act_pass`, `addtime`, `status`) VALUES ('12345678901', '挚捷行大苏打是的', 'jingfs111', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', '17-03-30 03:41:51', 1)
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Seller_User_model.php line: 10
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\seller_user.php line: 163---Duplicate entry 'jingfs111' for key 'user'
+
+admin------url[Seller_user/seller_add]----
+  【sql报错语句】 INSERT INTO `dferp_seller_user` (`mobile`, `company`, `user`, `pass`, `act_pass`, `addtime`, `status`) VALUES ('12345678901', '挚捷行大苏打是的大厦', 'jingfs111', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', '17-03-30 03:42:20', 1)
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Seller_User_model.php line: 10
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\seller_user.php line: 163---Duplicate entry 'jingfs111' for key 'user'
+
+admin------url[Seller_user/seller_add]----
+  【sql报错语句】 INSERT INTO `dferp_seller_user` (`mobile`, `company`, `user`, `pass`, `act_pass`, `addtime`, `status`) VALUES ('12345678901', 'aaacompany', 'jingfs', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', '17-03-30 03:44:18', 1)
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Seller_User_model.php line: 10
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\seller_user.php line: 163---Duplicate entry 'jingfs' for key 'user'
+
+admin------url[Seller_user/seller_add]----
+  【sql报错语句】 INSERT INTO `dferp_seller_user` (`mobile`, `company`, `user`, `pass`, `act_pass`, `addtime`, `status`) VALUES ('12345678901', 'aaacompany', 'jingfs111', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', '17-03-30 03:44:30', 1)
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Seller_User_model.php line: 10
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\seller_user.php line: 163---Duplicate entry 'jingfs111' for key 'user'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `title`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'title' in 'field list'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `title`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'title' in 'field list'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `title`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'title' in 'field list'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `title`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'title' in 'field list'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `title`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'title' in 'field list'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `title`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'title' in 'field list'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `id`, `define_city_name`FROM `dferp_logistics_temp_con`WHERE `pid` =0
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 70
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 30---Unknown column 'pid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT *FROM `dferp_logistics_temp_con_show`WHERE * IS NULLORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 44---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* IS NULL
+ORDER BY `id` desc' at line 3
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT *FROM `dferp_logistics_temp_con_show`WHERE * IS NULLORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 44---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* IS NULL
+ORDER BY `id` desc' at line 3
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT *FROM `dferp_logistics_temp_con_show`WHERE * IS NULLORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 44---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* IS NULL
+ORDER BY `id` desc' at line 3
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT *FROM `dferp_logistics_temp_con_show`WHERE * IS NULLORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 44---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* IS NULL
+ORDER BY `id` desc' at line 3
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT *FROM `dferp_logistics_temp_con_show`WHERE * IS NULLORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 44---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* IS NULL
+ORDER BY `id` desc' at line 3
+
+admin------url[Seller_product/product_edit_batch]----
+  【sql报错语句】 SELECT stock_id FROM dferp_seller_product WHERE id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Seller_product/product_edit_batch]----
+  【sql报错语句】 SELECT stock_id FROM dferp_seller_product WHERE id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Seller_product/product_edit_batch]----
+  【sql报错语句】 SELECT stock_id FROM dferp_seller_product WHERE id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Seller_product/product_edit_batch]----
+  【sql报错语句】 SELECT stock_id FROM dferp_seller_product WHERE id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+admin------url[Seller_product/product_edit_batch]----
+  【sql报错语句】 SELECT `a`.id,`a`.`price`,`a`.`status`,`b`.`name` ,`b`.`price` as 'g_price',`c`.`company`,`d`.`price`, as 'p_price',`d`.`mark_price`  FROM dferp_seller_product AS `a` LEFT JOIN dferp_sp_product AS `b` ON `a`.`stock_id` = `b`.`stock_id` LEFT JOIN dferp_seller_user AS `c` ON `c`.`id`=`a`.`userid` LEFT JOIN dferp_stock AS `d` ON `d`.`id`=`a`.`stock_id`  WHERE `a`.id=10004
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as 'p_price',`d`.`mark_price`  FROM dferp_seller_product AS `a` LEFT JOIN dferp_' at line 1
+
+sp------url[Product/product_add]----
+  【sql报错语句】 SELECT `id`, `name`, `company`FROM `dferp_stock_warehouse`WHERE  IS NULL
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Warehouse_model.php line: 49
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\product.php line: 376---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL' at line 3
+
+sp------url[Product/product_add]----
+  【sql报错语句】 SELECT `mark_price`, `desc`, `brand`, `cat_id`, `countryid`, `length`, `width`, `height`, `mz`, `jz`, `cf`, `gn`, `gg`, `type`, `con`, `pic`, `warehouse_id`FROM `dferp_sp_product_content`WHERE `product_sp_id` = '11'AND `userid` = '2'
+[0] D:\phpstudy\WWW\yb_product\application\models\Sp_Product_model.php line: 142
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\product.php line: 385---Unknown column 'warehouse_id' in 'field list'
+
+sp------url[Product/product_add]----
+  【sql报错语句】 SELECT `mark_price`, `desc`, `brand`, `cat_id`, `countryid`, `length`, `width`, `height`, `mz`, `jz`, `cf`, `gn`, `gg`, `type`, `con`, `pic`, `warehouse_id`FROM `dferp_sp_product_content`WHERE `product_sp_id` = '11'AND `userid` = '2'
+[0] D:\phpstudy\WWW\yb_product\application\models\Sp_Product_model.php line: 142
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\product.php line: 385---Unknown column 'warehouse_id' in 'field list'
+
+admin------url[Spuser/spuser_product]----
+  【sql报错语句】 select  `name`  from  dferp_sp_user  where id='1'
+[0] D:\phpstudy\WWW\yb_product\application\controllers\admin\Spuser.php line: 477
+[1]  line: ---Unknown column 'name' in 'field list'
+
+admin------url[Spuser/spuser_product]----
+  【sql报错语句】 SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Warehouse_model.php line: 21
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Spuser.php line: 478---Unknown column 'Array' in 'where clause'
+
+seller------url[User/login]----
+  【sql报错语句】 select  `user`,`id`,`pass`,`zjx_type`  from  dferp_seller_user  where user='test'
+[0] D:\phpstudy\WWW\yb_product\application\models\Seller_User_model.php line: 19
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\User.php line: 46---Unknown column 'zjx_type' in 'field list'
+
+seller------url[User/login]----
+  【sql报错语句】 select  `user`,`id`,`pass`,`zjx_type`  from  dferp_seller_user  where user='test'
+[0] D:\phpstudy\WWW\yb_product\application\models\Seller_User_model.php line: 19
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\User.php line: 46---Unknown column 'zjx_type' in 'field list'
+
+sp------url[Product/product_add]----
+  【sql报错语句】 INSERT INTO `dferp_sp_product_content` (`product_sp_id`, `userid`, `name`, `desc`, `brand`, `cat_id`, `catname`, `country`, `countryid`, `length`, `width`, `height`, `barcode`, `mark_price`, `cf`, `gn`, `type`, `mz`, `jz`, `pic`, `gg`, `con`) VALUES (1, '2', '七彩玲珑糖', '哈哈', '彩虹牌', 110200, '22', '中国', 142, 15, 15, 15, '12345465', 30, '趣味', '好吃', '食品', 100, 85, '/upload/sp/2/image/20170317/1489719662133415.png', '打大厦', '<p>的撒打算ad</p>')
+[0] D:\phpstudy\WWW\yb_product\application\models\Sp_Product_model.php line: 59
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\product.php line: 355---Duplicate entry '1' for key 'product_sp_id'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 145---Table 'yb_product.dferp_order_ls' doesn't exist
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 152---Table 'yb_product.dferp_order_ls' doesn't exist
+
+sp------url[Logistics/logistics_list]----
+  【sql报错语句】 SELECT *FROM `dferp_stock_warehouse`WHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Warehouse_model.php line: 21
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 24---Unknown column 'Array' in 'where clause'
+
+sp------url[Logistics/logistics_list]----
+  【sql报错语句】 SELECT *FROM `dferp_stock_warehouse`WHERE `id` = `Array`
+[0] D:\phpstudy\WWW\yb_product\application\models\Admin_Warehouse_model.php line: 21
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Logistics.php line: 24---Unknown column 'Array' in 'where clause'
+
+seller------url[Order/cart_list]----
+  【sql报错语句】 SELECT `a`.`id`,`a`.`warehouse_id`,`a`.`status`,`a`.`price`,`a`.`mark_price`,`a`.`c_num`,`b`.`name`, `b`.`c_num` as num ,`c`.`mz` FROM dferp_seller_product AS `a` LEFT JOIN dferp_sp_product AS `b` ON `a`.`stock_id` = `b`.`stock_id` LEFT JOINdferp_stock  AS `c` ON `c`.`id`=`a`.`stock_id`  WHERE         `a`.`id`=10021
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'JOINdferp_stock  AS `c` ON `c`.`id`=`a`.`stock_id`  WHERE
+         `a`.`id`=100' at line 1
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 INSERT INTO `dferp_logistics_temp_con_show` (`company`, `default_num`, `default_price`, `add_num`, `add_price`, `city_names`, `cityids`, `temp_id`, `userid`) VALUES ('大苏打', '100', '15', '100', '5', '北京市,天津市,河北省,山西省,', '110000,120000,130000,140000,', NULL, '2')
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_update_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 87---Column 'temp_id' cannot be null
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 INSERT INTO `dferp_logistics_temp_con_show` (`company`, `default_num`, `default_price`, `add_num`, `add_price`, `city_names`, `cityids`, `temp_id`, `userid`) VALUES ('大苏打', '100', '15', '100', '5', '北京市,天津市,河北省,山西省,', '110000,120000,130000,140000,', NULL, '2')
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_update_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 87---Column 'temp_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_pro` (`name`, `num`, `order_id`, `price`, `seller_product_id`, `sp_id`, `sp_price`, `sp_uid`, `status`, `stock_id`, `userid`, `warehouse_id`, `weight`) VALUES ('老白干','3',2,'180.00','10021','3','15.00','2',0,'10000012','3','1','100'), ('七彩玲珑糖','5',2,'120.00','10020','1','60.00','2',0,'10000010','3','1','100'), ('丸子','15',2,'150.00','10019','2','70.00','2',0,'10000011','3','2','15')
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 36
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 413---Unknown column 'warehouse_id' in 'field list'
+
+seller------url[Order/cart_list]----
+  【sql报错语句】 SELECT `a`.`id`,`a`.`warehouse_id`,`a`.`status`,`a`.`price`,`a`.`mark_price`,`a`.`c_num`,`b`.`name`, `b`.`c_num` as num ,`c`.`mz` FROM dferp_seller_product AS `a` LEFT JOIN dferp_sp_product AS `b` ON `a`.`stock_id` = `b`.`stock_id` LEFT JOIN dferp_stock  AS `c` ON `c`.`id`=`a`.`stock_id`  WHERE         `a`.`id`=
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 630
+[1]  line: ---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+
+seller------url[Order/cart_list]----
+  【sql报错语句】 SELECT `a`.`id`,`a`.`warehouse_id`,`a`.`status`,`a`.`price`,`a`.`mark_price`,`a`.`c_num`,`b`.`name`, `b`.`c_num` as num ,`c`.`mz` FROM dferp_seller_product AS `a` LEFT JOIN dferp_sp_product AS `b` ON `a`.`stock_id` = `b`.`stock_id` LEFT JOIN dferp_stock  AS `c` ON `c`.`id`=`a`.`stock_id`  WHERE         `a`.`id`=
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 630
+[1]  line: ---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+
+seller------url[Order/order_done]----
+  【sql报错语句】 SELECT `a`.`id`,`a`.`warehouse_id`,`a`.`status`,`a`.`price`,`a`.`mark_price`,`a`.`c_num`,`b`.`name`, `b`.`c_num` as num ,`c`.`mz`,`c`.`stock_id` FROM dferp_seller_product AS `a` LEFT JOIN dferp_sp_product AS `b` ON `a`.`stock_id` = `b`.`stock_id` LEFT JOIN dferp_stock  AS `c` ON `c`.`id`=`a`.`stock_id`  WHERE         `a`.`id`=10021 AND `a`.`status`=1 
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 341
+[1]  line: ---Unknown column 'c.stock_id' in 'field list'
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_pro` (`c_num`, `id`, `mark_price`, `mz`, `name`, `num`, `order_id`, `price`, `sp_price`, `status`, `stock_id`, `warehouse_id`) VALUES ('3','10021','1000.00','100','老白干','10',1,'180.00','15.00',0,'10000012','1'), ('5','10020','999.00','100','七彩玲珑糖','100',1,'120.00','60.00',0,'10000010','1'), ('15','10019','888.00','15','丸子','100',1,'150.00','70.00',0,'10000011','2')
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 36
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 371---Unknown column 'c_num' in 'field list'
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_sp_order` (`warehouse_id`, `sp_id`, `order_id`, `sp_total`, `seller_total`, `logcs_total_weight`, `logcs_price`) VALUES (1, '3', 1, 345, 1140, 800, '253.33')
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 409
+[1]  line: ---Unknown column 'warehouse_id' in 'field list'
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 0, NULL, NULL, '2017-06-14 13:59:19', NULL, NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 427
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 0, NULL, NULL, '2017-06-14 13:59:19', NULL, NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 427
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_sp_order` (`warehouse_id`, `sp_id`, `order_id`, `sp_total`, `seller_total`, `logcs_total_weight`, `logcs_price`) VALUES (2, '2', 1, 1050, 2250, 225, '61.67')
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 409
+[1]  line: ---Unknown column 'warehouse_id' in 'field list'
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 0, NULL, NULL, '2017-06-14 13:59:19', NULL, NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 427
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 0, NULL, NULL, '2017-06-14 13:59:19', NULL, NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 427
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (2, 1, NULL, NULL, '2017-06-14 14:08:06', NULL, NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (2, 1, NULL, NULL, '2017-06-14 14:08:06', NULL, NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (2, 2, NULL, NULL, '2017-06-14 14:08:06', NULL, NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (2, 2, NULL, NULL, '2017-06-14 14:08:06', NULL, NULL, NULL, NULL, NULL, NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 1, NULL, '2', '2017-06-14 14:10:30', '10000012', '180.00', '15.00', '10', '老白干', NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 1, NULL, '2', '2017-06-14 14:10:30', '10000010', '120.00', '60.00', '100', '七彩玲珑糖', NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 2, NULL, '2', '2017-06-14 14:10:30', '10000011', '150.00', '70.00', '100', '丸子', NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 3, NULL, '2', '2017-06-14 14:15:15', '10000012', '180.00', '15.00', '10', '老白干', NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 3, NULL, '2', '2017-06-14 14:15:15', '10000010', '120.00', '60.00', '100', '七彩玲珑糖', NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+seller------url[Order/order_done]----
+  【sql报错语句】 INSERT INTO `dferp_order_log` (`order_id`, `sp_order_id`, `seller_id`, `sp_id`, `add_time`, `stock_id`, `seller_price`, `sp_price`, `num`, `name`, `weight`) VALUES (1, 4, NULL, '2', '2017-06-14 14:15:15', '10000011', '150.00', '70.00', '100', '丸子', NULL)
+[0] D:\phpstudy\WWW\yb_product\application\controllers\seller\Order.php line: 428
+[1]  line: ---Column 'seller_id' cannot be null
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 145---Table 'yb_product.dferp_order_ls' doesn't exist
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 152---Table 'yb_product.dferp_order_ls' doesn't exist
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 145---Table 'yb_product.dferp_order_ls' doesn't exist
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 152---Table 'yb_product.dferp_order_ls' doesn't exist
+
+admin------url[Order/order_info_1]----
+  【sql报错语句】 SELECT `company` FROM dferp_sp_user WHERE id=2 AND `warehouse_id`=1
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---Unknown column 'warehouse_id' in 'where clause'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 SELECT `stock_id`, `num，warehouse_id`FROM `dferp_order_log`WHERE `sp_order_id` = 28
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 242
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 836---Unknown column 'num，warehouse_id' in 'field list'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 SELECT `stock_id`, `num，warehouse_id`FROM `dferp_order_log`WHERE `sp_order_id` = 28
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 242
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 836---Unknown column 'num，warehouse_id' in 'field list'
+
+admin------url[Order/order_deliver_done]----
+  【sql报错语句】 SELECT `stock_id`, `num`, `warehouse_id`FROM `dferp_order_log`WHERE `sp_order_id` = 28
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 242
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 836---Unknown column 'warehouse_id' in 'field list'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 145---Table 'yb_product.dferp_order_ls' doesn't exist
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 152---Table 'yb_product.dferp_order_ls' doesn't exist
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 145---Table 'yb_product.dferp_order_ls' doesn't exist
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 152---Table 'yb_product.dferp_order_ls' doesn't exist
+
+seller------url[Sproduct/product_ls_edit_stock]----
+  【sql报错语句】 update  dferp_seller_product set  ls_lock_num=ls_lock_num+100,uptime='2017-06-16 14:46:17'						 where ls_lock_num+100>0 and  online_num<=100 and id=10024
+[0] D:\phpstudy\WWW\yb_product\application\models\Seller_product_model.php line: 61
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\Sproduct.php line: 434---Unknown column 'ls_lock_num' in 'where clause'
+
+seller------url[Sproduct/product_ls_edit_stock]----
+  【sql报错语句】 update  dferp_seller_product set  ls_lock_num=ls_lock_num+100,uptime='2017-06-16 14:46:17'						 where ls_lock_num+100>0 and  online_num<=100 and id=10023
+[0] D:\phpstudy\WWW\yb_product\application\models\Seller_product_model.php line: 61
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\Sproduct.php line: 434---Unknown column 'ls_lock_num' in 'where clause'
+
+seller------url[Sproduct/product_ls_edit_stock]----
+  【sql报错语句】 update  dferp_seller_product set  ls_lock_num=ls_lock_num+100,uptime='2017-06-16 14:46:17'						 where ls_lock_num+100>0 and  online_num<=100 and id=10022
+[0] D:\phpstudy\WWW\yb_product\application\models\Seller_product_model.php line: 61
+[1] D:\phpstudy\WWW\yb_product\application\controllers\seller\Sproduct.php line: 434---Unknown column 'ls_lock_num' in 'where clause'
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 117---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 117---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 124---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 124---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 117---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 124---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 117---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 117---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 124---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+admin------url[Order/order_ls_info]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_pro_lis` as `a`WHERE `a`.`order_id` = 4ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\admin\Order.php line: 124---Table 'yb_product.dferp_order_pro_lis' doesn't exist
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `consignee`,`consignee_address`,`consignee_mobile`,`status`,`payment_status` FROM dferp_order_ls WHERE id=201619364553341118
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---Unknown column 'payment_status' in 'field list'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `consignee`,`consignee_address`,`consignee_mobile`,`status`,`payment_status` FROM dferp_order_ls WHERE id=201619364553341118
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---Unknown column 'payment_status' in 'field list'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `consignee`,`consignee_address`,`consignee_mobile`,`status`,`payment_status` FROM dferp_order_ls WHERE id=201619364553341118
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---Unknown column 'payment_status' in 'field list'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `consignee`,`consignee_address`,`consignee_mobile`,`status`,`payment_status` FROM dferp_order_ls WHERE id=201619364553341118
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 542---Unknown column 'payment_status' in 'field list'
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE   `status`=-1 1=1 and status='-1' order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1=1 and status='-1' order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE   `status`=-1 1=1 and status='-1' order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1=1 and status='-1' order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and status='-1' order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and status='-1' order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  and status='-1' order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and status='-1' order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC  limit 0,15' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  order by  id DESC 
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC' at line 1
+
+admin------url[Order/order_list]----
+  【sql报错语句】 select  *  from  dferp_order WHERE  order by  id DESC  limit 0,15
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 543---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by  id DESC  limit 0,15' at line 1
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 INSERT INTO `dferp_logistics_temp_con_show` (`company`, `default_num`, `default_price`, `add_num`, `add_price`, `city_names`, `cityids`, `temp_id`, `userid`) VALUES ('申通', '100', '10', '100', '5', '北京市,天津市,河北省,山西省,内蒙古自治区,', '110000,120000,130000,140000,150000,', NULL, '2')
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_update_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 87---Column 'temp_id' cannot be null
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 INSERT INTO `dferp_logistics_temp_con_show` (`company`, `default_num`, `default_price`, `add_num`, `add_price`, `city_names`, `cityids`, `temp_id`, `userid`) VALUES ('申通', '100', '10', '200', '15', '北京市,天津市,河北省,山西省,内蒙古自治区,', '110000,120000,130000,140000,150000,', NULL, '2')
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_update_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 87---Column 'temp_id' cannot be null
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE 1 = 1 and `delivery_status` = '-1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 145---Unknown column 'delivery_status' in 'where clause'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE 1 = 1 and `delivery_status` = '-1'ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 152---Unknown column 'delivery_status' in 'where clause'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `sp_userid` = 2 AND `delivery_status` != -1
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 139---Unknown column 'delivery_status' in 'where clause'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `sp_userid` = 2 AND `delivery_status` != -1ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 146---Unknown column 'delivery_status' in 'where clause'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `sp_userid` = 2 and `delivery_status` = '-1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 45
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 139---Unknown column 'delivery_status' in 'where clause'
+
+sp------url[Order/ls_order_list]----
+  【sql报错语句】 SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `sp_userid` = 2 and `delivery_status` = '-1'ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 38
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 146---Unknown column 'delivery_status' in 'where clause'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 SELECT `logcs_price`, `logcs_num`, `logcs_total_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Orderls_model.php line: 38---Unknown column 'logcs_num' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 SELECT `logcs_price`, `logcs_num`, `logcs_total_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Orderls_model.php line: 38---Unknown column 'logcs_num' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 SELECT `logcs_price`, `logcs_num`, `logcs_total_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Orderls_model.php line: 38---Unknown column 'logcs_num' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 SELECT `logcs_price`, `logcs_num`, `logcs_total_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Orderls_model.php line: 38---Unknown column 'logcs_num' in 'field list'
+
+sp------url[Order/ls_order_delivery]----
+  【sql报错语句】  UPDATE dferp_seller_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000012 
+[0] D:\phpstudy\WWW\yb_product\application\models\Seller_product_model.php line: 61
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 390---Table 'yb_product.dferp_seller_seller_product' doesn't exist
+
+sp------url[Order/ls_order_delivery]----
+  【sql报错语句】  UPDATE dferp_seller_seller_product SET `sell_num`=`sell_num`+3, `ls_lock_num`=`ls_lock_num`-3 ,  `online_num`=`online_num`-3 WHERE `userid`=2 AND `stock_id`=10000010 
+[0] D:\phpstudy\WWW\yb_product\application\models\Seller_product_model.php line: 61
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 390---Table 'yb_product.dferp_seller_seller_product' doesn't exist
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 SELECT `order_id`, `delivery_status`, `userid`FROM `dferp_sp_order`WHERE `id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 192
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 584---Unknown column 'userid' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 SELECT `stock_id`, `num`, `id`FROM `dferp_sp_order`WHERE `order_id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 217
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 595---Unknown column 'stock_id' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `status` = -1WHERE `id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 601---Unknown column 'status' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `status` = -1WHERE `id` = '2'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 601---Unknown column 'status' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `status` = -1WHERE `id` = '3'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 601---Unknown column 'status' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `status` = -1WHERE `id` = '1'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 601---Unknown column 'status' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `status` = -1WHERE `id` = '2'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 601---Unknown column 'status' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `status` = -1WHERE `id` = '3'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 601---Unknown column 'status' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 UPDATE `dferp_sp_order` SET `status` = -1WHERE `id` = '2'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 168
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 277---Unknown column 'status' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 SELECT `warehouse_id`, `num`, `stock_id`, `id`FROM `dferp_order_log`WHERE `order_id` = '2'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 242
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 279---Unknown column 'warehouse_id' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 SELECT `warehouse_id`, `num`, `stock_id`, `id`FROM `dferp_order_log`WHERE `order_id` = '2'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 242
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 279---Unknown column 'warehouse_id' in 'field list'
+
+sp------url[Order/order_delivery]----
+  【sql报错语句】 UPDATE dferp_sp_product SET `online_num`=`online_num`-10  WHERE  `stock_id`=10000011  AND `warehouse_id`= 
+[0] D:\phpstudy\WWW\yb_product\application\models\Sp_Product_model.php line: 89
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Order_model.php line: 285---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+seller------url[Order/delivery_address]----
+  【sql报错语句】 SELECT *FROM `dferp_delivery_address`WHERE * IS NULLORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 32
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_District_model.php line: 156---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* IS NULL
+ORDER BY `id` desc' at line 3
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select `consignee`,`consignee_address`,`consignee_mobile` from dferp_order where id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select `consignee`,`consignee_address`,`consignee_mobile` from dferp_order where id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select `consignee`,`consignee_address`,`consignee_mobile` from dferp_order where id=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_list]----
+  【sql报错语句】 SELECT `a`.*, `b`.`consignee`, `b`.`consignee_address`, `b`.`consignee_mobile`, `b`.`status`, `b`.`payment_status`FROM `dferp_sp_order` as `a`LEFT JOIN `dferp_order` as `b` ON `a`.`order_id`=`b`.`id`WHERE `a`.`sp_id` = 2 and `a`.`consignee_mobile` = '13526834708' and `b`.`consignee_mobile` = '13526834708'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 58
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 72---Unknown column 'a.consignee_mobile' in 'where clause'
+
+sp------url[Order/order_list]----
+  【sql报错语句】 SELECT `a`.*, `b`.`consignee`, `b`.`consignee_address`, `b`.`consignee_mobile`, `b`.`status`, `b`.`payment_status`FROM `dferp_sp_order` as `a`LEFT JOIN `dferp_order` as `b` ON `a`.`order_id`=`b`.`id`WHERE `a`.`sp_id` = 2 and `a`.`consignee_mobile` = '13526834708' and `b`.`consignee_mobile` = '13526834708'ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 51
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 80---Unknown column 'a.consignee_mobile' in 'where clause'
+
+sp------url[Order/order_list]----
+  【sql报错语句】 SELECT `a`.*, `b`.`consignee`, `b`.`consignee_address`, `b`.`consignee_mobile`, `b`.`status`, `b`.`payment_status`FROM `dferp_sp_order` as `a`LEFT JOIN `dferp_order` as `b` ON `a`.`order_id`=`b`.`id`WHERE `a`.`sp_id` = 2 and `a`.`consignee_mobile` = '13526834708' and `b`.`consignee_mobile` = '13526834708'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 58
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 72---Unknown column 'a.consignee_mobile' in 'where clause'
+
+sp------url[Order/order_list]----
+  【sql报错语句】 SELECT `a`.*, `b`.`consignee`, `b`.`consignee_address`, `b`.`consignee_mobile`, `b`.`status`, `b`.`payment_status`FROM `dferp_sp_order` as `a`LEFT JOIN `dferp_order` as `b` ON `a`.`order_id`=`b`.`id`WHERE `a`.`sp_id` = 2 and `a`.`consignee_mobile` = '13526834708' and `b`.`consignee_mobile` = '13526834708'ORDER BY `a`.`id` desc LIMIT 15
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_page_model.php line: 51
+[1] D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php line: 80---Unknown column 'a.consignee_mobile' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `define_cityid`FROM `dferp_logistics_temp_con`WHERE `temp_id` = '11'AND `sp_userid` = '3'ORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 108---Unknown column 'sp_userid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `define_cityid`FROM `dferp_logistics_temp_con`WHERE `temp_id` = '11'AND `sp_userid` = '3'ORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 108---Unknown column 'sp_userid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT `define_cityid`FROM `dferp_logistics_temp_con`WHERE `temp_id` = '3'AND `sp_userid` = '3'ORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 108---Unknown column 'sp_userid' in 'where clause'
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT *FROM `dferp_logistics_temp`WHERE `temp_id` = '3'AND `sp_userid` = '3'ORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 32
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 51---Unknown column 'temp_id' in 'where clause'
+
+
+sp------url[Logistics/logistics_add]----
+  【sql报错语句】 SELECT *FROM `dferp_logistics_temp`WHERE `temp_id` = '11'AND `sp_userid` = '3'ORDER BY `id` desc
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_get_model.php line: 32
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Logistics_model.php line: 51---Unknown column 'temp_id' in 'where clause'
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`= limit 0,5
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,5' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`= limit 0,5
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,5' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`= limit 0,5
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,5' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`= limit 0,5
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,5' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`= limit 0,5
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,5' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`= limit 0,5
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,5' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`=
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+sp------url[Order/order_info]----
+  【sql报错语句】 select a.*,b.barcode from dferp_order_log as a left join dferp_stock as b on a.stock_id=b.id   where `sp_order_id`= limit 0,5
+[0]  line: 
+[1] D:\phpstudy\WWW\yb_product\system\core\CodeIgniter.php line: 541---You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 0,5' at line 1
+
+sp------url[Order/ls_order_delivery]----
+  【sql报错语句】 UPDATE `dferp_order_ls` SET `logistics_no` = '123123', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 10:59:02'WHERE `id` = '5'AND `sp_uid` = '3'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_update_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Orderls_model.php line: 24---Unknown column 'sp_uid' in 'where clause'
+
+sp------url[Order/ls_order_delivery]----
+  【sql报错语句】 UPDATE `dferp_order_ls` SET `logistics_no` = '123123', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 10:59:47'WHERE `id` = '5'AND `sp_uid` = '3'
+[0] D:\phpstudy\WWW\yb_product\application\models\Base_update_model.php line: 20
+[1] D:\phpstudy\WWW\yb_product\application\models\Base_Orderls_model.php line: 24---Unknown column 'sp_uid' in 'where clause'
+

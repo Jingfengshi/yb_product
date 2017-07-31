@@ -1,0 +1,2 @@
+ERROR - 2017-06-20 17:14:50 --> Query error: file:  line: ---Unknown column 'payment_status' in 'field list' - Invalid query: SELECT `consignee`,`consignee_address`,`consignee_mobile`,`status`,`payment_status` FROM dferp_order_ls WHERE id=201619364553341118
+ERROR - 2017-06-20 17:14:50 --> Severity: Error --> Call to a member function row_array() on a non-object D:\phpstudy\WWW\yb_product\application\controllers\sp\Order.php 158

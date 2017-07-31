@@ -1,0 +1,1923 @@
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '5'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '5'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '5'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE `dferp_order_ls` SET `logistics_no` = '123123', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 10:59:47'WHERE `id` = '5'AND `sp_uid` = '3'
+
+ ====================报错================ 
+
+ [5]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '5'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '5'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '5'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '5'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '5'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE `dferp_order_ls` SET `logistics_no` = '31231', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 11:01:54'WHERE `id` = '5'AND `sp_userid` = '3'
+
+ [5]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '5'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '5'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '6'AND `sp_userid` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '6'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '6'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '6'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE `dferp_order_ls` SET `logistics_no` = '3123123', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 11:02:47'WHERE `id` = '6'AND `sp_userid` = '3'
+
+ [5]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '6'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '7'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '7'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '7'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE `dferp_order_ls` SET `logistics_no` = '31231', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 11:09:49'WHERE `id` = '7'AND `sp_userid` = '3'
+
+ [5]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '7'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*, `b`.`consignee`, `b`.`consignee_address`, `b`.`consignee_mobile`, `b`.`status`, `b`.`payment_status`FROM `dferp_sp_order` as `a`LEFT JOIN `dferp_order` as `b` ON `a`.`order_id`=`b`.`id`WHERE `a`.`sp_id` = 3
+
+ [2]SELECT `a`.*, `b`.`consignee`, `b`.`consignee_address`, `b`.`consignee_mobile`, `b`.`status`, `b`.`payment_status`FROM `dferp_sp_order` as `a`LEFT JOIN `dferp_order` as `b` ON `a`.`order_id`=`b`.`id`WHERE `a`.`sp_id` = 3ORDER BY `a`.`id` desc LIMIT 15
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '8'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '8'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '8'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE `dferp_order_ls` SET `logistics_no` = '1231231', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 11:13:00'WHERE `id` = '8'AND `sp_userid` = '3'
+
+ [5]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '8'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+seller=======url[Sproduct/goods_info]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`FROM `dferp_seller_product`WHERE `id` = '12'AND `userid` = '2'
+
+ [2]SELECT `con`FROM `dferp_stock`WHERE `id` = '10000019'
+seller=======url[Sproduct/goods_info]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`FROM `dferp_seller_product`WHERE `id` = '8'AND `userid` = '2'
+
+ [2]SELECT `con`FROM `dferp_stock`WHERE `id` = '10000014'
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+seller=======url[Sproduct/product_ls_edit_stock]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`, `online_num`, `ls_lock_num`FROM `dferp_seller_product`WHERE `id` = 12AND `userid` = '2'
+
+ [2]SELECT `c_num`, `online_num`, `ls_lock_num`, `status`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [3]update  dferp_sp_product  set   ls_lock_num=ls_lock_num+498,online_num=online_num+498,uptime='2017-07-18 13:20:54' where  online_num+498>=0  and   c_num>=online_num+498  and  stock_id='10000019' 
+
+ [4]update  dferp_seller_product set  ls_lock_num=ls_lock_num+498,uptime='2017-07-18 13:20:54'							 where ls_lock_num+498>=0 and  online_num<=498 and id=12
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '9'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '9'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '9'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE dferp_sp_product SET  `ls_lock_num`=`ls_lock_num`-2 , `online_num`=`online_num`-2  WHERE  `stock_id`=10000019  
+
+ [5]UPDATE `dferp_order_ls` SET `logistics_no` = '12321', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 13:22:14'WHERE `id` = '9'AND `sp_userid` = '3'
+
+ [6]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '9'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '10'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '10'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '10'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE dferp_sp_product SET  `ls_lock_num`=`ls_lock_num`-2 , `online_num`=`online_num`-2, `c_num`=`c_num`-2,`sell_num`=`sell_num`+2   WHERE  `stock_id`=10000019  
+
+ [5]UPDATE `dferp_order_ls` SET `logistics_no` = '12312312', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 13:37:59'WHERE `id` = '10'AND `sp_userid` = '3'
+
+ [6]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '10'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '11'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '11'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '11'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE dferp_sp_product SET  `ls_lock_num`=`ls_lock_num`-2 , `online_num`=`online_num`-2, `c_num`=`c_num`-2,`sell_num`=`sell_num`+2   WHERE  `stock_id`=10000019  
+
+ [5]UPDATE `dferp_order_ls` SET `logistics_no` = '123123123', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 13:41:29'WHERE `id` = '11'AND `sp_userid` = '3'
+
+ [6]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '11'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+seller=======url[Sproduct/goods_info]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`FROM `dferp_seller_product`WHERE `id` = '12'AND `userid` = '2'
+
+ [2]SELECT `con`FROM `dferp_stock`WHERE `id` = '10000019'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '15'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '15'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '15'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '15'AND `sp_userid` = '3'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '15'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '15'AND `sp_uid` = '3'
+
+ [3]UPDATE `dferp_order_ls` SET `logistics_no` = '123123', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 14:01:09'WHERE `id` = '15'AND `sp_userid` = '3'
+
+ [4]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '15'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '15'AND `sp_userid` = '3'ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Order/ls_order_delivery]----
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+
+ [1]SELECT `logcs_price`, `consignee`, `consignee_address`, `consignee_mobile`, `logistics_no`, `logcs_weight`, `order_id`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_delivery]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '12'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = '12'AND `sp_uid` = '3'
+
+ [3] UPDATE dferp_seller_product SET `sell_num`=`sell_num`+2, `ls_lock_num`=`ls_lock_num`-2 ,  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019 
+
+ [4]UPDATE dferp_sp_product SET  `ls_lock_num`=`ls_lock_num`-2 , `online_num`=`online_num`-2, `c_num`=`c_num`-2,`sell_num`=`sell_num`+2   WHERE  `stock_id`=10000019  
+
+ [5]UPDATE `dferp_order_ls` SET `logistics_no` = '123213', `logistics_type` = '1', `status` = 2, `f_time` = '2017-07-18 14:06:01'WHERE `id` = '12'AND `sp_userid` = '3'
+
+ [6]UPDATE `dferp_order_pro_ls` SET `status` = 2WHERE `order_id` = '12'AND `sp_uid` = '3'
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '13'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [15]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/order_ls_invalid]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `status`FROM `dferp_order_ls`WHERE `id` = '13'ORDER BY `id` desc
+
+ [2]UPDATE `dferp_order_ls` SET `close_con` = '价格原因停止发货', `close_time` = '2017-07-18 14:17:07', `status` = -1WHERE `id` = 13AND `sp_userid` = '3'
+
+ [3]UPDATE `dferp_order_pro_ls` SET `status` = -1WHERE `order_id` = 13
+
+ [4]SELECT `stock_id`, `num`FROM `dferp_order_pro_ls`WHERE `order_id` = 13
+
+ [5] UPDATE dferp_seller_product SET  `online_num`=`online_num`-2 WHERE `userid`=2 AND `stock_id`=10000019
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '13'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [15]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Logistics/logistics_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_stock_warehouse`WHERE `sp_uid` = '3'
+sp=======url[Logistics/logistics_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_stock_warehouse`WHERE `id` = '3'AND `sp_uid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '3'ORDER BY `id` desc
+
+ [3]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '4'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_stock_warehouse`WHERE `sp_uid` = '3'
+sp=======url[Logistics/logistics_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_stock_warehouse`WHERE `id` = '4'AND `sp_uid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '5'ORDER BY `id` desc
+
+ [3]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '6'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_stock_warehouse`WHERE `sp_uid` = '3'
+sp=======url[Logistics/logistics_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_stock_warehouse`WHERE `id` = '5'AND `sp_uid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '7'ORDER BY `id` desc
+
+ [3]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '8'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_stock_warehouse`WHERE `sp_uid` = '3'
+sp=======url[Logistics/logistics_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_stock_warehouse`WHERE `id` = '12'AND `sp_uid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '23'ORDER BY `id` desc
+
+ [3]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '24'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_stock_warehouse`WHERE `sp_uid` = '3'
+sp=======url[Logistics/logistics_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_stock_warehouse`WHERE `id` = '13'AND `sp_uid` = '3'
+
+ [2]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '25'ORDER BY `id` desc
+
+ [3]SELECT *FROM `dferp_logistics_temp_con_show`WHERE `temp_id` = '26'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_stock_warehouse`WHERE `sp_uid` = '3'
+sp=======url[Sp_index/iframe]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+sp=======url[Logistics/logistics_add]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_district`WHERE `pid` =0
+sp=======url[Logistics/logistics_add]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_district`WHERE `pid` =0
+
+ [2]SELECT *FROM `dferp_logistics_temp`WHERE `id` = '25'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [2]SELECT *FROM `dferp_logistics_temp`WHERE `id` = '25'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [3]SELECT `define_cityid`FROM `dferp_logistics_temp_con`WHERE `temp_id` = '25'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Logistics/logistics_add]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT *FROM `dferp_district`WHERE `pid` =0
+
+ [2]SELECT *FROM `dferp_logistics_temp`WHERE `id` = '25'AND `sp_userid` = '3'ORDER BY `id` desc
+
+ [3]SELECT `define_cityid`FROM `dferp_logistics_temp_con`WHERE `temp_id` = '25'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_logistics_company`WHERE 1 = 1ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '13'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [15]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '13'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [15]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '13'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [15]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+sp=======url[Order/ls_order_list]----
+
+ [0]SELECT `status`FROM `dferp_sp_user`WHERE `id` = '3'
+
+ [1]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3
+
+ [2]SELECT `a`.*FROM `dferp_order_ls` as `a`WHERE `a`.`sp_userid` = 3ORDER BY `a`.`id` desc LIMIT 15
+
+ [3]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '13'ORDER BY `id` desc
+
+ [4]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '12'ORDER BY `id` desc
+
+ [5]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '11'ORDER BY `id` desc
+
+ [6]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '10'ORDER BY `id` desc
+
+ [7]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '9'ORDER BY `id` desc
+
+ [8]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '8'ORDER BY `id` desc
+
+ [9]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '7'ORDER BY `id` desc
+
+ [10]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '6'ORDER BY `id` desc
+
+ [11]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '5'ORDER BY `id` desc
+
+ [12]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '4'ORDER BY `id` desc
+
+ [13]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '3'ORDER BY `id` desc
+
+ [14]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '2'ORDER BY `id` desc
+
+ [15]SELECT *FROM `dferp_order_pro_ls`WHERE `order_id` = '1'ORDER BY `id` desc
+seller=======url[Product/product_list]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.id  as s_id from  dferp_stock  as  a  left join  			 dferp_seller_product  as  b  on  a.id=b.stock_id and b.userid=2  where    a.status=1 
+
+ [2]select  a.*,b.id  as s_id from  dferp_stock  as  a  left join  			 dferp_seller_product  as  b  on  a.id=b.stock_id and b.userid=2  where    a.status=1  limit 0,15
+
+ [3]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+seller=======url[Sproduct/product_list_ls]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC 
+
+ [2]select  a.*,b.cname as name,b.country,b.rate,b.is_shop,b.gg,b.gn,b.cf,b.barcode  from  dferp_seller_product as a  left join dferp_stock as b 		      on a.stock_id=b.id		      where  userid='2'   order by a.id DESC  limit 0,15
+
+ [3]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000019'
+
+ [4]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000014'
+
+ [5]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000013'
+
+ [6]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000010'
+
+ [7]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000011'
+
+ [8]SELECT `c_num`, `online_num`FROM `dferp_sp_product`WHERE `stock_id` = '10000012'
+
+ [9]SELECT `id`, `pid`, `cat`FROM `dferp_stock_cat`ORDER BY `id` ASC
+
+ [10]SELECT `c_id`, `c_name`FROM `dferp_country`WHERE `c_display` =0
+seller=======url[Sproduct/goods_info]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`FROM `dferp_seller_product`WHERE `id` = '12'AND `userid` = '2'
+
+ [2]SELECT `con`FROM `dferp_stock`WHERE `id` = '10000019'
+seller=======url[Sproduct/goods_info]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`FROM `dferp_seller_product`WHERE `id` = '8'AND `userid` = '2'
+
+ [2]SELECT `con`FROM `dferp_stock`WHERE `id` = '10000014'
+admin=======url[Spuser/spuser_product_check_list]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]select  `id`, `stock_id`, `name`, `barcode`, `userid`, `c_num`		                      ,`online_num`, `send_num`, `sell_num`, `price`,`status`,`warehouse_id`		                      from  dferp_sp_product  where id in(0,10) 
+
+ [2]SELECT `gg`FROM `dferp_sp_product_content`WHERE `product_sp_id` = '10'
+
+ [3]select  price  from  dferp_stock  			                   			 where id='0' limit 1 
+
+ [4]SELECT `name`, `company`, `id`FROM `dferp_stock_warehouse`WHERE `sp_uid` = '2'
+admin=======url[Spuser/spuser_product_check_list]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]select  `id`, `stock_id`, `name`, `barcode`, `userid`, `c_num`		                      ,`online_num`, `send_num`, `sell_num`, `price`,`status`,`warehouse_id`		                      from  dferp_sp_product  where id in(0,10) 
+
+ [2]SELECT `product_sp_id`, `userid`, `name`, `desc`, `brand`, `catname`, `cat_id`, `country`, `countryid`, `length`, `width`, `height`, `barcode`, `mark_price`, `cf`, `gn`, `type`, `mz`, `jz`, `gg`, `con`, `shop_addr`, `shop_type`, `pic`FROM `dferp_sp_product_content`WHERE `product_sp_id` = '10'
+
+ [3]INSERT INTO `dferp_stock` (`warehouse_id`, `cname`, `ename`, `desc`, `hg_type`, `brand`, `catname`, `cat_id`, `country`, `countryid`, `length`, `width`, `height`, `barcode`, `mark_price`, `price`, `cb_price`, `cf`, `gn`, `type`, `mz`, `jz`, `gg`, `is_split`, `status`, `is_shop`, `con`) VALUES (9, '零售测试商品', '', '', 0, 'test', '1', '110100', '中国', '142', 100, 100, 100, '6465464564', 149, 199, 100, '测试成本', '测试测试', '食品', 100, 100, 'f4das484', 0, '1', '1', '<p>ffsdfsdfgwreree564645646</p>')
+
+ [4]UPDATE `dferp_sp_product` SET `stock_id` = 10000020, `status` = 1, `c_num` = 100, `uptime` = '2017-07-18 16:50:18'WHERE `id` = '10'
+
+ [5]UPDATE `dferp_sp_product` SET `warehouse_id` = 9, `uptime` = '2017-07-18 16:50:18'WHERE `id` = '10'
+
+ [6]SELECT `type`FROM `dferp_stock_warehouse`WHERE `id` = 9
+
+ [7]UPDATE `dferp_stock` SET `warehouse_id` = 9, `hg_type` = '3'WHERE `id` = 10000020
+
+ [8]UPDATE `dferp_seller_product` SET `warehouse_id` = 9, `hg_type` = '3', `uptime` = '2017-07-18 16:50:18'WHERE `stock_id` = 10000020
+admin=======url[Spuser/spuser_list]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+admin=======url[Seller_product/seller_product_list]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Logistics/logistics_list]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Warehouse/warehouse_list]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Spuser/spuser_product]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]select  *  from  dferp_stock_warehouse  where  1=1  
+
+ [1]select  a.*,b.`product_sp_id`,b.`name`,b.`brand`,b.`catname`,b.`cat_id`,b.`country`,b.`countryid`,b.`cf`,b.`gn`,b.`type`,b.`mz`,b.`jz`,b.`gg`,b.`pic` 		      from  dferp_sp_product  as a  left join  dferp_sp_product_content  as b on  a.id=b.product_sp_id  where  1=1  
+
+ [1]select  a.*,b.warehouse_id,b.cname,b.brand,b.is_shop,b.rate,b.is_shop,(b.price-b.cb_price) as s_price,b.price as ss_price,`c`.`company` 		      from  dferp_seller_product as  a  		      left join  dferp_stock  as   b  on a.stock_id=b.id left join dferp_seller_user as `c` on `c`.`id`=`a`.`userid`   where  1=1  
+
+ [1]select  *  from  dferp_sp_user  where  1=1  
+
+ [2]select  a.*,b.`product_sp_id`,b.`name`,b.`brand`,b.`catname`,b.`cat_id`,b.`country`,b.`countryid`,b.`cf`,b.`gn`,b.`type`,b.`mz`,b.`jz`,b.`gg`,b.`pic` 		      from  dferp_sp_product  as a  left join  dferp_sp_product_content  as b on  a.id=b.product_sp_id  where  1=1   order by a.id desc limit 0,15
+
+ [2]select  *  from  dferp_stock_warehouse  where  1=1   limit 0,15
+
+ [2]select  a.*,b.warehouse_id,b.cname,b.brand,b.is_shop,b.rate,b.is_shop,(b.price-b.cb_price) as s_price,b.price as ss_price,`c`.`company` 		      from  dferp_seller_product as  a  		      left join  dferp_stock  as   b  on a.stock_id=b.id left join dferp_seller_user as `c` on `c`.`id`=`a`.`userid`   where  1=1   order  by a.id desc limit 0,15
+
+ [1]SELECT `a`.*FROM `dferp_logistics_temp_con_show` as `a`
+
+ [2]select  *  from  dferp_sp_user  where  1=1   order by id desc limit 0,15
+
+ [3]SELECT *FROM `dferp_seller_user`WHERE 1 = 1ORDER BY `id` desc
+
+ [2]SELECT `a`.*, if(b.company!='', `b`.`company`, c.company) as com, if(b.logistics_temp_id_ls!='', '零售', '批发') as c_type, if(b.id!='', `b`.`id`, c.id) as warehouse_idFROM `dferp_logistics_temp_con_show` as `a`LEFT JOIN `dferp_stock_warehouse` as `b` ON `a`.`temp_id`=`b`.`logistics_temp_id_ls`LEFT JOIN `dferp_stock_warehouse` as `c` ON `a`.`temp_id`=`c`.`logistics_temp_id`ORDER BY `a`.`temp_id` desc LIMIT 15
+
+ [3]select  `company`  from  dferp_sp_user  where id='3'
+
+ [4]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '13'
+
+ [5]select  `company`  from  dferp_sp_user  where id='2'
+
+ [6]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '9'
+
+ [7]select  `company`  from  dferp_sp_user  where id='2'
+
+ [8]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '1'
+
+ [9]select  `company`  from  dferp_sp_user  where id='11'
+
+ [10]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '11'
+
+ [11]select  `company`  from  dferp_sp_user  where id='11'
+
+ [12]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '10'
+
+ [13]select  `company`  from  dferp_sp_user  where id='11'
+
+ [14]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '10'
+
+ [15]select  `company`  from  dferp_sp_user  where id='3'
+
+ [16]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '3'
+
+ [17]select  `company`  from  dferp_sp_user  where id='2'
+
+ [18]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '1'
+
+ [19]select  `company`  from  dferp_sp_user  where id='2'
+
+ [20]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '1'
+
+ [21]select  `company`  from  dferp_sp_user  where id='2'
+
+ [22]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '2'
+
+ [23]select  `company`  from  dferp_sp_user  where id='2'
+
+ [24]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '1'
+
+ [25]SELECT `id`, `name`, `hg_name`, `type`, `logistics_temp_id`FROM `dferp_stock_warehouse`
+
+ [26]SELECT *FROM `dferp_sp_user`WHERE 1 = 1ORDER BY `id` desc
+admin=======url[Seller_user/seller_user_list]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]select  *  from  dferp_seller_user  where  1=1  
+
+ [2]select  *  from  dferp_seller_user  where  1=1   limit 0,15
+admin=======url[Spuser/spuser_product]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]UPDATE `dferp_sp_product` SET `pic_status` = 2, `uptime` = '2017-07-18 16:50:29'WHERE `stock_id` = '10000020'
+admin=======url[Spuser/spuser_product]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]select  a.*,b.`product_sp_id`,b.`name`,b.`brand`,b.`catname`,b.`cat_id`,b.`country`,b.`countryid`,b.`cf`,b.`gn`,b.`type`,b.`mz`,b.`jz`,b.`gg`,b.`pic` 		      from  dferp_sp_product  as a  left join  dferp_sp_product_content  as b on  a.id=b.product_sp_id  where  1=1  
+
+ [2]select  a.*,b.`product_sp_id`,b.`name`,b.`brand`,b.`catname`,b.`cat_id`,b.`country`,b.`countryid`,b.`cf`,b.`gn`,b.`type`,b.`mz`,b.`jz`,b.`gg`,b.`pic` 		      from  dferp_sp_product  as a  left join  dferp_sp_product_content  as b on  a.id=b.product_sp_id  where  1=1   order by a.id desc limit 0,15
+
+ [3]select  `company`  from  dferp_sp_user  where id='3'
+
+ [4]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '13'
+
+ [5]select  `company`  from  dferp_sp_user  where id='2'
+
+ [6]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '9'
+
+ [7]select  `company`  from  dferp_sp_user  where id='2'
+
+ [8]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '1'
+
+ [9]select  `company`  from  dferp_sp_user  where id='11'
+
+ [10]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '11'
+
+ [11]select  `company`  from  dferp_sp_user  where id='11'
+
+ [12]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '10'
+
+ [13]select  `company`  from  dferp_sp_user  where id='11'
+
+ [14]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '10'
+
+ [15]select  `company`  from  dferp_sp_user  where id='3'
+
+ [16]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '3'
+
+ [17]select  `company`  from  dferp_sp_user  where id='2'
+
+ [18]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '1'
+
+ [19]select  `company`  from  dferp_sp_user  where id='2'
+
+ [20]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '1'
+
+ [21]select  `company`  from  dferp_sp_user  where id='2'
+
+ [22]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '2'
+
+ [23]select  `company`  from  dferp_sp_user  where id='2'
+
+ [24]SELECT `name`FROM `dferp_stock_warehouse`WHERE `id` = '1'
+
+ [25]SELECT `id`, `name`, `hg_name`, `type`, `logistics_temp_id`FROM `dferp_stock_warehouse`
+
+ [26]SELECT *FROM `dferp_sp_user`WHERE 1 = 1ORDER BY `id` desc
+seller=======url[Sproduct/goods_info]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`FROM `dferp_seller_product`WHERE `id` = '8'AND `userid` = '2'
+
+ [2]SELECT `con`FROM `dferp_stock`WHERE `id` = '10000014'
+seller=======url[Sproduct/goods_info]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`FROM `dferp_seller_product`WHERE `id` = '12'AND `userid` = '2'
+
+ [2]SELECT `con`FROM `dferp_stock`WHERE `id` = '10000019'
+seller=======url[Sproduct/goods_info]----
+
+ [0]SELECT `id`, `user`, `mobile`, `company`, `status`FROM `dferp_seller_user`WHERE `id` = '2'
+
+ [1]SELECT `stock_id`FROM `dferp_seller_product`WHERE `id` = '8'AND `userid` = '2'
+
+ [2]SELECT `con`FROM `dferp_stock`WHERE `id` = '10000014'
+admin=======url[User/login]----
+
+ [0]select  `user`,`id`,`group_id`,`password`,`type`  from  dferp_admin  where user='admin'
+admin=======url[Admin_index/index]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/index]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/index]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/index]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Admin_index/info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Order/order_list_ls]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]select  *  from  dferp_order_ls WHERE  `status`!=-1  order by  id DESC 
+
+ [2]select  *  from  dferp_order_ls WHERE  `status`!=-1  order by  id DESC  limit 0,15
+
+ [3]SELECT company from dferp_seller_user WHERE id=2
+
+ [4]SELECT company from dferp_seller_user WHERE id=2
+
+ [5]SELECT company from dferp_seller_user WHERE id=2
+
+ [6]SELECT company from dferp_seller_user WHERE id=2
+
+ [7]SELECT company from dferp_seller_user WHERE id=2
+
+ [8]SELECT company from dferp_seller_user WHERE id=2
+
+ [9]SELECT company from dferp_seller_user WHERE id=2
+
+ [10]SELECT company from dferp_seller_user WHERE id=2
+
+ [11]SELECT company from dferp_seller_user WHERE id=2
+
+ [12]SELECT company from dferp_seller_user WHERE id=2
+admin=======url[Admin_index/iframe]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+admin=======url[Order/order_ls_info]----
+admin=======url[Order/order_ls_info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]SELECT `a`.*FROM `dferp_order_pro_ls` as `a`WHERE `a`.`order_id` = 12
+
+ [2]SELECT `a`.*FROM `dferp_order_pro_ls` as `a`WHERE `a`.`order_id` = 12ORDER BY `a`.`id` desc LIMIT 5
+admin=======url[Order/order_ls_info]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]SELECT `a`.*FROM `dferp_order_pro_ls` as `a`WHERE `a`.`order_id` = 12
+
+ [2]SELECT `a`.*FROM `dferp_order_pro_ls` as `a`WHERE `a`.`order_id` = 12ORDER BY `a`.`id` desc LIMIT 5
+admin=======url[Order/order_list_ls]----
+
+ [0]select  `group_id`  from  dferp_admin  where id='1'
+
+ [1]select  *  from  dferp_order_ls WHERE  `status`!=-1  order by  id DESC 
+
+ [2]select  *  from  dferp_order_ls WHERE  `status`!=-1  order by  id DESC  limit 0,15
+
+ [3]SELECT company from dferp_seller_user WHERE id=2
+
+ [4]SELECT company from dferp_seller_user WHERE id=2
+
+ [5]SELECT company from dferp_seller_user WHERE id=2
+
+ [6]SELECT company from dferp_seller_user WHERE id=2
+
+ [7]SELECT company from dferp_seller_user WHERE id=2
+
+ [8]SELECT company from dferp_seller_user WHERE id=2
+
+ [9]SELECT company from dferp_seller_user WHERE id=2
+
+ [10]SELECT company from dferp_seller_user WHERE id=2
+
+ [11]SELECT company from dferp_seller_user WHERE id=2
+
+ [12]SELECT company from dferp_seller_user WHERE id=2

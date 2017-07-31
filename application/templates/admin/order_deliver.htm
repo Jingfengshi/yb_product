@@ -1,0 +1,157 @@
+<div class="container-fluid">
+<div class="row-fluid">
+  <div class="span12">
+    <div class="form"> <{*验证提示*}>
+      <div id='alert-error_1' class="alert alert-error hide">
+        <button class="close" data-dismiss="alert"></button>
+        <span>提交失败</span> </div>
+      <div id='alert-success_1' class="alert alert-success hide">
+        <button class="close" data-dismiss="alert"></button>
+        <span>提交成功</span> </div>
+      <!-- BEGIN FORM-->
+      <form action="" id="form_eidt" class="form-horizontal" method="post" >
+        <table class="table table-bordered table-hover dataTable" id="table_1">
+          <thead>
+            <tr>
+              <th bgcolor="#E2EEFE" colspan="99">订单信息</th>
+            </tr>
+          </thead>
+          <tr>
+            <th width="250px">订单编号：<{$re.id}></th>
+            <th width="250px">分销商：<{$re.company}></th>
+          </tr>
+          <tr>
+            <th width="250px">收货人姓名：<{$re.order.consignee}></th>
+            <th width="250px">收货人地址：<{$re.order.consignee_address}></th>
+            <th width="250px">收货人电话：<{$re.order.consignee_mobile}></th>
+          </tr>
+        </table>
+        <table class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th bgcolor="#E2EEFE" colspan="99">订单信息修改</th>
+            </tr>
+          </thead>
+          <tr>
+          <tr role="heading">
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">编号</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">供应总价</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">分销总价</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单号</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单类型</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">发货状态</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运费</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单重量(克)</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">供应商</th>
+            <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">备注信息</th>
+          </tr>
+            </thead>
+          
+          <tbody role="alert" aria-live="polite" aria-relevant="all">
+          <{if $re.sp_order}>
+          <{foreach item = item from = $re.sp_order}>
+          <tr >
+            <td width="30"><{$item.id}></td>
+            <td width="60"><{$item.sp_total}></td>
+            <td width="60"><{$item.seller_total}></td>
+            <td width="80"><input type="text" name="logcs_num[<{$item.id}>]"   <{if $item.delivery_status==1 || $item.delivery_status==-1}>disabled="disabled"<{/if}>  value="<{$item.logcs_num}>"> </td>
+            <td width="160"><select name="logistics_type[<{$item.id}>]"   <{if $item.delivery_status==1 || $item.delivery_status==-1 }>disabled="disabled"<{/if}>  aria-controls="sample_1" class="form_2_select2 m-wrap span1">
+              <option value=''>请选择</option>
+              <{foreach from= $re.logistics item =i}> <option <{if $item.logistics_type==$i.type}>selected<{/if}>  value="<{$i.type}>"><{$i.company}>
+              </option>
+              <{/foreach}>
+              </select></td>
+            <td width="160"><select name="delivery_status[<{$item.id}>]"   <{if $item.delivery_status==1 || $item.delivery_status==-1 }>disabled="disabled"<{/if}>   aria-controls="sample_1" class="form_2_select2 m-wrap span1">
+              <option value=''>请选择</option>
+              <option <{if $item.delivery_status==1}>selected<{/if}>  value="1">已发货
+              </option>
+              <option <{if $item.delivery_status==-1}>selected<{/if}>  value="-1">已作废
+              </option>
+              </select></td>
+            <td width="80"><{$item.logcs_price}> </td>
+            <td width="80"><{$item.logcs_total_weight}> </td>
+            <td width="100"><{$item.sp_company}></td>
+            <td width="*"><{$item.remark}></td>
+          </tr>
+          <{/foreach}>
+          
+          <{else}>
+          <tr>
+            <td colspan="99">暂时无数据</td>
+          </tr>
+          <{/if}>
+            </tbody>
+          
+            </tr>
+          
+        </table>
+        <input type="hidden" name="id" value="<{$re.id}>"/>
+        <div class="form-actions">
+          <button type="button" id='submit_eidt' class="btn red">提交</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/static/js/jquery.validate.min.js?v=<{$vsersion}>"></script> 
+<script>
+
+        var form1=$('#form_eidt');
+        var error1  =$('#alert-error_1');
+        var success1=$('#alert-success_1');
+        $("#submit_eidt").click(function(){
+
+                $modal=$('#ajax-modal');
+                error1.hide();
+                success1.show();
+                success1.find('span').html('正在提交...........');
+                $('body').modalmanager('loading');
+                $.post('<{"order/order_deliver_done"|site_url}>',form1.serialize(),function(msg)
+                {
+                    try
+                    {
+                        //alert(msg)
+                        eval("var str="+msg);
+                        //操作成功
+                        if(str.type==1)
+                        {
+                            //错误提示
+                            error1.show();
+                            success1.hide();
+                            error1.find('span').html(str.msg);
+                        }
+                        else if(str.type==2)
+                        {
+                            //提交成功
+                            error1.hide();
+                            success1.show();
+                            success1.find('span').html('提交成功');
+                            location.reload();
+                        }
+                        else if(str.type==3)
+                        {
+                            //刷新主页面
+                           window.parent.location.reload(true);
+                            return true;
+                        }
+                        setTimeout(function()
+                        {
+                            $modal.load('<{"admin_index/admin_msg"|site_url}>?msg='+encodeURI(str.msg),'', function()
+                            {
+                                $modal.modal();
+                            });
+                        }, 300);
+                    }
+                    catch(e)
+                    {
+                        $('body').modalmanager('removeLoading');
+                        success1.hide();
+                        error1.find('span').html('系统异常');
+                        error1.show();
+                    };
+                });
+
+        });
+
+
+  </script>

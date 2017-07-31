@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.do spapi/openapi\.php
+ErrorDocument 404 /404.php
+ErrorDocument 403 /404.php
+Order allow,deny 
+Allow from all 
+
