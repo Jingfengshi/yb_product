@@ -74,7 +74,7 @@ class Order extends MY_Controller
 		{
 			$this->ci_page->totalRows =$this->Base_page_model
                 ->where($wsql)
-                ->select_one('a.*,b.consignee,b.consignee_address,b.consignee_mobile,b.status,b.payment_status',tab_m('sp_order')." as a ")
+                ->select_one('a.*,b.consignee,b.consignee_address,b.consignee_mobile,b.status,b.payment_status,b.AccountPeriod_status,b.AccountPeriod_End_Time',tab_m('sp_order')." as a ")
 				->left_join(tab_m('order').' as b','a.order_id=b.id')
                 ->num_rows();
 		}
@@ -82,7 +82,7 @@ class Order extends MY_Controller
         $res=array();
         $de=$this->Base_page_model
             ->where($wsql)
-			->select_one('a.*,b.consignee,b.consignee_address,b.consignee_mobile,b.status,b.payment_status',tab_m('sp_order')." as a ")
+			->select_one('a.*,b.consignee,b.consignee_address,b.consignee_mobile,b.status,b.payment_status,b.AccountPeriod_status,b.AccountPeriod_End_Time',tab_m('sp_order')." as a ")
 			->left_join(tab_m('order').' as b','a.order_id=b.id')
             ->result_array($this->ci_page->firstRow,$this->ci_page->listRows,' a.id desc ');
 		$res['list']=$de;
@@ -430,25 +430,19 @@ class Order extends MY_Controller
 			$this->load->model('Base_Order_model');
 			$this->load->model('Base_Logistics_model');
 			if($_GET['type']=='ls')
-			{
 				$res['sp_order']=$this->Base_Orderls_model->get_list('logcs_price,logistics_no,logcs_weight,order_id',array('id'=>$sp_order_id));
-
-			}
 			else
 			{
 				$res['sp_order']=$this->Base_Order_model->get_sp_order_info('logcs_price,logcs_num,logcs_total_weight,order_id',array('id'=>$sp_order_id,'sp_id'=>$this->user_id));
+				
 				if(empty($res['sp_order']))
-				{
 					show_404();
-				}
 				$res['order']=$this->Base_Order_model->get_order_info('consignee,consignee_address,consignee_mobile',array('id'=>$res['sp_order']['order_id']));
 			}
-
-
+			
 			//model
 			$res['id']=$sp_order_id;
 			$res['logistics']= $this->Base_Logistics_model->logccom_list();
-
 			$this->ci_smarty->assign('re',$res);
 			$this->ci_smarty->assign('show_ajax',1);
 			$this->ci_smarty->display_ini('order_delivery.htm');
@@ -504,16 +498,22 @@ class Order extends MY_Controller
 						die;
 					}
 					$id =$order_id['order_id'];
-					$status=$this->Base_Order_model->get_order_info('status,payment_status',array('id'=>$id));
+					$status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_status,AccountPeriod_End_Time',array('id'=>$id));
 					$sp_status=$this->Base_Order_model->get_sp_order_info('delivery_status',array('id'=>$sp_order_id,'sp_id'=>$this->user_id));
-					if(!empty($status) && !empty($sp_status) && $sp_status['delivery_status']==0 && $status['payment_status']==2 && ($status['status']==2 ||$status['status']==3))
+					
+					//账期已确认或者已付款的可以发货
+					
+					if(!empty($status) && !empty($sp_status) && $sp_status['delivery_status']==0 && ($status['payment_status']==2 || $status['AccountPeriod_status']==2) && ($status['status']==2 ||$status['status']==3))
 					{
 						$sp_arr['logcs_num'] = $this->input->post('logcs_num',true);
 						$sp_arr['logistics_type'] = $this->input->post('logistics_type',true);
 						$sp_arr['delivery_status']=1;
 						$sp_arr['delivery_time']=date('Y-m-d H:i:s',time());
+						$sp_arr['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+30days',strtotime($status['AccountPeriod_End_Time'])));
 						$res=$this->Base_Order_model->sp_order_delivery($sp_arr,$sp_order_id,$this->user_id);
-						if( $res )
+						$sql='UPDATE '.tab_m('order').' SET  `delivery_sp_order_num`=`delivery_sp_order_num`+1  WHERE id='.$id;
+						$this->db->query($sql);
+						if( $res )                                             
 						{
 							$msg = array(
 								'msg'  => "操作成功",
@@ -557,15 +557,19 @@ class Order extends MY_Controller
 						die;
 					}
 					$id =$order_info['order_id'];
-					$status=$this->Base_Order_model->get_order_info('status,payment_status,,userid',array('id'=>$id));
+					$status=$this->Base_Order_model->get_order_info('status,payment_status,userid,,AccountPeriod_status,AccountPeriod_End_Time',array('id'=>$id));
 					$sp_status=$order_info['delivery_status'];
-					if(!empty($status)  && $sp_status==0 && $status['payment_status']==2 && ($status['status']==2 ||$status['status']==3))
+					if(!empty($status)  && $sp_status==0 && ($status['payment_status']==2 || $status['AccountPeriod_status']==2) && ($status['status']==2 ||$status['status']==3))
 					{
 						$remark_arr=array();
 						$remark_arr['remark']=$this->input->post('remark',true);
 						$remark_arr['delivery_status']=-1;
 
 						$res=$this->Base_Order_model->sp_order_abolish($remark_arr,$sp_order_id,$this->user_id);
+						$sp_back_money=$this->Base_Order_model->get_sp_order_info('seller_total,logcs_price',array('id'=>$sp_order_id));
+						$back_money=$sp_back_money['seller_total']+$sp_back_money['logcs_price'];
+						$sql='UPDATE '.tab_m('order').' SET `not_pay_money`=`not_pay_money`+'.$back_money.', `invalid_sp_order_num`=`invalid_sp_order_num`+1  WHERE id='.$id;
+						$this->db->query($sql);
 
 					}
 					else

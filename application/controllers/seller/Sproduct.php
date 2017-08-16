@@ -47,7 +47,7 @@ class Sproduct extends MY_Controller {
 			//姓名模糊查询字段
 			$search_key_ar_more=array('cname');
 			
-			$search_key_bar=array('countryid','cat_id');
+			$search_key_bar=array('countryid','cat_id','barcode');
 			foreach($_GET as $k=>$v)
 			{
 				$skey=substr($k,7,strlen($k)-7);  

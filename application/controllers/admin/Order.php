@@ -129,54 +129,102 @@ class Order extends MY_Controller
         $this->ci_smarty->display_ini('order_ls_info.htm');
     }
 
-
-    public function order_ls_invalid()
-    {
-
+    //------------------------
+	//账期审核
+	public function order_accountperiod()
+	{
+      
+		if(!empty($_GET['id']))
+		{
+			$this->load->model('Base_Order_model');
+			$id = $_GET['id']*1;
+			$res=$this->Base_Order_model->get_order_info('userid,AccountPeriod_status,id,status,logcs_price,product_price,status,AccountPeriod_End_Time,logcs_weight,',array('id'=>$id));
+			$company = $this->db->query("SELECT `company` FROM " . tab_m('seller_user') . " WHERE id=" . $res['userid'])->row_array();
+			$res['company']=$company['company'];
+			$this->ci_smarty->assign('re',$res);
+			
+		}
         if(!empty($_POST))
         {
-            $ids=$_POST['id'];
-            $reason=$_POST['rea'];
-            $invalid_time=dateformat(time());
-            $item=array_filter(explode(',',$ids));
-
-            $flag=TRUE;
-            foreach ($item as $k=>$v)
+            $this->load->model('Base_Order_model');
+            $id     = $_POST['id']*1;
+            $AccountPeriod_status = $_POST['act']*1;
+            $order_id=$_POST['id'];
+            $status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_status',array('id'=>$order_id));
+            if( $status['AccountPeriod_status']<2 )
             {
-                $info=$this->Base_Orderls_model->get_row('status',array('id'=>$v));
-                $info['status']!=1  &&  $flag=FALSE;
+                $res= $this->Base_Order_model->order_update(array('AccountPeriod_status'=>$AccountPeriod_status),array('id'=>$id));
+                if( $res )
+                {
+                    $msg = array(
+                        'msg'  => "操作成功",
+                        'type' => 3
+                    );
+                    echo json_encode($msg);
+                    die;
+                }
+                else
+                {
+                    $msg = array(
+                        'msg'  => '操作失败',
+                        'type' => 1
+                    );
+                    echo json_encode($msg);
+                    die;
+                }
             }
-            if($flag===FALSE)
+            else
             {
                 $msg = array(
-                    'msg'  => '只有待发货订单可以作废',
+                    'msg'  => '请刷新页面后继续操作',
                     'type' => 1
                 );
                 echo json_encode($msg);
                 die;
             }
 
+        }
+		$this->ci_smarty->assign('show_ajax','1');
+        $this->ci_smarty->display_ini('order_accountperiod.htm');
+	}
+	
+    public function order_ls_invalid()
+    {
+        if(!empty($_POST))
+        {
+            $ids=$_POST['id'];
+            $reason=$_POST['rea'];
+            $invalid_time=dateformat(time());
+            $item=array_filter(explode(',',$ids));
+            $flag=TRUE;
+            $num=0;
             foreach ( $item as $k=>$v)
             {
-
-                $res=$this->Base_Orderls_model->update(array('close_con'=>$reason,'close_time'=>$invalid_time,'status'=>-1),array('id'=>$v));
-                $this->Base_Orderls_model->update_pro(array('status'=>-1),array('order_id'=>$v));
-                //当作废订单的时候
-                $ls_order_pro=$this->Base_Orderls_model->get_pro_list('stock_id,num',array('order_id'=>$v));
-                foreach($ls_order_pro as $k1=>$v1)
-                {
-                    $sql=" UPDATE ".tab_m('seller_product')." SET  `ls_lock_num`=`ls_lock_num`-".$v['num']." ,  `online_num`=`online_num`-".$v['num']." WHERE `userid`=2 AND `stock_id`={$v['stock_id']} ";
-                    $this->Seller_product_model->update_product_sql($sql);
-                    $sql2="UPDATE ".tab_m('sp_product')." SET  `ls_lock_num`=`ls_lock_num`-{$v['num']} , `online_num`=`online_num`-{$v['num']}  WHERE  `stock_id`={$v['stock_id']}  ";
-                    $this->Sp_Product_model->update_product_sql($sql2);
-                }
-
+			    $info=$this->Base_Orderls_model->get_row('status',array('id'=>$v));
+				if($info['status']==1) 
+				{
+					$res=$this->Base_Orderls_model->update(array('close_con'=>$reason,'close_time'=>$invalid_time,'status'=>-1),array('id'=>$v));
+					if(!empty($res))
+					{
+						$this->Base_Orderls_model->update_pro(array('status'=>-1),array('order_id'=>$v));
+						//当作废订单的时候
+						$ls_order_pro=$this->Base_Orderls_model->get_pro_list('stock_id,num',array('order_id'=>$v));
+						foreach($ls_order_pro as $k1=>$v1)
+						{
+							$sql=" UPDATE ".tab_m('seller_product')." SET  `ls_lock_num`=`ls_lock_num`-".$v['num']." ,  `online_num`=`online_num`-".$v['num']." WHERE `userid`=2 AND `stock_id`={$v['stock_id']} ";
+							$this->Seller_product_model->update_product_sql($sql);
+							$sql2="UPDATE ".tab_m('sp_product')." SET  `ls_lock_num`=`ls_lock_num`-{$v['num']} , `online_num`=`online_num`-{$v['num']}  WHERE  `stock_id`={$v['stock_id']}  ";
+							$this->Sp_Product_model->update_product_sql($sql2);
+						}
+						$num++;
+					}
+				}
             }
 
             if( $res )
             {
                 $msg = array(
-                    'msg'  => "操作成功",
+                    'msg'  => "作废成功 ".$num." 条",
                     'type' => 3
                 );
                 echo json_encode($msg);
@@ -192,9 +240,7 @@ class Order extends MY_Controller
                 die;
             }
         }
-
     }
-
 
     //订单列表
     public function order_list()
@@ -213,8 +259,6 @@ class Order extends MY_Controller
             }
             get_explode_xls($xls_title,$xls_value,date('YmdHis'));
         }
-        
-        
         
         //***************************
         //         查询开始	
@@ -249,8 +293,6 @@ class Order extends MY_Controller
 
                         $wsql.=" and {$skey} like '%{$v}%'";
                     }
-
-
                 }
             }
         }
@@ -286,7 +328,6 @@ class Order extends MY_Controller
 
         $res['page']=$this->ci_page->prompt();
         $this->ci_smarty->assign('re',$res,1,'page');
-
         require(APPPATH.'/config/base_config.php');
         $this->ci_smarty->assign('order_status',$config['order_status']);
         $this->ci_smarty->assign('order_payment_status',$config['order_payment_status']);
@@ -328,14 +369,13 @@ class Order extends MY_Controller
             $res['order_info']=array();
             foreach($query->result_array()  as $k=> $v)
             {
-
                 if($v['sp_uid']) {
                     $sql = "SELECT `company` FROM " . tab_m('sp_user') . " WHERE id=" . $v['sp_uid'];
                     $company = $this->db->query($sql)->row_array();
                     $res['order_info'][$k]=$v;
                     $res['order_info'][$k]['sp_company'] = $company['company'];
-
                 }
+				
                 if($v['status']==2)
                 {
                     foreach ( $sp_info as $k1=>$v1)
@@ -462,11 +502,6 @@ class Order extends MY_Controller
         }
     }
 
-    private function change_order_num($order_id,$order_pro)
-    {
-
-
-    }
 
     /**
      * 查找运费id
@@ -567,7 +602,6 @@ class Order extends MY_Controller
                     $company=$this->db->query($sql)->row_array();
                     $new_array[$k]['sp_company']=$company['company'];
                 }
-
             }
             $res['id']=$order_id;
             $res['sp_order']=$new_array;
@@ -689,18 +723,16 @@ class Order extends MY_Controller
                     $status = $this->Base_Order_model->get_order_info('status,payment_status', array('id' => $id));
                     if ($status['status'] == 1 || $status['status'] == 2) {
                         $arr = $this->Base_Order_model->get_order_pro_info('stock_id,num', array('order_id' => $id));
-
-                        $address = array();
-                        $address['status'] = $this->input->post('status', true);
-
-
-                        $res = $this->Base_Order_model->order_update($address, array('id' => $id));
-                        //减去库存
-                        foreach ($arr as $k => $v) {
-                            $this->db->where('stock_id', $v['stock_id']);
-                            $this->db->set('online_num', "online_num - $v[num]", FALSE);
-                            $this->db->update(tab_m('sp_product'));
-                        }
+                        $res = $this->Base_Order_model->order_update(array('status'=>-1), array('id' => $id));
+						if(!empty($res))
+						{
+							//减去库存
+							foreach ($arr as $k => $v) {
+								$this->db->where('stock_id', $v['stock_id']);
+								$this->db->set('online_num', "online_num - $v[num]", FALSE);
+								$this->db->update(tab_m('sp_product'));
+							}
+						}
                     }
                     else
                     {
@@ -727,22 +759,21 @@ class Order extends MY_Controller
                             echo json_encode($msg);
                             die;
                         }
-
                     }
+					
                     $status = $this->Base_Order_model->get_order_info('status', array('id' => $id));
                     if ($status['status'] == 1 || $status['status'] == 2) {
+						
                         $address = array();
                         $address['status'] = $this->input->post('status', true);
-                        if($address['status']==2)
-                        {
-                            $sql ="UPDATE ".tab_m('order_pro')." SET `status`=1 WHERE `order_id`=".$id;
-                            $this->db->query($sql);
-                        }elseif($address['status']==1)
-                        {
-                            $sql ="UPDATE ".tab_m('order_pro')." SET `status`=0 WHERE `order_id`=".$id;
-                            $this->db->query($sql);
-                        }
                         $res = $this->Base_Order_model->order_update($address, array('id' => $id));
+						if(!empty($res))
+						{
+							if($address['status']==2) //审核通过
+								$this->db->query("UPDATE ".tab_m('order_pro')." SET `status`=1 WHERE `order_id`=".$id);
+							elseif($address['status']==1) //作废
+								$this->db->query("UPDATE ".tab_m('order_pro')." SET `status`=0 WHERE `order_id`=".$id);
+						}
                     }
 
                 }
@@ -761,8 +792,6 @@ class Order extends MY_Controller
                     echo json_encode($msg);
                     die;
                 }
-
-
             }
         }
 
@@ -889,9 +918,9 @@ class Order extends MY_Controller
             //model
             $this->load->model('Base_Order_model');
             $order_id=$_POST['id'];
-            $status=$this->Base_Order_model->get_order_info('status,payment_status',array('id'=>$order_id));
-            if(($status['status']==2 || $status['status']==3)&& $status['payment_status']==2)
-            {//只有在订单处于  确认付款 和 部分发货  未发货 的状态才能修改
+            $status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_status,AccountPeriod_End_Time',array('id'=>$order_id));
+            if(($status['status']==2 || $status['status']==3) && ($status['payment_status']==2 OR $status['AccountPeriod_status']>=2 ))
+            {//只有在订单处于  确认付款 或 账期审核通过   和 部分发货  未发货 的状态才能修改
                 unset($_POST['id']);
                 $new_arr=array();
                 foreach ($_POST['logcs_num'] as $k=>$v)
@@ -917,6 +946,7 @@ class Order extends MY_Controller
                             $new_arr[$k]['logistics_type']=$_POST['logistics_type'][$k];
                             $new_arr[$k]['delivery_status']=$_POST['delivery_status'][$k];
                             $new_arr[$k]['delivery_time']=dateformat(time());
+                            $new_arr[$k]['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+30days',strtotime($status['AccountPeriod_End_Time'])));
                         }
                         elseif($_POST['delivery_status'][$k]==-1)
                         {//作废
@@ -940,10 +970,16 @@ class Order extends MY_Controller
                 {
                     if($v['delivery_status']==-1)
                     {//订单作废
+                        $sp_back_money=$this->Base_Order_model->get_sp_order_info('seller_total,logcs_price',array('id'=>$k));
+                        $back_money=$sp_back_money['seller_total']+$sp_back_money['logcs_price'];
+                        $sql='UPDATE '.tab_m('order').' SET `not_pay_money`=`not_pay_money`+'.$back_money.', `invalid_sp_order_num`=`invalid_sp_order_num`+1  WHERE id='.$order_id;
+                        $this->db->query($sql);
                         $res=$this->Base_Order_model->sp_order_abolish($v,$k,0);
                     }
                     else
                     {//订单发货
+                        $sql='UPDATE '.tab_m('order').' SET  `delivery_sp_order_num`=`delivery_sp_order_num`+1 WHERE id='.$order_id;
+                        $this->db->query($sql);
                         $res=$this->Base_Order_model->sp_order_delivery($v,$k,0);
                     }
 

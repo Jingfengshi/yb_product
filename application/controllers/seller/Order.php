@@ -279,11 +279,79 @@ class Order extends MY_Controller
 			$order_id = $_GET['id'];
 			$res =array();
 			$res['id']=$order_id;
-			$res['address']=$this->Base_Order_model->get_order_info('consignee,consignee_address,consignee_mobile,cashflow_id,logcs_price,product_price',array('id'=>$order_id,'userid'=>$this->user_id));
+			$res['address']=$this->Base_Order_model
+								 ->get_order_info('consignee,consignee_address,AccountPeriod_status,AccountPeriod_End_Time,consignee_mobile,cashflow_id,logcs_price,product_price'
+			                                     ,array('id'=>$order_id,'userid'=>$this->user_id));
 			$this->ci_smarty->assign('re',$res);
 		}
+		
 		$this->ci_smarty->display('order_payment.htm');
 	}
+	
+	//订单账期申请
+	public function order_payment_zq()
+	{
+		$id = $_POST['id']*1;
+		if(!empty($id))
+		{
+			//表单验证
+			$day=array(1=>30,2=>60,3=>75,4=>90);
+			if( !empty($_POST['account_day']) && !empty($day[$_POST['account_day']*1]) )
+			{
+				//model
+				$this->load->model('Base_Order_model');
+				$id = $_POST['id'];
+				$status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_status',array('id'=>$id,'userid'=>$this->user_id));
+				
+				//未发货未付款可申请账期
+				if(!empty($status) && $status['status']==2 && $status['AccountPeriod_status']<=1 && $status['payment_status']==0)
+				{
+					$address= array();
+					$address['AccountPeriod_status'] = 1;
+					$address['AccountPeriod_End_Time'] = date('Y-m-d H:i:s',strtotime("+".$day[$_POST['account_day']]." day "));
+					$res =  $this->Base_Order_model->order_update($address,array('id'=>$id,'userid'=>$this->user_id));
+					if( $res )
+					{
+						$msg = array(
+							'msg'  => "操作成功",
+							'type' => 3
+						);
+						echo json_encode($msg);
+						die;
+					}
+					else
+					{
+						$msg = array(
+							'msg'  => '提交失败',
+							'type' => 1
+						);
+						echo json_encode($msg);
+						die;
+					}
+				}
+				else
+				{
+					$msg = array(
+						'msg'  => '操作无效,请刷新页面确认是否已经操作',
+						'type' => 1
+					);
+					echo json_encode($msg);
+					die;
+				}
+			}
+			else
+			{
+				$msg = array(
+					'msg'  =>"无效请求",
+					'type' => 1
+				);
+				echo json_encode($msg);
+				die;
+			}
+		}
+	}
+	
+	
 	public function order_payment_done()
 	{
 		if(!empty($_POST))
@@ -307,7 +375,9 @@ class Order extends MY_Controller
 				$this->load->model('Base_Order_model');
 				$id = $_POST['id'];
 				$status=$this->Base_Order_model->get_order_info('status,payment_status',array('id'=>$id,'userid'=>$this->user_id));
-				if($status['status']==2 && $status['payment_status']==0)
+				
+				//已发货或者未发货
+				if(!empty($status) && $status['status']>=2 && $status['payment_status']==0)
 				{
 					$address= array();
 					$address['cashflow_id']=$this->input->post('cashflow_id',true);
@@ -315,7 +385,6 @@ class Order extends MY_Controller
 					$address['payment_status'] = 1;
 					$address['pay_uptime'] = date('Y-m-d H:i:s',time());
 					$res =  $this->Base_Order_model->order_update($address,array('id'=>$id,'userid'=>$this->user_id));
-
 					if( $res )
 					{
 						$msg = array(
@@ -337,7 +406,7 @@ class Order extends MY_Controller
 				}else
 				{
 					$msg = array(
-						'msg'  => '请刷新页面后操作',
+						'msg'  => '操作无效,请刷新页面确认是否已经操作',
 						'type' => 1
 					);
 					echo json_encode($msg);
@@ -385,6 +454,7 @@ class Order extends MY_Controller
 				$new_arr['consignee_address'] =$address['area'].$address['address'];
 				$new_arr['userid']=$this->user_id;
 				$new_arr['add_time']= date('Y-m-d H:i:s',time());
+				$new_arr['sp_order_num']= count($info);
 
 				//减去库存
 				$stock_decrease=$this->stock_decrease($order_list);
@@ -643,7 +713,7 @@ class Order extends MY_Controller
 		{
 
 			//根据当前用户的id 和 仓库id
-			$sql="SELECT `a`.`id`,`a`.`warehouse_id`,`a`.`price`,`a`.`status`,`a`.`mark_price`,`a`.`c_num`,`b`.`name`,`b`.`c_num` as num ,`b`.`online_num` FROM ".tab_m('seller_product')." AS `a` LEFT JOIN ".tab_m('sp_product')." AS `b` ON `a`.`stock_id` = `b`.`stock_id`  WHERE
+			$sql="SELECT `a`.`id`,`a`.`stock_id`,`a`.`warehouse_id`,`a`.`price`,`a`.`status`,`a`.`mark_price`,`a`.`c_num`,`b`.`name`,`b`.`c_num` as num ,`b`.`online_num` FROM ".tab_m('seller_product')." AS `a` LEFT JOIN ".tab_m('sp_product')." AS `b` ON `a`.`stock_id` = `b`.`stock_id`  WHERE
          `a`.`c_num`>0 AND `a`.`userid`=".$this->user_id.' AND `a`.`status`=1 ORDER BY `a`.`warehouse_id` ';
 			$sql1="SELECT `warehouse_id` FROM ".tab_m('seller_product')." WHERE `c_num`>0 AND  `userid`=".$this->user_id.' AND `status`=1 GROUP BY  `warehouse_id` ';
 			$res['warehouse']=$this->db->query($sql1)->result_array();
@@ -1039,7 +1109,6 @@ class Order extends MY_Controller
 			{
 				$msg= '仓库'.$v['warehouse_id'].',暂无匹配该收货地址的运费模板，请联系网站管理员';
 				$res[$key][$v['warehouse_id']]['warehouse_logstics']= '无匹配该收货地址的运费模板';
-
 			}
 			else
 			{
