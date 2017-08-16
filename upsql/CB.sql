@@ -1,0 +1,2 @@
+ALTER TABLE `dferp_order` ADD `AccountPeriod_End_Time` DATETIME NULL DEFAULT NULL COMMENT '账期截止时间' AFTER `payment_money` ;
+ALTER TABLE `dferp_order` ADD `AccountPeriod_status` TINYINT( 1 ) NOT NULL DEFAULT '0' COMMENT '0=未申请 1=已申请 2=账期确认' AFTER `payment_money` ;
