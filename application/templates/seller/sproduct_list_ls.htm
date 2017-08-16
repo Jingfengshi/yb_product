@@ -71,7 +71,7 @@
                     <option value="all" selected="selected" >所有类型</option>
                     <{foreach item=item  from=$res_stock_cat}>
                        <{if $item.pid==0}>
-                            <option disabled="disabled" value="<{$item.id}>">======<{$item.cat}>=======</option>
+                            <option disabled="disabled" value="<{$item.id}>">==<{$item.cat}>==</option>
                        <{else}>
                       		 <option <{if $item.id==$smarty.get.search_cat_id}>selected="selected"<{/if}>  value="<{$item.id}>">
                                  .<{$item.cat}>

@@ -16,8 +16,7 @@
                         <div class="control-group">
                             <label class="control-label">订单详情<span class="required">*</span></label>
                             <div class="controls ">
-                                <h6>订单总重：<{$re.sp_order[0].logcs_weight}>克</h6>
-                                <h6>订单运费：<{$re.sp_order[0].logcs_price}>¥</h6>
+                                <h6>订单运费：<{$re.sp_order[0].logcs_price}> ¥ ( <{$re.sp_order[0].logcs_weight}> 克 )</h6>
                                 <h6>收货姓名：<{$re.sp_order[0].consignee}></h6>
                                 <h6>收货电话：<{$re.sp_order[0].consignee_mobile}></h6>
                                 <h6>收货地址：<{$re.sp_order[0].consignee_address}></h6>
@@ -57,8 +56,8 @@
     </div>
 </div>
 
-<div class="modal-footer">
-    <button type="button"  class="btn green " id="df_submit">提交</button>
+<div class="modal-footer" style="text-align:center;">
+    <button type="button"  class="btn green " id="df_submit">确认发货</button>
 </div>
 <script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
 <script>

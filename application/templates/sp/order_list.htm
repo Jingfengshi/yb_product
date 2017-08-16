@@ -128,6 +128,9 @@
                     <th  width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">收货人姓名</th>
                     <th width="*" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">收货地址</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">发货时间</th>
+                    <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">预计账期</th>
+                    <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">实际到账期</th>
+                    <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">账期备注</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单号</th>
                   </tr>
                 </thead>
@@ -140,7 +143,7 @@
                       <{if $item.status==1}>
                       <!--<button type="button" data-action="shenhe" data-id="<{$item.id}>" data-box-size="800|250" class="btn mini green order_detail">审核</button>-->
                       <{/if}>
-                      <{if $item.delivery_status==0 && $item.payment_status==2 && ($item.status==2 || $item.status==3)}>
+                      <{if $item.delivery_status==0 && ($item.payment_status==2 || $item.AccountPeriod_status==2) && ($item.status==2 || $item.status==3)}>
                       <button type="button"  onclick="modal_iframe('order/order_delivery','订单【<{$item.id}>】发货','800','600','id=<{$item.id}>')" class="btn mini red ">发货</button>
                       <{/if}>
                   </td>
@@ -154,6 +157,9 @@
                   <td ><{$item.consignee}></td>
                   <td ><{$item.consignee_address}></td>
                   <td><{$item.delivery_time}></td>
+                  <td><{$item.estimated_date_payment}></td>
+                  <td><{$item.date_payment}></td>
+                  <td><button type="button" onclick="modal_iframe('order/order_account_remark','查看订单--【<{$item.id}>】账期备注','800','400','id=<{$item.id}>')" class="btn mini yellow ">查看备注</button></td>
                   <td><{$item.logcs_num}></td>
                 </tr>
                 <{/foreach}>
@@ -290,7 +296,7 @@ var initTable1 = function() {
 			"bPaginate":false,
 			"bAutoWidth":true,
 			"bStateSave":false,
-			"sScrollX":'100%',
+			"sScrollX":'2000px',
 			//"sScrollY":"300px",
             // set the initial value
             "iDisplayLength": 10,

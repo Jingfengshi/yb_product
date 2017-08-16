@@ -39,6 +39,7 @@
                 <input type="hidden" name="id"  value="<{$de.id}>" />
                </div>
             </div>
+            
             <div class="control-group">
               <label class="control-label">全局修改<span class="required">*</span></label>
               <div class="controls">
@@ -82,28 +83,28 @@
                 <!-- 添加 --> 
               <{if !empty($district)}>
               <{foreach item = logistics  key = k from =$district}>
-              <tr >
-                <td width="100"><{$logistics.name}>
-                  <input type="hidden" name="define_city_name[<{$logistics.id}>]" value="<{$logistics.name}>" />
-                </td>
-                <td width="150"><input type="text" name="default_num[<{$logistics.id}>]" class="base_default_num span6 m-wrap" value='0' /></td>
-                <td width="150"><input type="text" name="default_price[<{$logistics.id}>]" class="base_default_price span6 m-wrap" value='0' /></td>
-                <td width="150"><input type="text" name="add_num[<{$logistics.id}>]" class="base_add_num span6 m-wrap" value='0' /></td>
-                <td width="*"><input type="text" name="add_price[<{$logistics.id}>]" class="base_add_price span1 m-wrap" value='0' /></td>
-              </tr>
+                  <tr>
+                    <td width="100"><{$logistics.name}>
+                      <input type="hidden" name="define_city_name[<{$logistics.id}>]" value="<{$logistics.name}>" />
+                    </td>
+                    <td width="150"><input type="text" name="default_num[<{$logistics.id}>]" class="base_default_num span6 m-wrap" value='0' /></td>
+                    <td width="150"><input type="text" name="default_price[<{$logistics.id}>]" class="base_default_price span6 m-wrap" value='0' /></td>
+                    <td width="150"><input type="text" name="add_num[<{$logistics.id}>]" class="base_add_num span6 m-wrap" value='0' /></td>
+                    <td width="*"><input type="text" name="add_price[<{$logistics.id}>]" class="base_add_price span1 m-wrap" value='0' /></td>
+                  </tr>
               <{/foreach}> 
               <!-- 更新 --> 
               <{else}>
-              <{foreach item = logistics  key = k from = $logistics_temp_con}>
-              <tr >
-                <td width="100"><{$logistics.define_city_name}>
-                    <input type="hidden" name="define_city_name[<{$logistics.define_cityid}>]" value="<{$logistics.define_city_name}>"  type="hidden" />
-                 </td>
-                <td width="150"><input type="text" name="default_num[<{$logistics.define_cityid}>]" class="base_default_num span6 m-wrap" value='<{$logistics.default_num}>' /></td>
-                <td width="150"><input type="text" name="default_price[<{$logistics.define_cityid}>]" class="base_default_price span6 m-wrap" value='<{$logistics.default_price}>' /></td>
-                <td width="150"><input type="text" name="add_num[<{$logistics.define_cityid}>]" class="base_add_num span6 m-wrap" value='<{$logistics.add_num}>' /></td>
-                <td width="*"><input  type="text" name="add_price[<{$logistics.define_cityid}>]" class="base_add_price span1 m-wrap" value='<{$logistics.add_price}>' /></td>
-              </tr>
+              <{foreach item = logistics  key = k  from = $logistics_temp_con}>
+                  <tr>
+                    <td width="100"><{$logistics.define_city_name}>
+                        <input type="hidden" name="define_city_name[<{$logistics.define_cityid}>]" value="<{$logistics.define_city_name}>"  type="hidden" />
+                     </td>
+                    <td width="150"><input type="text" name="default_num[<{$logistics.define_cityid}>]" class="base_default_num span6 m-wrap" value='<{$logistics.default_num}>' /></td>
+                    <td width="150"><input type="text" name="default_price[<{$logistics.define_cityid}>]" class="base_default_price span6 m-wrap" value='<{$logistics.default_price}>' /></td>
+                    <td width="150"><input type="text" name="add_num[<{$logistics.define_cityid}>]" class="base_add_num span6 m-wrap" value='<{$logistics.add_num}>' /></td>
+                    <td width="*"><input  type="text" name="add_price[<{$logistics.define_cityid}>]" class="base_add_price span1 m-wrap" value='<{$logistics.add_price}>' /></td>
+                  </tr>
               <{/foreach}>
               <{/if}>
               </tboty>

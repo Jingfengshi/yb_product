@@ -188,17 +188,14 @@
                 <a class="fancybox-button" data-rel="fancybox-button" title="<b style='color:red; font-size:18px; ' >商家图片 </b> <{if $item.stock_id}><{$item.stock_id}> <{if $item.pic}> <span onclick=tb_img('<{$item.stock_id}>','<{$item.pic|check_img_url}>')  class='btn red mini'>同步</span>  <{/if}> <{else}>未入订阅库<{/if}>   <span onclick=not_pass_img('<{$item.id}>') class='btn red mini'>不通过</span> " href="<{$item.pic|check_img_url}>"> <img  class="load_img" src="/static/load_img.gif"    data-original="<{$item.pic|check_img_url}>"  width="50"  height="50" /> </a></td>
                 <td><{if $item.stock_id}><{$item.stock_id}><{else}>未入订阅库<{/if}></td>
                 <td><{$item.user_company.company}></td>
-                
                 <td><{$item.ware_house.name}></td>
                 <td><{$item.barcode}></td>
                 <td><font color="red"><{$item.price}></font></td>
-                    <td><{$item.mz}></td>
+                <td><{$item.mz}></td>
                 <td><{$item.name}></td>
                 <td><{$item.c_num}></td>
-            
                 <td><{$item.online_num-$item.ls_lock_num}></td>
                 <td><{$item.ls_lock_num}></td>
-            
               </tr>
               <{/foreach}>
               <{else}>

@@ -25,6 +25,7 @@
                                 <thead>
                                 <tr role="heading">
                                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">操作</th>
+                                    <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">默认地址</th>
                                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">收货人</th>
                                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">手机</th>
                                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">邮编</th>
@@ -37,15 +38,14 @@
                                 <{if $re.list}>
                                 <{foreach item = item from = $re.list}>
                                 <tr >
-                                    <td width="300">
+                                    <td width="200">
                                         <button type="button" data-action="delete" data-id="<{$item.id}>"  class="btn mini red process">删除</button>
                                         <button type="button" onclick="modal_iframe('order/delivery_address','编辑收货地址','800','500','act=edit&id=<{$item.id}>')"  class="btn mini green ">编辑</button>
-                                        <{if $item.default==1}>
-                                            <button type="button" class="btn mini blue">默认收货地址</button>
-                                        <{else}>
-                                            <button type="button"  data-id="<{$item.id}>" data-action="setting_default" class="btn mini yellow process">设置为默认收货地址</button>
+                                        <{if $item.default!=1}>
+                                            <button type="button"  data-id="<{$item.id}>" data-action="setting_default" class="btn mini yellow process">默认地址</button>
                                         <{/if}>
                                     </td>
+                                    <td width="80"> <{if $item.default==1}>默认地址<{/if}></td>
                                     <td width="80"><{$item.name}></td>
                                     <td width="120"><{$item.mobile}></td>
                                     <td width="120"><{$item.zip}></td>

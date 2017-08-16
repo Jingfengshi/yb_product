@@ -50,10 +50,10 @@
               </div>
               <div class="row-fluid" style="margin-top:10px;">
                 <span class="span1" style="display:block;">
-                <div id="span_label">商品编号</div>
+                <div id="span_label">条形码</div>
                 </span>
                 <div class="span3" style="margin-left:0px;">
-                  <input type="text"  name="search_id"   value="<{$smarty.get.search_id}>" class="m-wrap small"/>
+                  <input type="text"  name="search_barcode"   value="<{$smarty.get.search_barcode}>" class="m-wrap small"/>
                 </div>
                 <span class="span1" style="display:block;">
                 <div id="span_label">平台编号</div>
@@ -71,7 +71,7 @@
                     <option value="all" selected="selected" >所有类型</option>
                     <{foreach item=item  from=$res_stock_cat}>
                        <{if $item.pid==0}>
-                            <option disabled="disabled" value="<{$item.id}>">======<{$item.cat}>=======</option>
+                            <option disabled="disabled" value="<{$item.id}>">==<{$item.cat}>==</option>
                        <{else}>
                       		 <option <{if $item.id==$smarty.get.search_cat_id}>selected="selected"<{/if}>  value="<{$item.id}>">
                                  .<{$item.cat}>
@@ -140,7 +140,6 @@
                   <tr role="heading">
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">操作</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">上架状态</th>
-                 
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">仓号</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">商品编号</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">条形码</th>
@@ -170,7 +169,7 @@
                   <td width="70"><{if $item.status==1}>已上架<{else}>已下架<{/if}></td>  
                
                   <td width="70"><{$item.warehouse_id}></td>      
-                  <td width="70"><button  type="button" class=" btn mini blue show_detail" data-box-size="800|600" data-action="goods_info" data-id="<{$item.id}>"><{$item.id}></button></td>
+                  <td width="70"><button  type="button" class=" btn mini green show_detail" data-box-size="800|600" data-action="goods_info" data-id="<{$item.id}>"><{$item.id}></button></td>
                   <td width="100"><{$item.barcode}></td>                   
                   <td width="100"><{$item.stock_id}></td>     
                   <td width="60"><a class="fancybox-button" target="_blank" href="<{$item.stock_id|get_product_image}>">查看图片</a></td>              
