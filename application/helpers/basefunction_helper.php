@@ -12,6 +12,8 @@ if ( ! function_exists('check_img_url'))
 	}
 }
 
+
+
 if (! function_exists('send_post'))
 {
 	//抓取数据
@@ -510,7 +512,6 @@ if ( ! function_exists('authcode'))
 	}
 }
 
-
 if ( ! function_exists('set_encode_cookie'))
 {
 	/**
@@ -525,15 +526,16 @@ if ( ! function_exists('set_encode_cookie'))
 	}
 }
 
-
 if ( ! function_exists('get_decode_cookie'))
 {
 	/**
 	 * 解密cookie
 	 * @return	string
 	 */
-	function get_decode_cookie($index = '')
+	function get_decode_cookie($index = '',$m='')
 	{
+		$m=empty($m)?WEB_NAME:$m;
+		get_instance()->input->cookie($m.$config['cookie_prefix_tag'].$index,true);
 		$str=authcode(get_cookie($index,true));
 		if(empty($str))			
 			delete_cookie($index);
@@ -551,7 +553,6 @@ if ( ! function_exists('dateformat'))
 			return date("Y-m-d H:i:s",strtotime($time));
 	}
 }
-
 
 if ( ! function_exists('get_explode_xls'))
 {
