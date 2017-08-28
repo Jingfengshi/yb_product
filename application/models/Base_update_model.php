@@ -26,8 +26,6 @@ class Base_update_model extends CI_Model
 	{
 		if(empty($sql))
 			return false;
-	
-			
 		$this->db_one->query($sql);
 		return $this->db_one->affected_rows();
 	}

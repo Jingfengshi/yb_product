@@ -5,7 +5,7 @@ class Admin_Cat_model extends CI_Model
 	//通过id查询产品类型
 	function cat_list()
 	{
-		return $this->db->select('id,pid,cat')
+		return $this->db->select('id,pid,cat,profit')
 					->from(tab_m('stock_cat'))
 					->order_by('id','asc')
 					->get()
@@ -45,7 +45,7 @@ class Admin_Cat_model extends CI_Model
 	//通过id查询产品类型
 	function get_cat($id)
 	{
-		return $this->db->select('id,cat,pid')
+		return $this->db->select('id,cat,pid,profit')
 					->where('id',$id)
 					->from(tab_m('stock_cat'))
 					->get()

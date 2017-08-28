@@ -266,7 +266,7 @@ class Base_Order_model extends CI_Model
      * 根据供应商订单作废
      */
 
-    public function sp_order_abolish($data,$sp_order_id,$userid)
+    public function sp_order_abolish($data,$sp_order_id,$userid=0)
     {
         $CI=&get_instance();
        // $seller_product_model=$CI->load->model('Seller_product_model');
@@ -305,12 +305,12 @@ class Base_Order_model extends CI_Model
         }
         if($fh==1)
         {
-            //修改订单状态
+            //全部发货完毕
             $this->order_update(array('status'=>4),array('id'=>$sp_order['order_id']));
         }
         elseif($fh==2)
         {
-            //修改订单状态
+            //部分发货完毕
             $this->order_update(array('status'=>3),array('id'=>$sp_order['order_id']));
         }
         return $res;

@@ -58,11 +58,11 @@ class Base_Logistics_model  extends CI_Model
 		return $CI->Base_get_model->get_row(tab_m('logistics_temp_con'),'*',$where);
 	}
 
-	public function get_row_list($where)
+	public function get_row_list($where,$fileds='*')
 	{
 		$CI = & get_instance();
 		$CI->load->model('Base_get_model');
-		return $CI->Base_get_model->get_list(tab_m('logistics_temp'),'*',$where);
+		return $CI->Base_get_model->get_list(tab_m('logistics_temp'),$fileds,$where);
 	}
 
 	public function get_show_list($where)
