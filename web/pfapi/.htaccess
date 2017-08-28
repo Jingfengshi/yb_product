@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.do zjx_51jiancang\.php
+ErrorDocument 404 /404.php
+ErrorDocument 403 /404.php
+Order allow,deny 
+Allow from all 
+
