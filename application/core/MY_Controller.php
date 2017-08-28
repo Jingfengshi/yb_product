@@ -75,6 +75,12 @@ class MY_Controller extends CI_Controller{
 						$this->load->model("Admin_Spuser_model");
 						$row=$this->Admin_Spuser_model->get_spuser($this->user_id,'status');
 	
+						if($method!='info_edit'&&($row['status']==2||$row['status']==1))
+						{	
+							header("location:".site_url('user/info_edit'));
+							die;
+						}
+						
 						if($row['status']<1)
 						{	
 							echo '已关闭';
