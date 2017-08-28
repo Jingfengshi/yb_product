@@ -33,7 +33,8 @@
             <td colspan="3"><{$de.gn}></td>
           </tr>
           <tr>
-            <td colspan="4"><form action="#" id="form_sample_1" onsubmit="return false;" class="form-horizontal">
+            <td colspan="4">
+				<form action="#" id="form_sample_1" onsubmit="return false;" class="form-horizontal">
                 <div id='alert-error_1' class="alert alert-error hide">
                   <button class="close" data-dismiss="alert"></button>
                   <span>请填写订单数量</span></div>
@@ -41,15 +42,22 @@
                   <button class="close" data-dismiss="alert"></button>
                   <span>申请成功..........请等待管理员审核</span></div>
                 <div class="control-group">
-                  <label class="control-label">可订购数<span class="required">*</span></label>
+                  <label class="control-label">每箱商品数<span class="required">*</span></label>
                   <div class="controls chzn-controls">
-                       <input type="text"   disabled="disabled" class="span2 smallwrap" value="<{$de.c_num}>"/>
+                       <input type="text"   disabled="disabled" class="span2 smallwrap" value="<{$de.boxes_num}>"/>
                   </div>
-                </div>  
-                <div class="control-group">
-                  <label class="control-label">订购数量<span class="required">*</span></label>
+                </div>
+				<div class="control-group">
+					<label class="control-label">可订购箱数<span class="required">*</span></label>
+					<div class="controls chzn-controls">
+						<input type="text"   disabled="disabled" class="span2 smallwrap" value="<{$de.c_num/$de.boxes_num|floor}>"/>
+					</div>
+				</div>
+				<div class="control-group">
+                  <label class="control-label">订购箱数<span class="required">*</span></label>
                   <div class="controls chzn-controls">
-                       <input type="text" name="num" data-required="1" class="span2 smallwrap"/>
+                       <input type="text" name="num" value="1" data-required="1" class="span2 smallwrap"/>
+					  <input type="hidden" name="boxes_num" value="<{$de.boxes_num}>">
                   </div>
                 </div>
                 <div class="form-actions" style="padding-bottom:0px;">
@@ -225,7 +233,7 @@
 	  rules: {
 		      num: {
 			  isNum: true,
-			  isNum_max:'<{$de.c_num*1}>'*1,
+			  isNum_max:'<{$de.c_num/$de.boxes_num|floor}>'*1,
 			  isNum_mim:1
 			  
 		  }

@@ -28,7 +28,7 @@
                                     <th width="120"  class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">商品编号</th>
                                     <th width="120"  class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">仓库号</th>
                                     <th width="60" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">拿货价格</th>
-                                    <th width="400" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订购数</th>
+                                    <th width="600" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订购箱数</th>
                                     <th width="*"  class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">中文名称</th>
 
                                 </tr>
@@ -59,14 +59,16 @@
                                             <{$item.price}>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn mini green add  <{if $item.status==0}>disabled<{/if}>"><font size="4" >+</font></button>  <div  class="cart_num" style="display: inline-block;width: 40px;margin: 0 20px 0 20px;text-align: center;" data-id="<{$item.id}>" data-max-num="<{$item.num-$item.online_num}>" >
-                                            <input   <{if $item.status==0}> disabled="disabled"<{/if}> type="text" value="<{$item.c_num}>" style="width: 40px;"> </div>  <button type="button" class="btn mini green jian <{if $item.status==0}>disabled<{/if}>"><font  size="4" >-</font></button>
+                                            <button type="button" class="btn mini green add  <{if $item.status==0}>disabled<{/if}>"><font size="4" >+</font></button>  <div  class="cart_num" style="display: inline-block;width: 40px;margin: 0 20px 0 20px;text-align: center;" data-id="<{$item.id}>" boxes_num="<{$item.boxes_num}>" data-max-num="<{math equation='(x - y)/z' x=$item.num y=$item.online_num z=$item.boxes_num format='%d'}>" >
+                                            <input   <{if $item.status==0}> disabled="disabled"<{/if}>  type="text" value="<{$item.c_num/$item.boxes_num|floor}>" style="width: 40px;"> </div>
+                                            <button type="button" class="btn mini green jian <{if $item.status==0}>disabled<{/if}>"><font  size="4" >-</font></button>
                                             <style>
                                                 .pfont{
                                                     color:red;
                                                 }
                                             </style>
                                             <div style="display: inline-block;margin-left: 20px;">可用库存：<p style="display: inline-block"><{$item.num-$item.online_num}></p></div>
+                                            <div style="display: inline-block;margin-left: 20px;">可订箱数：<p style="display: inline-block"><{math equation='(x - y)/z' x=$item.num y=$item.online_num z=$item.boxes_num format='%d'}></p></div>
                                         </td>
                                         <td>
                                             <{$item.name}>
@@ -172,7 +174,7 @@
     {
         $('.add').click(function(){
             var max_num=parseInt($(this).next().attr('data-max-num'));
-
+            var box_num=parseInt($(this).next().attr('boxes_num'));
             var num=parseInt($(this).next().find('input').val());
             var id =$(this).next().attr('data-id');
             if(num>=max_num){
@@ -181,10 +183,11 @@
                 new_num=num+1;
             }
             $(this).next().find('input').val(new_num);
-           change_num('add',new_num,id);
+           change_num('add',new_num,id,box_num);
         })
         $('.jian').click(function(){
             var max_num=parseInt($(this).prev().attr('data-max-num'));
+            var box_num=parseInt($(this).prev().attr('boxes_num'));
             var num=parseInt($(this).prev().find('input').val());
             var id =$(this).prev().attr('data-id');
             if(num-1<=max_num)
@@ -192,28 +195,38 @@
                 $(this).nextUntil('p').find('p').removeClass('pfont').next('div').remove()
                 $(this).parents('tr').find('div.checker span input').attr('disabled',false);
             }
+			
+			var flag=true;
             if(num-1<=0)
             {
-                $(this).parents('tr').remove();
-                var warehouse_id=$(this).parents('tr').attr('class').substr(6);
-                warehouse_has_goods(warehouse_id);
-
+				var obj= $(this);
+				var flag=false;
+				modal_confirm('确认删除吗',function(){
+					 obj.parents('tr').remove();
+					 var warehouse_id=obj.parents('tr').attr('class').substr(6);
+					 warehouse_has_goods(warehouse_id);
+					 flag=true;
+				})
             }
-            $(this).prev().find('input').val(num-1);
-            change_num('jian',num-1,id);
+			
+			if(flag!=false)
+			{
+				$(this).prev().find('input').val(num-1);
+				change_num('jian',num-1,id,box_num);
+			}
 
         });
     }
-    var change_num =function(type,num,id)
+    var change_num =function(type,num,id,boxes_num)
     {
         if(type=='add')
         {
-            new_num= num;
+            new_num= num*boxes_num;
 
         }
         if(type=='jian')
         {
-           new_num= num;
+           new_num= num*boxes_num;
         }
         $.post('<{"order/cart_change"|site_url}>',{id:id,num:new_num},function(msg){
 
@@ -224,12 +237,15 @@
     {
         $('.cart_del').click(function(){
             var warehouse_id=$(this).parents('tr').attr('class').substr(6);
-            $(this).parents('tr').remove();
-            warehouse_has_goods(warehouse_id);
-            var id = $(this).attr('data-id');
-            $.post('<{"order/cart_del"|site_url}>',{id:id},function(){
-
-            });
+			var obj= $(this);
+			modal_confirm('确认删除吗',function(){
+				obj.parents('tr').remove();
+				warehouse_has_goods(warehouse_id);
+				var id = $(this).attr('data-id');
+				$.post('<{"order/cart_del"|site_url}>',{id:id},function(){
+	
+				});
+			});	
         })
     }
 

@@ -24,90 +24,88 @@
         <div class="portlet-body" style="display: block;">
           <div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
             <form action="" method="get" onsubmit="return load_sub();">
-              <div class="row-fluid">             
-                <span class="span1" style="display:block;">
+              <div class="row-fluid"> <span class="span1" style="display:block;">
                 <div id="span_label">每页显示</div>
                 </span>
                 <div class="span3" style="margin-left:0px;">
                   <select size="1" name="search_page_num" aria-controls="sample_1" class="form_2_select2 m-wrap span5">
-                    <option <{if $smarty.get.search_page_num=='all'}>selected="selected"<{/if}> value="all">每页显示</option>
-                    <option <{if $smarty.get.search_page_num=='1'}>selected="selected"<{/if}>  value="1">15</option>
-                    <option <{if $smarty.get.search_page_num=='2'}>selected="selected"<{/if}>  value="2">30</option>
-                    <option <{if $smarty.get.search_page_num=='3'}>selected="selected"<{/if}>  value="3">50</option>
+                    <option <{if $smarty.get.search_page_num=='all'}>selected="selected"<{/if}> value="all">每页显示
+                    </option>
+                    <option <{if $smarty.get.search_page_num=='1'}>selected="selected"<{/if}>  value="1">15
+                    </option>
+                    <option <{if $smarty.get.search_page_num=='2'}>selected="selected"<{/if}>  value="2">30
+                    </option>
+                    <option <{if $smarty.get.search_page_num=='3'}>selected="selected"<{/if}>  value="3">50
+                    </option>
                   </select>
                 </div>
-                
                 <span class="span1" style="display:block;">
                 <div id="span_label">发货状态</div>
                 </span>
                 <div class="span3" style="margin-left:0px;">
                   <select size="1" id="form_2_select2"  name="search_delivery_status" aria-controls="sample_1" class="form_2_select2 m-wrap span5">
                     <option value="all" >所有状态</option>
-                    <{foreach item = v  key = k from = $delivery_status}>
-                      <option <{if  $smarty.get.search_delivery_status == $k && isset($smarty.get.search_delivery_status) &&  $smarty.get.search_delivery_status!='all' }>selected = "selected"<{/if}> value = "<{$k}>"><{$v}></option>
+                    <{foreach item = v  key = k from = $delivery_status}> <option <{if  $smarty.get.search_delivery_status == $k && isset($smarty.get.search_delivery_status) &&  $smarty.get.search_delivery_status!='all' }>selected = "selected"<{/if}> value = "<{$k}>"><{$v}>
+                    </option>
                     <{/foreach}>
                   </select>
-                </div>    
-              </div>
-              
-              <div class="row-fluid" style="margin-top:20px;">  
-                <span class="span1" style="display:block;">
-                <div id="span_label">发货开始时间</div>
-                </span>
-                <div class="span3" style="margin-left:0px;">
-                  <div class="controls">
-                    <div class="input-append date date-picker" data-date="<{$smarty.get.search_stime}>" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
-                      <input  name="search_stime" class="m-wrap m-ctrl-medium date-picker small" size="16" type="text" 
-                     value="<{$smarty.get.search_stime}>">
-                      <span class="add-on"><i class="icon-calendar"></i></span> </div>
-                  </div>  
-                </div>
-                  
-                <span class="span1" style="display:block;">
-                <div id="span_label">结束时间</div>
-                </span>
-                <div class="span3" style="margin-left:0px;">
-                  <div class="controls">
-                    <div class="input-append date date-picker" data-date="<{$smarty.get.search_etime}>" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
-                      <input  name="search_etime" class="m-wrap m-ctrl-medium date-picker small" size="16" type="text" value="<{$smarty.get.search_etime}>">
-                      <span class="add-on"><i class="icon-calendar"></i></span> </div>
-                  </div>
                 </div>
               </div>
-              
-              <div class="row-fluid" style="margin-top:20px; ">
+              <div class="row-fluid" style="margin-top:20px;"> <span class="span1" style="display:block;">
+                <div id="span_label">发货时间</div>
+                </span>
+                <div class="span3"   style="margin-left:0px;">
+                  <div id="tm_a" data-set="" class="pull-left dateRange date_daterangepicker" style="width:200px"> <i class="icon-calendar"></i> <span></span>
+                    <input type="hidden"  name="tm_a_3_data"   class="tm_a_3_data" value="<{$smarty.get.tm_a_3_data}>">
+                    <input type="hidden"  class="tm_a_1_data"  name="search_stime" value="<{$smarty.get.search_stime}>">
+                    <input type="hidden"  class="tm_a_2_data"  name="search_etime" value="<{$smarty.get.search_etime}>">
+                    <b class="caret"></b> </div>
+                </div>
                 <span class="span1" style="display:block;">
+                <div id="span_label">预计账期</div>
+                </span>
+                <div class="span3"   style="margin-left:0px;">
+                  <div id="tm_b" data-set="" class="pull-left dateRange date_daterangepicker" style="width:200px"> <i class="icon-calendar"></i> <span></span>
+                    <input type="hidden"  name="tm_b_3_data"   class="tm_b_3_data" value="<{$smarty.get.tm_b_3_data}>">
+                    <input type="hidden"  class="tm_b_1_data"  name="search_pay_stime" value="<{$smarty.get.search_pay_stime}>">
+                    <input type="hidden"  class="tm_b_2_data"  name="search_pay_etime" value="<{$smarty.get.search_pay_etime}>">
+                    <b class="caret"></b> </div>
+                </div>
+              </div>
+              <div class="row-fluid" style="margin-top:20px; "> <span class="span1" style="display:block;">
                 <div id="span_label">对账状态</div>
                 </span>
                 <div class="span3" style="margin-left:0px;">
                   <select size="1" id="form_2_select2"  name="search_reconciliation_status" aria-controls="sample_1" class="form_2_select2 m-wrap span5">
                     <option value="all"  >所有状态</option>
-                    <{foreach item = v  key = k from = $reconciliation_status}>
-                      <option <{if $smarty.get.search_reconciliation_status == $k && isset($smarty.get.search_reconciliation_status) &&  $smarty.get.search_reconciliation_status!='all'}>selected = "selected"<{/if}> value = "<{$k}>"><{$v}></option>
+                    <{foreach item = v  key = k from = $reconciliation_status}> <option <{if $smarty.get.search_reconciliation_status == $k && isset($smarty.get.search_reconciliation_status) &&  $smarty.get.search_reconciliation_status!='all'}>selected = "selected"<{/if}> value = "<{$k}>"><{$v}>
+                    </option>
                     <{/foreach}>
                   </select>
                 </div>
-                
-                 <span class="span1" style="display:block;">
-                <div id="span_label">订单编号</div>
+                <span class="span1" style="display:block;">
+                <div id="span_label">订单号</div>
                 </span>
-                  <div class="span3" style="margin-left:0px;">
-                      <input type="text"  name="search_id"   value="<{$smarty.get.search_id}>" class="m-wrap small"/>
-                  </div>
-
+                <div class="span3" style="margin-left:0px;">
+                  <input type="text"  name="search_id"   value="<{$smarty.get.search_id}>" class="m-wrap small"/>
+                </div>
               </div>
-              <div class="row-fluid" style="margin-top:20px; ">
-                       <span class="span1" style="display:block;">
+              <div class="row-fluid" style="margin-top:20px; "> <span class="span1" style="display:block;">
+                <div id="span_label">分销单号</div>
+                </span>
+                <div class="span3" style="margin-left:0px;">
+                  <input type="text"  name="search_order_id"   value="<{$smarty.get.search_order_id}>" class="m-wrap small"/>
+                </div>
+                <span class="span1" style="display:block;">
                 <div id="span_label">手机号码</div>
                 </span>
-                  <div class="span3" style="margin-left:0px;">
-                      <input type="text"  name="search_consignee_mobile"   value="<{$smarty.get.search_consignee_mobile}>" class="m-wrap small"/>
-                      <button class="btn green" type="submit">Search</button>
-                  </div>
+                <div class="span3" style="margin-left:0px;">
+                  <input type="text"  name="search_consignee_mobile"   value="<{$smarty.get.search_consignee_mobile}>" class="m-wrap small"/>
+                  <button class="btn green" type="submit">Search</button>
+                </div>
               </div>
-
             </form>
-           </div>
+          </div>
         </div>
       </div>
       <div>
@@ -118,7 +116,8 @@
                 <thead>
                   <tr role="heading">
                     <th width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">操作</th>
-                    <th width="60" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单编号</th>
+                    <th width="60" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单号</th>
+                    <th width="60" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">分销单号</th>
                     <th width="60" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">仓库号</th>
                     <th width="60"  class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单状态</th>
                     <th width="60" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">对账状态</th>
@@ -130,7 +129,7 @@
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">发货时间</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">预计账期</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">实际到账期</th>
-                    <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">账期备注</th>
+                    <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">账款备注</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单号</th>
                   </tr>
                 </thead>
@@ -138,16 +137,18 @@
                 <{if $re.list}>
                 <{foreach item = item from = $re.list}>
                 <tr >
-                  <td>
-                      <button type="button" onclick="modal_iframe('order/order_info','查看订单--【<{$item.id}>】详情','800','400','id=<{$item.id}>')" class="btn mini blue ">查看</button>
-                      <{if $item.status==1}>
-                      <!--<button type="button" data-action="shenhe" data-id="<{$item.id}>" data-box-size="800|250" class="btn mini green order_detail">审核</button>-->
-                      <{/if}>
-                      <{if $item.delivery_status==0 && ($item.payment_status==2 || $item.AccountPeriod_status==2) && ($item.status==2 || $item.status==3)}>
-                      <button type="button"  onclick="modal_iframe('order/order_delivery','订单【<{$item.id}>】发货','800','600','id=<{$item.id}>')" class="btn mini red ">发货</button>
-                      <{/if}>
-                  </td>
-                  <td ><{$item.id}></td>
+                  <td><button type="button" onclick="modal_iframe('order/order_info','查看订单--【<{$item.id}>】详情','800','400','id=<{$item.id}>')" class="btn mini blue ">查看</button>
+                    
+                    <{********
+                    $item.status==1
+                    <!--<button type="button" data-action="shenhe" data-id="<{$item.id}>" data-box-size="800|250" class="btn mini green order_detail">审核</button>--> 
+                    ***}>
+                    
+                    <{if $item.delivery_status==0 && ($item.payment_status==2 || $item.AccountPeriod_status==2) && ($item.status==2 || $item.status==3)}>
+                    <button type="button"  onclick="modal_iframe('order/order_delivery','订单【<{$item.id}>】发货','800','600','id=<{$item.id}>')" class="btn mini red ">发货</button>
+                    <{/if}> </td>
+                  <td><{$item.id}></td>
+                  <td><{$item.order_id}></td>
                   <td ><{$item.warehouse_id}></td>
                   <td ><{$item.delivery_status|f_get_status:delivery_status}></td>
                   <td><{$item.reconciliation_status|f_get_status:reconciliation_status}></td>
@@ -159,7 +160,8 @@
                   <td><{$item.delivery_time}></td>
                   <td><{$item.estimated_date_payment}></td>
                   <td><{$item.date_payment}></td>
-                  <td><button type="button" onclick="modal_iframe('order/order_account_remark','查看订单--【<{$item.id}>】账期备注','800','400','id=<{$item.id}>')" class="btn mini yellow ">查看备注</button></td>
+                  <td><button type="button"  <{if $item.reconciliation_status==0}>disabled="disabled" class="btn mini <{if $item.reconciliation_status!=0}>red<{/if}> "<{/if}>  class="btn mini" onclick="modal_iframe('order/order_account_remark','查看订单--【<{$item.id}>】账期备注','800','200','id=<{$item.id}>')" ><{if $item.reconciliation_status==0}>无备注<{else}>查看备注<{/if}>
+                    </button></td>
                   <td><{$item.logcs_num}></td>
                 </tr>
                 <{/foreach}>
@@ -189,7 +191,7 @@
 <link href="/static/css/jquery.fancybox.css" rel="stylesheet">
 <script src="/static/js/jquery.fancybox.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/css/datepicker.css">
-<script type="text/javascript" src="/static/js/bootstrap-datepicker.js"></script>  
+<script type="text/javascript" src="/static/js/bootstrap-datepicker.js"></script> 
 <script>
 
 $('.date-picker').datepicker({
@@ -296,7 +298,7 @@ var initTable1 = function() {
 			"bPaginate":false,
 			"bAutoWidth":true,
 			"bStateSave":false,
-			"sScrollX":'2000px',
+			"sScrollX":'1800px',
 			//"sScrollY":"300px",
             // set the initial value
             "iDisplayLength": 10,

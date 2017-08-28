@@ -51,27 +51,33 @@
               
               <div class="row-fluid" style="margin-top:20px;">  
                 <span class="span1" style="display:block;">
-                <div id="span_label">下单时间</div>
+                <div id="span_label">付款期限</div>
                 </span>
-                <div class="span3" style="margin-left:0px;">
-                  <div class="controls">
-                    <div class="input-append date date-picker" data-date="<{$smarty.get.search_stime}>" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
-                      <input  name="search_stime" class="m-wrap m-ctrl-medium date-picker small" size="16" type="text" 
-                     value="<{$smarty.get.search_stime}>">
-                      <span class="add-on"><i class="icon-calendar"></i></span> </div>
-                  </div>  
+                <div class="span3"   style="margin-left:0px;">
+                     <div id="tm_b" data-set="" class="pull-left dateRange date_daterangepicker" style="width:200px">
+                     <i class="icon-calendar"></i>
+                          <span></span> 
+                          <input type="hidden"  name="tm_b_3_data"   class="tm_b_3_data" value="<{$smarty.get.tm_b_3_data}>">
+                          <input type="hidden"  class="tm_b_1_data"  name="search_pay_stime" value="<{$smarty.get.search_pay_stime}>">
+                          <input type="hidden"  class="tm_b_2_data"  name="search_pay_etime" value="<{$smarty.get.search_pay_etime}>">
+                          <b class="caret"></b>
+                      </div>
                 </div>
                   
                 <span class="span1" style="display:block;">
                 <div id="span_label">下单时间</div>
                 </span>
-                <div class="span3" style="margin-left:0px;">
-                  <div class="controls">
-                    <div class="input-append date date-picker" data-date="<{$smarty.get.search_etime}>" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
-                      <input  name="search_etime" class="m-wrap m-ctrl-medium date-picker small" size="16" type="text" value="<{$smarty.get.search_etime}>">
-                      <span class="add-on"><i class="icon-calendar"></i></span> </div>
-                  </div>
-                </div>
+                
+                 <div class="span3"   style="margin-left:0px;">
+                     <div id="tm_a" data-set="" class="pull-left dateRange date_daterangepicker" style="width:200px">
+                     <i class="icon-calendar"></i>
+                          <span></span> 
+                          <input type="hidden"  name="tm_a_3_data"   class="tm_a_3_data" value="<{$smarty.get.tm_a_3_data}>">
+                          <input type="hidden"  class="tm_a_1_data"  name="search_stime" value="<{$smarty.get.search_stime}>">
+                          <input type="hidden"  class="tm_a_2_data"  name="search_etime" value="<{$smarty.get.search_etime}>">
+                          <b class="caret"></b>
+                      </div>
+                </div>  
               </div>
               
               <div class="row-fluid" style="margin-top:20px; ">
@@ -131,11 +137,14 @@
                 <thead>
                   <tr role="heading">
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">操作</th>
-                    <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单编号</th>
+                    <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单号</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单状态</th>
+                    <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">发货分单</th>
+                    <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">作废分单</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">付款状态</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">账期状态</th>
-                    <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">付款期限</th>
+                    <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">分期数</th>
+                    <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">下期付款期限</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单货值</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">下单时间</th>
                     <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运费</th>
@@ -148,32 +157,30 @@
                 <{if $re.list}>
                 <{foreach item = item from = $re.list}>
                 <tr >
-                  <td width="150">
+                  <td width="100">
                    <button type="button"  onclick="modal_iframe('order/order_info','查看订单详情','800','400','id=<{$item.id}>')" class="btn mini blue">查看</button>
                       <{if $item.status==1}>
                       <button type="button"  onclick="modal_iframe('order/order_address','【订单<{$item.id}>--地址编辑】','800','400','id=<{$item.id}>')" class="btn mini green order_detail">修改</button>
-                      <{elseif $item.status>=2 && $item.payment_status==0}>
+                      <{elseif $item.status>=2 && $item.payment_status==0||$item.AccountPeriod_status==2}>
                      	 <button type="button" data-action="pay_money" data-id="<{$item.id}>" data-box-size="800|400" class="btn mini green order_detail">付款</button>
-                      <{/if}>
-                      
-                      <{if ($item.status==3 || $item.status==4) && $item.payment_status==2}>
-                      	 <button type="button" data-action="cash_info" data-id="<{$item.id}>" data-box-size="800|200" class="btn mini red order_detail">流水</button>
-                      <{/if}>
-                      <!--什么时候不能作废订单
+                      <{/if}>   
+                      <{*--什么时候不能作废订单
                          1、没有付款，但是申请了账期，并且通过，不能作废
                          2、已经付款，不能作废
                          3、退款也不能作废
                          两者是或的关系
-                      -->
-                      <{if  ($item.payment_status>=1)   OR ($item.AccountPeriod_status>=2) }>
-                      <{else}>
-                      <button type="button" data-action="abolish" data-id="<{$item.id}>" data-box-size="800|200" class="btn mini red order_detail">作废</button>
+                      --*}>
+                      <{if $item.status!=-1  && $item.status!=3 && $item.status!=4 && $item.payment_status==0 && $item.AccountPeriod_status<=1 }>
+                      	<button type="button" data-action="abolish" data-id="<{$item.id}>" data-box-size="800|200" class="btn mini red order_detail">作废</button>
                       <{/if}>
                   </td>
-                  <td width="80"><{$item.id}></td>
+                  <td width="60"><{$item.id}></td>
                   <td width="120"><{$item.status|f_get_status:order_status}></td>
-                  <td width="120"><{$item.payment_status|f_get_status:order_payment_status}></td>
+                  <td width="60"><{$item.delivery_sp_order_num}>/<{$item.sp_order_num-$item.invalid_sp_order_num}></td>
+                  <td width="60"><{$item.invalid_sp_order_num}>/<{$item.sp_order_num-$item.delivery_sp_order_num}></td>
+                  <td width="100"><{$item.payment_status|f_get_status:order_payment_status}></td>
                   <td width="80"><{$item.AccountPeriod_status|f_get_status:"accountperiod_status"}></td>	
+                  <td width="80"><{$item.AccountPeriod_type|f_get_status:"AccountPeriod_type"}></td>	
                   <td width="120"><{$item.AccountPeriod_End_Time}> </td>	
                   <td width="120"><{$item.product_price}></td>
                   <td width="150"><{$item.add_time}></td>
@@ -263,19 +270,16 @@ var bind_window=function()
                             f_main_index();
                             return true;
                         }
-
+						
+						
                         setTimeout(function(){
-                            $modal.load('<{"seller_index/seller_msg"|site_url}>?msg='+encodeURI(str.msg),'', function(){
-                                $modal.modal();
-                            });
+							modal_msg(str.msg);
                         }, 300);
                     }catch(e){
                         // alert(msg);
                         $('body').modalmanager('removeLoading');
                         setTimeout(function(){
-                            $modal.load('<{"seller_index/seller_msg"|site_url}>?msg='+encodeURI(str.msg),'', function(){
-                                $modal.modal();
-                            });
+                            modal_msg('系统异常');
                         }, 300);
                     };
                 });
@@ -314,26 +318,11 @@ var bind_window=function()
 //row-details row-details-close
 var initTable1 = function() {
         /* Formating function for row details */
-        function fnFormatDetails ( oTable, nTr )
-        {
-            var aData = oTable.fnGetData( nTr );
-            var sOut = '<table>';
-            sOut += '<tr><td>平台编号:</td><td>'+(aData[1].replace('row-details-close','')).replace('row-details','')+'</td></tr>';
-            sOut += '<tr><td>品牌:</td><td>'+aData[3]+'</td></tr>';
-            sOut += '<tr><td>中文名称:</td><td>'+aData[4]+'</td></tr>';
-            sOut += '<tr><td>规格:</td><td>'+aData[5]+'</td></tr>';
-			sOut += '<tr><td>产地:</td><td>'+aData[6]+'</td></tr>';
-			sOut += '<tr><td>成分:</td><td>'+aData[7]+'</td></tr>';
-			sOut += '<tr><td>用途:</td><td>'+aData[8]+'</td></tr>';
-            sOut += '</table>';
-            return sOut;
-        }
 
         /*
          * Insert a 'details' column to the table
          */
 
-         
 		var oTable = $('#product_1').dataTable( {
            "aoColumnDefs": [
                {"bSortable": false, "aTargets": [ 0 ] }
@@ -364,7 +353,7 @@ var initTable1 = function() {
 			"bPaginate":false,
 			"bAutoWidth":true,
 			"bStateSave":false,
-			"sScrollX":'100%',
+			"sScrollX":'2000px',
 			//"sScrollY":"300px",
             // set the initial value
             "iDisplayLength": 10,
@@ -372,21 +361,7 @@ var initTable1 = function() {
 			//"bSortCellsTop":true,
         });
         
-        $('#product_1').on('click', ' tbody td .row-details', function () {
-            var nTr = $(this).parents('tr')[0];
-            if ( oTable.fnIsOpen(nTr) )
-            {
-                /* This row is already open - close it */
-                $(this).addClass("row-details-close").removeClass("row-details-open");
-                oTable.fnClose( nTr );
-            }
-            else
-            {
-                /* Open this row */                
-                $(this).addClass("row-details-open").removeClass("row-details-close");
-                oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
-            }
-        });
+
     }
 
 

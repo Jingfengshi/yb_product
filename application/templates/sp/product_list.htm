@@ -71,7 +71,7 @@
                     <option value="all" selected="selected" >所有类别</option>
                     <{foreach item = item  from = $res_stock_cat}>
                       <{if $item.pid==0}>
-                      <option disabled="disabled" value="<{$item.id}>|<{$item.cat|escape:'url'}>">======<{$item.cat}>=======</option>
+                      <option disabled="disabled" value="<{$item.id}>|<{$item.cat|escape:'url'}>">==<{$item.cat}>==</option>
                       <{else}>
                       <option <{if $item.id==$product.content.cat_id}>selected="selected"<{/if}>  value="<{$item.id}>|<{$item.cat|escape:'url'}>">
                       .<{$item.cat}>
@@ -145,7 +145,7 @@
                       <div class="span3" style="margin-left:0px;">
                           <select size="1" id="form_2_select2"  name="search_pic_status" aria-controls="sample_1" class="form_2_select2 m-wrap span5">
                               <option value="all" selected="selected" >请选择</option>
-                              <option <{if isset($smarty.get.search_pic_status) && $smarty.get.search_pic_status==0}>selected="selected"<{/if}> value="0">不通过</option>
+                              <option <{if isset($smarty.get.search_pic_status) &&is_numeric($smarty.get.search_pic_status)&& $smarty.get.search_pic_status==0}>selected="selected"<{/if}> value="0">不通过</option>
                               <option <{if isset($smarty.get.search_pic_status) && $smarty.get.search_pic_status==1}>selected="selected"<{/if}> value="1">待审核</option>
                               <option <{if isset($smarty.get.search_pic_status) && $smarty.get.search_pic_status==2}>selected="selected"<{/if}> value="2">已审核</option>
                           </select>
@@ -179,6 +179,7 @@
                     <th  width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">市场价</th>
                     <th  width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">售价</th>
                     <th  width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">库存</th>
+                    <th  width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">每箱数量</th>
                     <th  width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">批发锁定库存</th>
                     <th  width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">零售锁定库存</th>
                     <th  width="80" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">毛重(g)</th>                
@@ -231,7 +232,8 @@
                       <td><{$item.gg}></td>                                             
                       <td><{$item.mark_price}></td>
                       <td><{$item.price}></td>
-                      <td><{$item.c_num}></td>                 
+                      <td><{$item.c_num}></td>
+                      <td><{$item.boxes_num}></td>                         
                       <td><{$item.online_num-$item.ls_lock_num}></td>
                       <td><{$item.ls_lock_num}></td>
                       <td><{$item.mz}></td>                            

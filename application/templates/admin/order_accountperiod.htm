@@ -25,23 +25,180 @@
           </thead>
           <tr>
             <td colspan="99">
-                    <p style="line-height:35px;">账期截止时间 :  <{$re.AccountPeriod_End_Time}></p>
-             </td>
+                <p style="line-height:35px;">账期期数 :&nbsp;<{$re.AccountPeriod_type|f_get_status:"AccountPeriod_type"}></p>
+            </td>
           </tr>
            <tr>
             <td colspan="99">
-                    <p style="line-height:35px;">账期状态:<{$re.AccountPeriod_status|f_get_status:"accountperiod_status"}></p>
-             </td>
+                <p style="line-height:35px;">账期状态 :&nbsp;<{$re.AccountPeriod_status|f_get_status:"accountperiod_status"}></p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="99">
+                <p style="line-height:35px;">审核时间 :&nbsp;<{$re.AccountPeriod_End_Time}></p>
+            </td>
           </tr>
         </table>
-        <{if $re.status<3}>
-        <input type="hidden" name="id" value="<{$re.id}>"/>
-        <div class="form-actions">
-          <button type="button" id='submit_zq1' data-status='2' class="btn red submit_zq">通过</button>
-          <button type="button" id='submit_zq2' data-status='-1'  class="btn  submit_zq">不通过</button>
-        </div>
-        <{/if}>
-      </form>
+        
+        <{if !empty($accountperiod)}>
+          <table class="table table-striped table-bordered table-hover dataTable" id="product_fenqi" >
+            <thead>
+              <tr role="heading">
+                <th width="50">期数</th>
+                <th width="80">每期费用</th>
+                <th width="80">付款期限</th>
+                <th width="150">付款时间</th>
+                <th width="50">状态</th>
+                <th width="60">实付金额</th>
+                <th width="200">付款流水</th>
+                <th width="100">付款人</th>
+                <th width="*">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            <{foreach item=item  from=$accountperiod}>
+             <tr>
+            	<td><{$item.q_num}></td> 
+                <td><{$item.AccountPeriod_moeny}></td> 
+                <td><{$item.AccountPeriod_time}></td> 
+                <td><{$item.payment_time}></td> 
+                <td><{$item.status|f_get_status:'accountperiod_pay_status'}></td> 
+                <td><{if $item.status==2}><input type="text" style="width:60px;"  id='q_<{$item.id}>' name="payment_money[<{$item.id}>]" value="<{$item.payment_money}>" /><{else}><{$item.payment_money}><{/if}></td> 
+                <td><{if $item.status==2}><{$item.cashflow_id}><{else}><{if $item.cashflow_id}><{$item.cashflow_id}><{/if}><{/if}></td> 
+                <td><{if $item.status==2}><{$item.payor}><{else}><{$item.payor}><{/if}></td> 
+                <td>
+                      <{if $item.status==2&&empty($smarty.get.show)}><input type="button" data-id='<{$item.id}>' data-type='3' class="red btn mini act_sub" value="确认收到" /><br /> <input data-type='-1'  data-id='<{$item.id}>' type="button"  class="btn green mini act_sub" value="未收到金额" /><{/if}>
+               		 <{if $item.status==1}><input type="button" data-id='<{$item.id}>' data-type='-2' class="red btn mini act_sub" value="作废" /><{/if}>
+                </td>
+             </tr>  
+            <{/foreach}>
+            </tbody>
+          </table>
+          <script>
+          $('#product_fenqi .act_sub').each(function(index, element) {
+				$(this).bind('click',function(){
+					var status=$(this).attr('data-type');
+					var id=$(this).attr('data-id'); 
+					var msg=new Array();
+						msg['-2']='确认分期作废吗?';
+						msg['-1']='确认未收到款吗?';
+						msg['3']='确认已收到款吗?';
+							
+					modal_confirm(msg[status],function(){
+						$.post('<{"order/order_accountperiod"|site_url}>',{act_type:status,id:id,payment_money:$('#q_'+id).val()},function(msg){
+							try
+							{
+								eval("var str="+msg);
+				
+								//操作成功
+								if(str.type==1)
+								{
+									modal_msg(str.msg);
+									return;
+								}
+								else if(str.type==2)
+								{
+									//提交成功
+									window.location.reload(true);
+									return;
+								}
+								else if(str.type==3)
+								{
+									//刷新主页面
+									window.parent.location.reload(true);
+									return true;
+								}
+								
+								setTimeout(function()
+								{
+									modal_msg(str.msg);
+								}, 300);
+							}
+							catch(e)
+							{
+								setTimeout(function()
+								{
+								   modal_msg('系统异常');
+								}, 300);
+							};
+						});
+					});
+				});
+          });
+          </script>
+          
+        <{else}>
+          <table class="table table-striped table-bordered table-hover dataTable" id="product1" >
+            <thead>
+              <tr role="heading">
+                <th width="50">期数</th>
+                <th width="80">需付费用</th>
+                <th width="*">付款期限</th>
+              </tr>
+            </thead>
+            <tbody id='fenqi_con' >
+            </tbody>
+          </table>
+          <script>
+            function html_sq(ss)
+            {
+                var price='<{$re.logcs_price+$re.product_price}>'*1;
+                if(ss==1)
+                {
+                    var s_price=price;
+                    var htm='<tr><td>1</td>'+
+                            '<td>'+s_price+'</td><td>通过后30天内付第1期款</td></tr>';
+                }
+                
+                if(ss==2)
+                {
+                    var s_price=price/2;
+                    var htm='<tr><td>1</td>'+
+                            '<td>'+s_price+'</td><td>通过后30天内付第1期款</td></tr>'+
+                            '<tr><td>2</td>'+
+                            '<td>'+s_price+'</td><td>通过后60天内付第2期款</td></tr>';
+                }
+                
+                if(ss==3)
+                {
+                    var s_price=Math.ceil(price/3);
+                    var htm='<tr><td>1</td>'+
+                            '<td>'+s_price+'</td><td>通过后30天内付第1期款</td></tr>'
+                            +'<tr><td>2</td>'+
+                            '<td>'+s_price+'</td><td>通过后60天内付第2期款</td></tr>'
+                            +'<tr><td>3</td>'+
+                            '<td>'+s_price+'</td><td>通过后75天内付第3期款</td></tr>';
+                }
+                
+                if(ss==4)
+                {
+                   var s_price=Math.ceil(price/3);
+                   var htm='<tr><td>1</td>'+
+                           '<td>'+s_price+'</td><td>通过后30天内付第1期款</td></tr>'
+                           +'<tr><td>2</td>'+
+                           '<td>'+s_price+'</td><td>通过后60天内付第2期款</td></tr>'
+                           +'<tr><td>3</td>'+
+                           '<td>'+s_price+'</td><td>通过后90天内付第3期款</td></tr>';
+                }
+                
+                if(ss==0)
+                   var htm='';
+				   
+                $('#fenqi_con').html(htm);		 
+            }
+			
+            html_sq('<{$re.AccountPeriod_type}>');
+      </script> 
+       <{/if}>
+        
+      <{if $re.status<3 && $re.AccountPeriod_status==1}>
+          <input type="hidden" name="id" value="<{$re.id}>"/>
+          <div class="form-actions">
+            <button type="button" id='submit_zq1' data-status='2' class="btn red submit_zq">通过</button>
+            <button type="button" id='submit_zq2' data-status='-1'  class="btn  submit_zq">不通过</button>
+          </div>
+      <{/if}>
+     </form>
     </div>
   </div>
 </div>

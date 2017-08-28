@@ -53,29 +53,39 @@
                 </div>
               </div>
               <div class="row-fluid" style="margin-top:20px;"> <span class="span1" style="display:block;">
-                <div id="span_label">发货开始时间</div>
+                <div id="span_label">发货时间</div>
                 </span>
-                <div class="span3" style="margin-left:0px;">
-                  <div class="controls">
-                    <div class="input-append date date-picker" data-date="<{$smarty.get.search_stime}>" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
-                      <input  name="search_stime" class="m-wrap m-ctrl-medium date-picker small" size="16" type="text"
-                                                    value="<{$smarty.get.search_stime}>">
-                      <span class="add-on"><i class="icon-calendar"></i></span> </div>
-                  </div>
-                </div>
-                <span class="span1" style="display:block;">
-                <div id="span_label">结束时间</div>
-                </span>
-                <div class="span3" style="margin-left:0px;">
-                  <div class="controls">
-                    <div class="input-append date date-picker" data-date="<{$smarty.get.search_etime}>" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
-                      <input  name="search_etime" class="m-wrap m-ctrl-medium date-picker small" size="16" type="text" value="<{$smarty.get.search_etime}>">
-                      <span class="add-on"><i class="icon-calendar"></i></span> </div>
+                
+                <div class="span3"   style="margin-left:0px;">
+                     <div id="tm_a" data-set="" class="pull-left dateRange date_daterangepicker" style="width:200px">
+                     <i class="icon-calendar"></i>
+                          <span></span> 
+                          <input type="hidden"  name="tm_a_3_data"   class="tm_a_3_data" value="<{$smarty.get.tm_a_3_data}>">
+                          <input type="hidden"  class="tm_a_1_data"  name="search_stime" value="<{$smarty.get.search_stime}>">
+                          <input type="hidden"  class="tm_a_2_data"  name="search_etime" value="<{$smarty.get.search_etime}>">
+                          <b class="caret"></b>
+                      </div>
                       <button class="btn red reconciliation" data-action="reconciliation"  data-url="<{'order/reconciliation_no'|site_url}>"  type="button">生成对账号</button>
-                  </div>
+                </div>  
+                
+                
+                <span class="span1" style="display:block;">
+                  <div id="span_label">付款期限</div>
+                </span>
+                <div class="span3"   style="margin-left:0px;">
+                     <div id="tm_b" data-set="" class="pull-left dateRange date_daterangepicker" style="width:200px">
+                     <i class="icon-calendar"></i>
+                          <span></span> 
+                          <input type="hidden"  name="tm_b_3_data"   class="tm_b_3_data" value="<{$smarty.get.tm_b_3_data}>">
+                          <input type="hidden"  class="tm_b_1_data"  name="search_pay_stime" value="<{$smarty.get.search_pay_stime}>">
+                          <input type="hidden"  class="tm_b_2_data"  name="search_pay_etime" value="<{$smarty.get.search_pay_etime}>">
+                          <b class="caret"></b>
+                      </div>
                 </div>
               </div>
-              <div class="row-fluid" style="margin-top:20px; "> <span class="span1" style="display:block;">
+              <div class="row-fluid" style="margin-top:20px; "> 
+              
+                <span class="span1" style="display:block;">
                 <div id="span_label">对账状态</div>
                 </span>
                 <div class="span3" style="margin-left:0px;">
@@ -96,7 +106,14 @@
                   </div>
               </div>
               <div class="row-fluid" style="margin-top:20px; ">
-                  <span class="span1" style="display:block;">
+                <span class="span1" style="display:block;">
+                  <div id="span_label">供应UID</div>
+                </span>
+                <div class="span3" style="margin-left:0px;">
+                  <input type="text" class="m-wrap small" name="search_sp_id"  value="<{$smarty.get.search_sp_id}>"/>
+                </div>
+                
+                <span class="span1" style="display:block;">
                 <div id="span_label">订单编号</div>
                 </span>
                   <div class="span3" style="margin-left:0px;">
@@ -115,16 +132,18 @@
               <table class="table table-striped table-bordered table-hover dataTable" id="product_1" >
                 <thead>
                   <tr role="heading">
-                    <th width="60" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">操作</th>
-                    <th width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单号</th>
+                    <th width="100" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">操作</th>
+                    <th width="60" class="sorting_disabled"  role="columnheader" tabindex="0" aria-controls="sample_1">供应UID</th>
+                    <th width="80" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单号</th>
+                    <th width="80" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">付款期限</th>
                     <th width="60"  class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">发货状态</th>
-                    <th width="60" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">对账状态</th>
+                    <th width="60" class="sorting_disabled"  role="columnheader" tabindex="0" aria-controls="sample_1">对账状态</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">对账号</th>
-                    <th width="80" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">订单金额</th>
-                    <th width="80" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运费</th>
+                    <th width="80" class="sorting_disabled"  role="columnheader" tabindex="0" aria-controls="sample_1">订单金额</th>
+                    <th width="80" class="sorting_disabled"  role="columnheader" tabindex="0" aria-controls="sample_1">运费</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">收货人手机</th>
-                    <th  width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">收货人姓名</th>
-                    <th width="*" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">收获地址</th>
+                    <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">收货人姓名</th>
+                    <th width="*" class="sorting_disabled"   role="columnheader" tabindex="0" aria-controls="sample_1">收获地址</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">发货时间</th>
                     <th width="120" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单号</th>
                   </tr>
@@ -132,17 +151,24 @@
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
                 <{if $re.list}>
                 <{foreach item = item from = $re.list}>
-                <tr >
-                  <td><button type="button" data-action="check_info" data-id="<{$item.id}>" data-box-size="800|300" class="btn mini blue order_detail">查看</button></td>
-                  <td ><{$item.order_id}></td>
-                  <td ><{$item.delivery_status|f_get_status:delivery_status}></td>
+                <tr>
+                  <td>
+                      <button type="button" data-action="check_info" data-id="<{$item.id}>" data-box-size="800|300" class="btn mini blue order_detail">查看</button>
+                      <{if $item.delivery_status==1 && $item.reconciliation_status==0}>
+                      	<button type="button" data-action="pay_money" data-id="<{$item.id}>" data-box-size="800|300" class="btn mini yellow order_detail">付款</button>
+                      <{/if}>
+                  </td>
+                  <td><{$item.sp_id}></td>
+                  <td><{$item.order_id}></td>
+                  <td><{$item.estimated_date_payment}></td>
+                  <td><{$item.delivery_status|f_get_status:delivery_status}></td>
                   <td><{$item.reconciliation_status|f_get_status:reconciliation_status}></td>
                   <td><{$item.reconciliation_no}></td>
-                  <td ><{$item.sp_total}></td>
-                  <td ><{$item.logcs_price}></td>
-                  <td ><{$item.consignee_mobile}></td>
-                  <td ><{$item.consignee}></td>
-                  <td ><{$item.consignee_address}></td>
+                  <td><{$item.sp_total}></td>
+                  <td><{$item.logcs_price}></td>
+                  <td><{$item.consignee_mobile}></td>
+                  <td><{$item.consignee}></td>
+                  <td><{$item.consignee_address}></td>
                   <td><{$item.delivery_time}></td>
                   <td><{$item.logcs_num}></td>
                 </tr>
@@ -204,21 +230,28 @@
             var  action = $(this).attr('data-action');
             if(action=='check_info')
             {
-                $(this).on('click', function(){
-                    // create the backdrop and wait for next modal to be triggered
-                    $('body').modalmanager('loading');
-                    setTimeout(function(){
-                        $.fn.modal.defaults.width  = size[0]+'px';
-                        $.fn.modal.defaults.height = size[1]+'px';
-                        $modal.load("<{'order/sp_order_info'|site_url}>?id="+ select_id, '', function(){
-                            $modal.modal();
-                            //$modal.css('margin-top','0');
-                        });
-                    }, 100);
-                });
+               var url="<{'order/sp_order_info'|site_url}>?id="+ select_id
             }
-           
-
+			else if(action=='pay_money')
+            {
+               var url="<{'order/sp_order_payment'|site_url}>?id="+ select_id;
+            }
+            $(this).on('click', function(){
+				
+			   alertWin('付款给供应商添加备注',800,400,url);
+				 /*
+                // create the backdrop and wait for next modal to be triggered
+                $('body').modalmanager('loading');
+                setTimeout(function(){
+                    $.fn.modal.defaults.width  = size[0]+'px';
+                    $.fn.modal.defaults.height = size[1]+'px';
+                    $modal.load(url, '', function(){
+                        $modal.modal();
+                        //$modal.css('margin-top','0');
+                    });
+                }, 100);
+				*/
+            });
 
         });
     }

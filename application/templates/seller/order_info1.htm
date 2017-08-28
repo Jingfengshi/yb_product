@@ -18,15 +18,13 @@
                     <tbody role="alert" aria-live="polite" aria-relevant="all">
                     <{if $re.order_info}>
                     <{foreach item = item from = $re.order_info}>
-                    <tr >
-
+                    <tr>
                         <td width="*"><{$item.name}></td>
                         <td width="80"><{$item.price}></td>
                         <td width="40"><{$item.num}></td>
                         <td width="60"><{$item.status|f_get_status:order_pro_status}></td>
                         <td width="100"><{$item.logcs_num}></td>
                         <td width="120"><{$item.delivery_time}></td>
-
                     </tr>
                     <{/foreach}>
                     <{else}>

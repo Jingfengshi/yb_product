@@ -32,19 +32,37 @@
                   <input type="text"  value="<{$re.order.cashflow_id}>"  readonly="readonly" class="m-wrap" >
                 </div>
               </div>
+              
               <div class="control-group" style="margin-top:20px;">
                 <label class="control-label">支付款方<span class="required">*</span></label>
                 <div class="controls">
                   <input type="text"  value="<{$re.order.payor}>"  readonly="readonly" class="m-wrap" >
                 </div>
               </div>
+              
+              <div class="control-group" style="margin-top:20px;">
+                <label class="control-label">实际到账金额<span class="required">*</span></label>
+                <div class="controls">
+                  <input type="text" name="payment_money"  value="<{$re.order.logcs_price+$re.order.product_price-$re.order.not_pay_money}>"   class="m-wrap" >
+                </div>
+              </div>
+              
               <div class="control-group" style="margin-top:20px;">
                 <label class="control-label">合计费用<span class="required">*</span></label>
                 <div class="controls">
-                  <input type="text"  value="<{$re.order.logcs_price+$re.order.product_price}>"  readonly="readonly" class="m-wrap" >
-                  <p style="display: inline-block;margin-top: 10px;">(其中，订单总价：¥　 <{$re.order.product_price}>,订单运费：¥　<{$re.order.logcs_price}> )</p>
+                  <input type="text"  value="<{$re.order.logcs_price+$re.order.product_price-$re.order.not_pay_money}>"  readonly="readonly" class="m-wrap" >
+                  <p style="display: inline-block;margin-top: 10px;">(其中，订单总价：¥<{$re.order.product_price}>,订单运费：¥<{$re.order.logcs_price}>,已作废金额：¥<{$re.order.not_pay_money}> )</p>
                 </div>
               </div>
+              
+              <{if $re.order.AccountPeriod_status==2}>
+               <div class="control-group" style="margin-top:20px;">
+                <label class="control-label">账期<span class="required">*</span></label>
+                <div class="controls">
+                  <input type="text"  value="<{$re.order.AccountPeriod_End_Time}>"  readonly="readonly" class="m-wrap" >
+                </div>
+              </div>
+              <{/if}>
               <div class="control-group" style="margin-top:20px;">
                 <label class="control-label">付款状态<span class="required">*</span></label>
                 <div class="controls">
@@ -56,7 +74,8 @@
                     </option>
                   </select>
                 </div>
-              </div></td>
+              </div>
+            </td>
           </tr>
         </table>
         <input type="hidden" name="id" value="<{$re.id}>"/>

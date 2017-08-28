@@ -15,22 +15,20 @@
                         <thead>
                         <tr role="heading">
                             <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">编号</th>
-
+							<th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">供应UID</th>
                             <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">供应总价</th>
                             <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">分销总价</th>
                             <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运费</th>
                             <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单重量(克)</th>
                             <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">供应商</th>
-
                         </tr>
                         </thead>
                         <tbody role="alert" aria-live="polite" aria-relevant="all">
                         <{if $re.sp_order}>
                         <{foreach item = item from = $re.sp_order}>
                         <tr >
-
                             <td width="30"><{$item.id}></td>
-
+ 							<td width="30"><{$item.sp_id}></td>
                             <td width="60"><{$item.sp_total}></td>
                             <td width="60"><{$item.seller_total}></td>
                             <td width="80">
@@ -42,8 +40,6 @@
                             </td>
                             <td width="100">
                                 <{$item.logcs_total_weight}>
-                                <!--<input type="text" name="logcs_total_weight|<{$item.id}>" value="<{$item.logcs_total_weight}>">-->
-
                             </td>
                             <td width="*"><{$item.sp_company}></td>
                         </tr>

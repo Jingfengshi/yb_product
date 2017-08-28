@@ -26,6 +26,7 @@
                     <th width="80" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">操作</th>
                     <th width="40" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">ID</th>
                     <th width="80" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">上级分类ID</th>
+                    <th width="80" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">毛利</th>
                     <th width="*" class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">分类名</th>
                   </tr>
                 </thead>
@@ -36,8 +37,8 @@
                       <td width="80"><a href="<{"cat/cat_list"|site_url}>?del_id=<{$item.id}>"  style="<{if $item.pid!=0}>margin-left:15px;<{/if}>"  
                        class="btn <{if $item.pid==0}>red<{/if}> mini">删除</a></td>
                       <td width="80"><{$item.id}><input type="hidden"  name="id[<{$item.id}>]" value="<{$item.id}>" /></td>
-                      <td width="80"><{$item.pid}>
-                      </td>
+                      <td width="80"><{$item.pid}></td>
+                       <td width="80"><input type="text"  style="width:40px;" name="profit[<{$item.id}>]" value="<{if $item.profit*1==0}>5<{else}><{$item.profit}><{/if}>" /> % </td>
                       <td width="*"><input type="text"  name="cat[<{$item.id}>]" value="<{$item.cat}>" /></td>
                     </tr>
                     <{/foreach}>

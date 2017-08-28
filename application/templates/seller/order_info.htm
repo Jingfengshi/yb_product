@@ -1,59 +1,126 @@
 <div class="tabbable tabbable-custom" style="">
-    <div class="tab-content">
-        <div class="container-fluid">
-            <!-- BEGIN PAGE CONTENT-->
-            <div class="portlet-body form">
+<div class="tab-content">
+<div class="container-fluid">
+<!-- BEGIN PAGE CONTENT-->
 
-                <table class="table table-striped table-bordered table-hover dataTable" id="product_1" >
-                    <thead>
-                    <tr role="heading">
-                        <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">产品名</th>
-                        <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">状态</th>
-                        <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">销售价</th>
-                        <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">数量</th>
-                        <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">合计</th>
-
-                        <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">仓库号</th>
-                        <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单号</th>
-                        <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">发货时间</th>
-                    </tr>
-                    </thead>
-                    <tbody role="alert" aria-live="polite" aria-relevant="all">
-                    <{if $re.order_info}>
-                    <{foreach item = item from = $re.order_info}>
-                    <tr >
-
-                        <td width="*"><{$item.name}></td>
-                        <td width="60"><{$item.status|f_get_status:order_pro_status}></td>
-                        <td width="60"><{$item.price}></td>
-                        <td width="40"><{$item.num}></td>
-                        <td width="60"><{$item.num*$item.price|number_format:'2':'.':','}></td>
-
-                        <td width="60"><{$item.warehouse_id}></td>
-                        <td width="100"><{$item.logcs_num}></td>
-                        <td width="120"><{$item.delivery_time}></td>
-
-                    </tr>
-                    <{/foreach}>
-                    <{else}>
-                    <tr>
-                        <td colspan="99">暂时无数据</td>
-                    </tr>
-                    <{/if}>
-                    </tbody>
-                </table>
-                <div class="row-fluid">
-
-                    <div class="clear"></div>
-                    <div class="span6">
-                        <div class="dataTables_paginate paging_bootstrap pagination"> <{$re.page}> </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- END FORM-->
-        </div>
-        <!-- END PAGE CONTENT-->
+<div class="tabbable tabbable-custom" id='tab_all'>
+  <ul class="nav nav-tabs">
+    <li class=""><a href="#tab_1_1" class="fancybox-button" data-id='tab_1_1' data-toggle="tab">分单发货情况</a></li>
+    <li class="active"><a href="#tab_1_2" class="fancybox-button"  data-id='tab_1_2' data-toggle="tab">订购产品</a></li>
+    <li class=""><a href="#tab_1_3" class="fancybox-button"  data-id='tab_1_3' data-toggle="tab">付款记录</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="tab_1_1"> 
+      <div class="portlet-body form">
+        <table class="table table-striped table-bordered table-hover dataTable" id="product_1" >
+          <thead>
+            <tr role="heading">
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">仓库号</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">分单号</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">状态</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">总金额</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运费</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">物流</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">运单号</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">发货时间</th>
+            </tr>
+          </thead>
+          <tbody role="alert" aria-live="polite" aria-relevant="all">
+          <{if $order_info_list}>
+              <{foreach item = item from = $order_info_list}>
+                 <tr >
+                    <td width="60"><{$item.warehouse_id}></td>
+                    <td width="60"><{$item.id}></td>
+                    <td width="40"><{$item.delivery_status|f_get_status:'delivery_status'}></td>
+                    <td width="60"><{$item.seller_total}></td>
+                    <td width="60"><{$item.logcs_price}></td>
+                    <td width="60"><{$item.logistics_type|logccom_type}></td>
+                    <td width="60"><{$item.logcs_num}></td>
+                    <td width="*"><{$item.delivery_time}></td>
+                 </tr>
+              <{/foreach}>
+          <{else}>
+              <tr>
+                <td colspan="99">暂时无数据</td>
+              </tr>
+          <{/if}>
+         </tbody>
+        </table>
+        
+      </div>
+      <!-- END FORM--> 
     </div>
-
+    <div class="tab-pane active" id="tab_1_2">
+      <div class="portlet-body form">
+        <table class="table table-striped table-bordered table-hover dataTable" id="product_1" >
+          <thead>
+            <tr role="heading">
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">仓库号</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">产品名</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">状态</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">销售价</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">数量</th>
+              <th class="sorting_disabled" role="columnheader" tabindex="0" aria-controls="sample_1">合计</th>
+            </tr>
+          </thead>
+          <tbody role="alert" aria-live="polite" aria-relevant="all">
+          <{if $re.order_info}>
+          <{foreach item = item from = $re.order_info}>
+          <tr>
+            <td width="100"><{$item.warehouse_id}></td>
+            <td width="*"><{$item.name}></td>
+            <td width="60"><{$item.status|f_get_status:order_pro_status}></td>
+            <td width="60"><{$item.price}></td>
+            <td width="40"><{$item.num}></td>
+            <td width="60"><{$item.num*$item.price|number_format:'2':'.':','}></td>
+          </tr>
+          <{/foreach}>
+          <{else}>
+          <tr>
+            <td colspan="99">暂时无数据</td>
+          </tr>
+          <{/if}>
+         </tbody>
+        </table>
+        <div class="row-fluid">
+          <div class="clear"></div>
+          <div class="span6">
+            <div class="dataTables_paginate paging_bootstrap pagination"> <{$re.page}> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="tab_1_3">
+      <div class="portlet-body form">
+       <table class="table table-striped table-bordered table-hover dataTable" id="product1" >
+        <thead>
+          <tr role="heading">
+            <th width="40">期数</th>
+            <th width="60">费用</th>
+            <th width="80">付款期限</th>
+            <th width="80">付款时间</th>
+            <th width="50">状态</th>
+            <th width="60">实付金额</th>
+            <th width="*">付款流水</th>
+          </tr>
+        </thead>
+        <tbody>
+        <{foreach item=item  from=$accountperiod}>
+         <tr>
+            <td><{$item.q_num}></td> 
+            <td><{$item.AccountPeriod_moeny}></td> 
+            <td><{$item.AccountPeriod_time}></td> 
+            <td><{$item.payment_time}></td> 
+            <td><{$item.status|f_get_status:'accountperiod_pay_status'}></td> 
+            <td><{$item.payment_money}></td> 
+            <td><{$item.cashflow_id}></td> 
+         </tr>  
+        <{/foreach}>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    
+    <!-- END PAGE CONTENT--> 
+  </div>
 </div>

@@ -83,7 +83,7 @@
                 
                 <div class="row-fluid" style="margin-top:10px;">
                    <div class="span4" >
-                    <label class="control-label">商品库存</label>
+                    <label class="control-label">库存<font color="#999">(单件数)</font></label>
                     <div class="controls">
                       <input type="text" class="span12 m-wrap" name="c_num" <{if empty($product)}>value='0'<{else}>value="<{$product.info.c_num}>"<{/if}>/>
                       <{if $act==2}>
@@ -93,9 +93,9 @@
                   </div>
 
                   <div class="span4" >
-                    <label class="control-label">商品简述<span class="required">*</span></label>
+                    <label class="control-label">每箱数量<font color="#999">(按箱批发)</font><span class="required">*</span></label>
                     <div class="controls">
-                      <input type="text" <{if $act==2}>disabled="disabled"<{/if}> class="span12 m-wrap" name="desc" value="<{$product.content.desc}>"/>
+                      <input type="text" <{if $act==2}>disabled="disabled"<{/if}> class="span12 m-wrap" name="boxes_num" value="<{$product.info.boxes_num*1}>"/>
                     </div>
                   </div>  
                 </div>

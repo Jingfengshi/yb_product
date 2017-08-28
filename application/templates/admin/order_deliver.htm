@@ -86,9 +86,11 @@
           
         </table>
         <input type="hidden" name="id" value="<{$re.id}>"/>
-        <div class="form-actions">
-          <button type="button" id='submit_eidt' class="btn red">提交</button>
-        </div>
+        <{if empty($smarty.get.show)}>
+            <div class="form-actions">
+              <button type="button" id='submit_eidt' class="btn red">提交</button>
+            </div>
+        <{/if}>
       </form>
     </div>
   </div>
