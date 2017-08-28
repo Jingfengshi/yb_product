@@ -15,8 +15,8 @@ class User extends MY_Controller {
 			//验证码
 			if(!isset($_POST['code'])||isset($_SESSION["authrand"])&&strtolower($_SESSION["authrand"])!==trim(strtolower($_POST['code'])))
 			{
-				  $_SESSION["auth"]='';
-				  show_error('<p>验证码错误</p>  <p><a href="">返回</a> </p>', 403);
+				$_SESSION["auth"]='';
+			    show_error('<p>验证码错误</p>  <p><a href="">返回</a> </p>', 403);
 			}
 			
 			$this->load->library('MY_form_validation');
@@ -25,8 +25,8 @@ class User extends MY_Controller {
 			$this->form_validation->set_rules('password', '登录密码', 'required|min_length[6]');
 			if ($this->form_validation->run() == FALSE)
 			{
-				  show_error(validation_errors().'<p>  <a href="">返回</a> </p>', 403);
-				  die;
+				show_error(validation_errors().'<p>  <a href="">返回</a> </p>', 403);
+				die;
 			}	
 			else
 			{
@@ -35,7 +35,6 @@ class User extends MY_Controller {
 			    //=========验证通过
 				$this->load->model('Admin_User_model');
 				$flag=$this->Admin_User_model->login($username,$password);
-				
 				if($flag===true)
 					header("location:".site_url("admin_index/index"));  
 			}	

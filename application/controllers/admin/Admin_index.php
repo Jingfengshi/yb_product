@@ -8,6 +8,59 @@ class Admin_index extends MY_Controller {
 		$this->load->library('CI_Smarty');  
 	}
 	
+	//默认首页
+	public function info()
+	{
+		//待发货零售订单
+		//待发货批发订单
+		//待审核商品
+		//(分销)分期收款
+		
+		
+		$this->ci_smarty->display_ini('info.htm');   
+	}
+	
+	
+	public function mobile_config()
+	{
+		
+	
+	}
+	
+	public function email_config()
+	{
+		if (!empty($_POST['send_email'])) {
+            $this->load->library('CI_email');
+            $this->ci_email->send_mail($_POST['email'], 'chenbo', '你好', '你好,这是一条信息');
+        } else {
+            if (!empty($_POST['config'])) {
+                $is_open = $_POST['config']['is_open'];
+                $type = $_POST['config']['type'];
+                $SMTP_address = array_filter($_POST['config']['SMTP_address']);
+                $email_address = array_filter($_POST['config']['email_address']);
+                $email_pass = array_filter($_POST['config']['email_pass']);
+                $config_email = array();
+                foreach ($SMTP_address as $k => $v) {
+                    $config_email[$k] = array('SMTP_address' => $v, 'email_address' => $email_address[$k], 'email_pass' => $email_pass[$k]);
+                }
+
+                $config_email = json_encode($config_email);
+                $str = "<?php defined('BASEPATH') OR exit('No direct script access allowed'); \n";
+                $str .= " \$config['is_open']='$is_open'; \n";
+                $str .= " \$config['type']='$type';\n";
+                $str .= " \$config['email']='$config_email';\n";
+                create_file(APPPATH . "/cache/email_setting.php", $str);
+            }
+        }
+
+        if (file_exists(APPPATH . "/cache/email_setting.php")) {
+            require(APPPATH . "/cache/email_setting.php");
+            $email = json_decode($config['email'], true);
+            $this->ci_smarty->assign('wx', $config, 0);
+            $this->ci_smarty->assign('email', $email, 0);
+        }
+        $this->ci_smarty->display_ini('email_site.htm');
+	}
 		
 	public function web_config()
 	{
@@ -203,12 +256,6 @@ class Admin_index extends MY_Controller {
 		$this->ci_smarty->display('main_index.htm');   
 	}
 	
-	//默认首页
-	public function info()
-	{
-	
-		$this->ci_smarty->display_ini('info.htm');   
-	}
 	
 	//错误提示页面
 	public function admin_msg()

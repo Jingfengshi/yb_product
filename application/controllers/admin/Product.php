@@ -1,13 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Product extends MY_Controller {
-
     public function __construct(){  
         parent::__construct();  
 		$this->load->library('CI_Smarty');  
 	}
-
+	
 	//产品订阅库列表
 	public function product_list()
 	{
@@ -17,7 +15,6 @@ class Product extends MY_Controller {
 		$this->ci_page->Page();
 		$this->ci_page->url=site_url($this->class."/".$this->method);
 		$wsql='';
-		
 		if(isset($_GET))
 		{
 			//非模糊查询的字段
@@ -38,10 +35,10 @@ class Product extends MY_Controller {
 				}
 			}
 		}
+		
 		$search_page_num=array('all'=>15,1=>15,2=>30,3=>50);
 		//===================查询 end=========================
 		$this->ci_page->listRows=!isset($_GET['search_page_num'])||empty($search_page_num[$_GET['search_page_num']])?15:$search_page_num[$_GET['search_page_num']];
-		
 		$sql="select  *  from  ".tab_m('stock')."  where  1=1  ".$wsql;
 		if(!$this->ci_page->__get('totalRows'))
 		{
@@ -52,13 +49,11 @@ class Product extends MY_Controller {
 		$sql.=" order by id  desc limit ".$this->ci_page->firstRow.",".$this->ci_page->listRows;
 		$query=$this->db->query($sql);
 		$res=array();
-
 		$res['list']=$query->result_array();
 		$res['page']=$this->ci_page->prompt();	
 		$this->ci_smarty->assign('re',$res,1,'page'); 
 		$this->load->model('Admin_Country_model');
 		require(APPPATH.'/config/base_config.php');
-		
 		$this->ci_smarty->assign('country',$this->Admin_Country_model->get_show_country());
 		$this->ci_smarty->assign('stock_d_status',$config['stock_d_status']);
 		$this->ci_smarty->assign('stock_k_status',$config['stock_k_status']);
@@ -121,7 +116,6 @@ class Product extends MY_Controller {
 					//echo json_encode($msg);
 					//die;
 					*/
-					
 				    $falg=$this->Admin_Stock_model->update_stock(
 							array(
 								'cname'      => $_POST['cname'],
@@ -160,8 +154,6 @@ class Product extends MY_Controller {
 							  'type'=>3
 						);	
 					}
-					
-
 					echo json_encode($msg);
 					die;
 				}

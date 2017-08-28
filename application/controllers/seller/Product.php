@@ -65,7 +65,7 @@ class Product extends MY_Controller {
 			$this->ci_page->totalRows =$query->num_rows;
 		}
 		
-		$sql.=" limit ".$this->ci_page->firstRow.",".$this->ci_page->listRows;
+		$sql.=" order by a.id desc limit ".$this->ci_page->firstRow.",".$this->ci_page->listRows;
 		$query=$this->db->query($sql);
 		$res=array();
 		foreach($query->result_array() as $v)

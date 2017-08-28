@@ -29,7 +29,7 @@ class Order extends MY_Controller
 		if(isset($_GET))
 		{
 			//非模糊查询的字段
-			$search_key_ar=array('reconciliation_status','delivery_status','consignee_mobile','id');
+			$search_key_ar=array('reconciliation_status','delivery_status','consignee_mobile','id','order_id');
 			//姓名模糊查询字段
 			$search_key_ar_more=array('');
 			foreach($_GET as $k=>$v)
@@ -48,8 +48,6 @@ class Order extends MY_Controller
 							$wsql.=" and a.{$skey}='{$v}'";
 						}
 
-
-
 					}
 
 					//模糊查询
@@ -66,6 +64,16 @@ class Order extends MY_Controller
 
         if(!empty($_GET['search_etime']))
             $wsql.= " AND delivery_time<='".date("Y-m-d H:i:s",strtotime( $_GET['search_etime']."+ 1 day -1second"))."'";
+		
+		
+		if(!empty($_GET['search_pay_stime']))
+            $wsql.= " AND estimated_date_payment>='".date("Y-m-d H:i:s",strtotime($_GET['search_pay_stime']))."'";
+
+        if(!empty($_GET['search_pay_etime']))
+            $wsql.= " AND estimated_date_payment<='".date("Y-m-d H:i:s",strtotime( $_GET['search_pay_etime']."+ 1 day -1second"))."'";	
+			
+			
+			
 		$search_page_num=array('all'=>15,1=>15,2=>30,3=>50);
 		//===================查询 end=========================
 		$this->ci_page->listRows=!isset($_GET['search_page_num'])||empty($search_page_num[$_GET['search_page_num']])?15:$search_page_num[$_GET['search_page_num']];
@@ -130,10 +138,10 @@ class Order extends MY_Controller
 		
         $search_page_num=array('all'=>15,1=>15,2=>30,3=>50);
         if(!empty($_GET['search_stime']))
-            $wsql.= " AND delivery_time>='".date("Y-m-d H:i:s",strtotime($_GET['search_stime']))."'";
+            $wsql.= " AND f_time>='".date("Y-m-d H:i:s",strtotime($_GET['search_stime']))."'";
 
         if(!empty($_GET['search_etime']))
-            $wsql.= " AND delivery_time<='".date("Y-m-d H:i:s",strtotime( $_GET['search_etime']."+ 1 day -1second"))."'";
+            $wsql.= " AND f_time<='".date("Y-m-d H:i:s",strtotime( $_GET['search_etime']."+ 1 day -1second"))."'";
 		$search_page_num=array('all'=>15,1=>15,2=>30,3=>50);
 		//===================查询 end=========================
 		$this->ci_page->listRows=!isset($_GET['search_page_num'])||empty($search_page_num[$_GET['search_page_num']])?15:$search_page_num[$_GET['search_page_num']];
@@ -212,6 +220,7 @@ class Order extends MY_Controller
 					}
 				}
 			}
+			
 
 			if( $res )
 			{
@@ -498,7 +507,7 @@ class Order extends MY_Controller
 						die;
 					}
 					$id =$order_id['order_id'];
-					$status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_status,AccountPeriod_End_Time',array('id'=>$id));
+					$status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_type,AccountPeriod_status,pay_uptime,AccountPeriod_End_Time',array('id'=>$id));
 					$sp_status=$this->Base_Order_model->get_sp_order_info('delivery_status',array('id'=>$sp_order_id,'sp_id'=>$this->user_id));
 					
 					//账期已确认或者已付款的可以发货
@@ -509,7 +518,18 @@ class Order extends MY_Controller
 						$sp_arr['logistics_type'] = $this->input->post('logistics_type',true);
 						$sp_arr['delivery_status']=1;
 						$sp_arr['delivery_time']=date('Y-m-d H:i:s',time());
-						$sp_arr['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+30days',strtotime($status['AccountPeriod_End_Time'])));
+
+						//如果是分期付款 发货时间+分期天数+加5天付款 
+						if($status['AccountPeriod_status']>=2)
+						{
+							$ar_day=array(1=>30,2=>60,3=>75,4=>90);
+							$day=!empty($ar[$status['AccountPeriod_type']])?$ar[$status['AccountPeriod_type']]:90;
+							$sp_arr['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+'.($day+5).' day'));
+							
+						}//如果已经一次性付款
+						elseif($status['payment_status']==2)
+							$sp_arr['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+30 day'));
+		
 						$res=$this->Base_Order_model->sp_order_delivery($sp_arr,$sp_order_id,$this->user_id);
 						$sql='UPDATE '.tab_m('order').' SET  `delivery_sp_order_num`=`delivery_sp_order_num`+1  WHERE id='.$id;
 						$this->db->query($sql);
@@ -608,5 +628,20 @@ class Order extends MY_Controller
 
 	}
 
-
+	/**
+	 *供应商查看账期备注
+	 */
+	public function order_account_remark()
+	{
+		if(!empty($_GET['id']))
+		{
+			$id=$_GET['id']*1;
+			$this->load->model('Base_Order_model');
+			$remark=$this->Base_Order_model->get_sp_order_info('remark_accout',array('id'=>$id,'sp_id'=>$this->user_id));
+			$remark=json_decode($remark['remark_accout'],true);
+			$this->ci_smarty->assign('show_ajax',1);
+			$this->ci_smarty->assign('res',$remark);
+			$this->ci_smarty->display_ini('order_account_remark.htm');
+		}
+	}
 }

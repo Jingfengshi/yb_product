@@ -88,8 +88,6 @@ class Warehouse extends MY_Controller
 					$msg = "<p><i class='icon-comment-alt'></i> 供应商不存在</p>";
 				}
 			}
-			
-
 
 			//表单验证，通过进行赋值，不通过提示错误并返回
 			if ($this->form_validation->run() == FALSE||!empty($msg))

@@ -55,6 +55,9 @@ class Spuser extends MY_Controller
 				$info=$this->db->query($sql)->row_array();
 			}
 			$de[$k]=$v;
+			$cat=$this->Sp_Product_model->get_product_content("cat_id",$v['id']);	
+			$row=$this->db->query("select   profit   from   ".tab_m('stock_cat')."  where   id='$cat[cat_id]'   ")->row_array();
+			
 			
 			//修改后的供应价
 			if(!empty($_POST)&&$_POST['price'][$v['id']]*1!=0&&$_POST['status'][$v['id']]==1)
@@ -67,7 +70,7 @@ class Spuser extends MY_Controller
 			if(!empty($info['price']))
 				$de[$k]['g_price']=$info['price'];
 			else
-				$de[$k]['g_price']='';
+				$de[$k]['g_price']=($row['profit']/100+1)*$v['price'];
 		}
 		
 		if(!empty($_POST)&&!empty($error_msg))
@@ -131,8 +134,8 @@ class Spuser extends MY_Controller
 				   $ar['status']='1'; 
 				   $ar['is_shop']='1'; 
 				 
-				   //无图 无条形码 不能审核通
-				   if(empty($ar['price'])||$ar['price']<$v['new_gprice']||empty($pro['pic'])||empty($ar['mz']))	
+				   //无图 无条形码 不能审核通 ||empty($pro['pic'])  分类产地必选
+				   if(empty($ar['price'])||$ar['price']<$v['new_gprice']||empty($ar['mz'])||empty( $ar['cat_id'])||empty($ar['countryid']))	
 						continue;
 					
 					//未绑定入库
@@ -210,8 +213,10 @@ class Spuser extends MY_Controller
 		$Warehouse=array();
 		foreach($de as  $k=>$v)
 		{   
-			$pro=$this->Sp_Product_model->get_product_content("gg",$v['id']);	
+			$pro=$this->Sp_Product_model->get_product_content("gg,cat_id,countryid",$v['id']);	
 			$v['gg']=$pro['gg'];
+			$v['cat_id']=$pro['cat_id'];
+			$v['countryid']=$pro['countryid'];
 			$v['stock']=$this->db->query("select  price  from  ".tab_m('stock')."  
 			                   			 where id='$v[stock_id]' limit 1 ")->row_array();	
 										 			   
@@ -344,9 +349,6 @@ class Spuser extends MY_Controller
 					{
 						$spuser_arr['mobile']   = $this->input->post('mobile',true);
 					}
-
-
-
 				}
 				else
 				{
@@ -484,9 +486,7 @@ class Spuser extends MY_Controller
 			}
 			die;
 		}
-		
-		
-		
+
         //***************************
 		//         查询开始	
 		$this->load->library('CI_page');

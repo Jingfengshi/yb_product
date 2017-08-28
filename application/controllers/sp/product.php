@@ -1,8 +1,6 @@
-<?php
+ <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Product extends MY_Controller {
-
     public function __construct(){  
         parent::__construct();  
 		$this->load->library('CI_Smarty');
@@ -65,7 +63,6 @@ class Product extends MY_Controller {
 				{
 					$search_array["c_num"]=0;
 				}
-
 			}
 		}
 
@@ -81,7 +78,7 @@ class Product extends MY_Controller {
 		$res=array();
 		$de=$this->Base_page_model
 			->where_ar($search_array,$search_array_like)
-			->select_one("a.stock_id,a.pic_status,a.status,a.id,a.name,a.ls_lock_num,a.warehouse_id,a.c_num,a.online_num,a.price,b.brand,b.catname,b.gg,b.mark_price,b.mz,b.pic",tab_m('sp_product').' as a')
+			->select_one("a.stock_id,a.pic_status,a.boxes_num,a.status,a.id,a.name,a.ls_lock_num,a.warehouse_id,a.c_num,a.online_num,a.price,b.brand,b.catname,b.gg,b.mark_price,b.mz,b.pic",tab_m('sp_product').' as a')
 			->left_join(tab_m('sp_product_content').' as b', 'a.id = b.product_sp_id')
 			->result_array($this->ci_page->firstRow,$this->ci_page->listRows,' a.id desc ');
 		$res['list']=$de;
@@ -122,10 +119,10 @@ class Product extends MY_Controller {
 		$this->load->library('CI_xls');
 		$title_arr=array('商品名称(中文)','商品英文名称(目前不填)'
 			   ,'食品/非食品','品牌','商品类别','产地,','长度(单位:厘米)','宽度(单位:厘米)','高度(单位:厘米)'
-			   ,'条形码','售价','市场价','主要成份','功能/用途','毛重(克)','净重(克)','规格/型号','库存');
+			   ,'条形码','售价','市场价','主要成份','功能/用途','毛重(克)','净重(克)','规格/型号','库存(单件数)','每箱数量');
 			   
 		//第1个表格
-		$con_arr1=array('示例商品1-牛肉糖','beef_sugar','食品','test_brand','食品','中国','100','50','20','98475714','29.9','49.9','牛肉等','食用','200','150','AX12312','99');
+		$con_arr1=array('示例商品1-牛肉糖','beef_sugar','食品','test_brand','食品','中国','100','50','20','98475714','29.9','49.9','牛肉等','食用','200','150','AX12312','90','30');
 		$this->ci_xls->set_data($title_arr,1,1,'产品列表');
 		$this->ci_xls->set_data($con_arr1,2,1);
 		$this->ci_xls->get_down_xls('上传产品');	   
@@ -170,7 +167,8 @@ class Product extends MY_Controller {
 	            [17] => 净重(克)
 	            [18] => 规格/型号
 	            [19] => 库存
-	            */
+				[20] => 箱数
+	        */
 			//总共导入数据条数
 			$data_num = count($da)-1;
 			if(is_array($da))
@@ -183,8 +181,7 @@ class Product extends MY_Controller {
 	            {
 	            	if ($k == 1) 
 	            		continue; 
-						
-					
+
 					if(!is_numeric($v['10']))
 					{
 						$error_str.="行-".$k." 条形码必须为数字 <br>";
@@ -193,7 +190,7 @@ class Product extends MY_Controller {
 					
             		//检测条形码不能重复 
 					$row = $this->db->query("SELECT `id` FROM ".tab_m('sp_product')."  WHERE `barcode` ='".$v['10']
-					                       ."'  and  userid='".$this->user_id."' ")->num_rows;
+					                       ."'  and warehouse_id='$warehouse_id'  and  userid='".$this->user_id."' ")->num_rows;
 										   
 					if ( empty( $row ) ) 
 					{
@@ -207,6 +204,7 @@ class Product extends MY_Controller {
 	            		$product_arr['c_num']    = $v['18']*1;
 	            		$product_arr['uptime']   = date('Y-m-d H:i:s',time());
 						$product_arr['status']   = -1;
+					    $product_arr['boxes_num']= $v['19']*1;
 	            		$product_sp_id           = $this->Sp_Product_model->product_add($product_arr);
 	            		//导入到表dferp_sp_product_content
 	            		$product_content_arr['userid']        = $this->user_id;
@@ -227,7 +225,6 @@ class Product extends MY_Controller {
 	            		$product_content_arr['mz']            = $v['15'];
 	            		$product_content_arr['jz']            = $v['16'];
 	            		$product_content_arr['gg']            = $v['17'];
-						
 	            		$flag = $this->Sp_Product_model->product_content_add($product_content_arr);	
 	            		if ($flag == true) 
 	            			$flag_all++;
@@ -298,7 +295,7 @@ class Product extends MY_Controller {
 				$this->form_validation->set_rules('barcode', '条形码', 'max_length[30]');
 				$this->form_validation->set_rules('price', '我的售价', 'required|numeric');
 				$this->form_validation->set_rules('mark_price', '市场价', 'required|numeric');
-				$this->form_validation->set_rules('desc', '商品简述', 'required|max_length[1000]');
+				$this->form_validation->set_rules('boxes_num', '每箱数量', 'required|is_natural');
 				$this->form_validation->set_rules('brand', '品牌', 'required');
 				$this->form_validation->set_rules('cat', '商品类别', 'required');
 				$this->form_validation->set_rules('country', '产地', 'required');
@@ -336,11 +333,12 @@ class Product extends MY_Controller {
 				$product_arr_content = array();
 				if(empty($row)||$stock_id<=0)
 				{
-					$product_arr['warehouse_id']=$this->input->post('warehouse_id',true);
-					$product_arr['name']    = $this->input->post('name',true);
-					$product_arr['barcode'] = $this->input->post('barcode',true);
-					$product_arr['price']   = $this->input->post('price',true);
-					$product_arr['c_num']   = $this->input->post('c_num',true);
+					$product_arr['warehouse_id']=$this->input->post('warehouse_id',true)*1;
+					$product_arr['name']        = $this->input->post('name',true);
+					$product_arr['barcode']     = $this->input->post('barcode',true);
+					$product_arr['price']       = $this->input->post('price',true)*1;
+					$product_arr['c_num']       = $this->input->post('c_num',true)*1;
+				    $product_arr['boxes_num']   = $this->input->post('boxes_num',true)*1;
 					$product_arr['status']  = -1;
 					
 					//返回表sp_product的id,添加失败返回'0'
@@ -355,7 +353,7 @@ class Product extends MY_Controller {
 					}
 					//以数组类型添加到表sp_product_content
 					$product_arr_content['name']          = $this->input->post('name',true);
-					$product_arr_content['desc']          = $this->input->post('desc',true);
+					$product_arr_content['desc']          = '';//$this->input->post('desc',true);
 					$product_arr_content['brand']         = $this->input->post('brand',true);
 					$cat = explode('|', $_POST['cat']);
 					$product_arr_content['cat_id']        = $cat[0]*1;
@@ -416,9 +414,7 @@ class Product extends MY_Controller {
 					}
 				}
 				else
-				{
 					$flag = $this->Sp_Product_model->product_content_add($product_arr_content);
-				}
 				
 				if($flag===true)
 				{
@@ -450,8 +446,7 @@ class Product extends MY_Controller {
 		//判断是否存在id，没有进行添加，有进行修改
 		if (!empty($_GET['id'])) 
 		{     		
-     		$fechfields_product = 'id,name,barcode,price,c_num,status,warehouse_id,stock_id';
-     		$product['info'] = $this->Sp_Product_model->get_product($fechfields_product,$_GET['id'],$this->user_id);
+     		$product['info'] = $this->Sp_Product_model->get_product('*',$_GET['id'],$this->user_id);
      		$fechfields_product_content = 'mark_price,desc,brand,cat_id,countryid,length,width,height,mz,jz,cf,gn,gg,type,con,pic';
      		$product['content'] = $this->Sp_Product_model->get_product_content($fechfields_product_content,$_GET['id'],$this->user_id);
      		$this->ci_smarty->assign('product',$product);

@@ -114,6 +114,18 @@ class Logistics extends MY_Controller {
 		$this->ci_smarty->assign("res",$res);
 		$this->ci_smarty->display_ini('logccom_list.htm');   
 	}
+	
+	public function logcom_config()
+	{
+		$row =  $this->Base_Logistics_model->logccom_list();
+		if(!empty($row))
+		{
+		   $str = "<?php defined('BASEPATH') OR exit('No direct script access allowed'); \n";
+		   foreach($row as $v)	
+		   $str.= "\$config[".$v['type']."]='".$v['company']."'; \n";
+		   create_file(APPPATH."/cache/logccom_type.php", $str);
+		}
+	}
 
 	//添加或修改物流企业
 	public function logccom_add()
@@ -142,11 +154,13 @@ class Logistics extends MY_Controller {
 				$logccom_arr = array();
 				$logccom_arr['type']    = $this->input->post('type',true);
 				$logccom_arr['company'] = $this->input->post('company',true);
-				
+				//生成物流编号配置文件
+
 				//判断是否存在id，没有进行添加，有进行修改
 				if (!empty($_POST['id'])) 
 				{									
-					$flag = $this->Base_Logistics_model->logccom_updata($logccom_arr,array('id'=>$_POST['id']));
+				    $flag = $this->Base_Logistics_model->logccom_updata($logccom_arr,array('id'=>$_POST['id']));
+				    $this->logcom_config(); 
 					if($flag)
 					{
 						//关闭窗口刷新页面	
@@ -170,8 +184,8 @@ class Logistics extends MY_Controller {
 				}
 				else
 				{
-					
 					$flag = $this->Base_Logistics_model->logccom_add($logccom_arr);
+					$this->logcom_config(); 
 					if($flag)
 					{
 						$msg=array(

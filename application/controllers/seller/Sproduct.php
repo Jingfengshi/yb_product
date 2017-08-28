@@ -155,7 +155,6 @@ class Sproduct extends MY_Controller {
 			$search_key_ar=array('status','stock_id');
 			//姓名模糊查询字段
 			$search_key_ar_more=array('cname');
-			
 			$search_key_bar=array('countryid','cat_id','barcode');
 			foreach($_GET as $k=>$v)
 			{
@@ -234,7 +233,6 @@ class Sproduct extends MY_Controller {
 		$this->ci_page->Page();
 		$this->ci_page->url=site_url($this->class."/".$this->method);
 		$wsql='';
-		
 		if(isset($_GET))
 		{
 			//非模糊查询的字段
@@ -287,15 +285,13 @@ class Sproduct extends MY_Controller {
 			$this->load->model('Seller_product_model');
 			$seller_product=$this->Seller_product_model
 							->get_product_detail("stock_id,status,sq_status,id,price",array('id'=>$id,'userid'=>$this->user_id));
-							
 			//平台产品库
 			$this->load->model('Admin_Stock_model');
 			$stock=$this->Admin_Stock_model
 						 ->get_stock("cname,gn,gg,is_shop,type,country",array('id'=>$seller_product['stock_id']));  
-						  
 			//分销库存
 			$this->load->model('Sp_Product_model');
-			$sp_product=$this->Sp_Product_model->get_product("c_num,online_num,price,status"
+			$sp_product=$this->Sp_Product_model->get_product("c_num,online_num,price,status,boxes_num"
 								,array('stock_id'=>$seller_product['stock_id']));	
 										
 			$de['price']=$seller_product['price'];
@@ -307,24 +303,22 @@ class Sproduct extends MY_Controller {
 			if(isset($_POST['num']))	
 			{
 				$_POST['num']*=1;
-				if($_POST['num']<=$de['c_num']&&$_POST['num']>0)
+
+				if(($_POST['num']*$sp_product['boxes_num'])<=$de['c_num']&&$_POST['num']>0)
 				{
-					$flag=$this->Seller_product_model->update_product(array('c_num'=>$_POST['num']),array('id'=>$id,'userid'=>$this->user_id));				
-					if(!empty($flag1))	
-						echo json_encode(array('type'=>1,'msg'=>'系统异常'));		
-					else
-						echo json_encode(array('type'=>2,'msg'=>'申请成功'));
-						
+					$flag=$this->Seller_product_model->update_product(array('c_num'=>($_POST['num']*$sp_product['boxes_num'])),array('id'=>$id,'userid'=>$this->user_id));
+					echo json_encode(array('type'=>2,'msg'=>'加入购物车成功'));
 					die;
 				}
 				else
 				{
-					echo json_encode(array('type'=>1,'msg'=>'申请数据不足'));
+					echo json_encode(array('type'=>1,'msg'=>'库存不住'));
 					die;
 				}
 			}
 		
 			$de['cname']=$stock['cname'];
+			$de['boxes_num']=$sp_product['boxes_num'];
 			$de['gn']=$stock['gn'];
 			$de['gg']=$stock['gg'];
 			$de['id']=$seller_product['id']; 
@@ -333,7 +327,6 @@ class Sproduct extends MY_Controller {
 			$de['type']=$stock['type'];
 			$this->ci_smarty->assign('de',$de);			  
 		}
-		
 		$this->ci_smarty->display('sproduct_selected.htm');	
 	}
 
@@ -372,30 +365,24 @@ class Sproduct extends MY_Controller {
 				$row=$this->Seller_Product_model->get_product_detail('stock_id,online_num,ls_lock_num',array('id'=>$id,'userid'=>$this->user_id));		
 				if(!empty($row))
 				{
-					
 					$ls_lock_num=$_POST['ls_lock_num'][$id]*1;
-					
 					if($row['ls_lock_num']==0&&(empty($ls_lock_num)||$ls_lock_num<0))
 						continue;
-
+						
 					//修改后的库存不能小于待发货的库存
 					if($ls_lock_num<$row['online_num'])
 						continue;
-	
+						
 					$stock_id=$row['stock_id'];	
-					
 					//修改后的库存不能大于可用库存
 					$de=$this->Sp_Product_model->get_product('c_num,online_num,ls_lock_num,status',array('stock_id'=>$stock_id));
-					
 					//下架后提交直接清零库存	
 					if($de['status']!=1)	
 						$ls_lock_num=0;
-					
 					if($de['ls_lock_num']>$ls_lock_num)
 					{
 						//修改 减少的数量
 						$num_str="-".($de['ls_lock_num']-$ls_lock_num);
-						
 						//修改失败加回去
 						$num_str1="+".($de['ls_lock_num']-$ls_lock_num);
 						$check_num=$de['ls_lock_num']-$ls_lock_num;
@@ -406,7 +393,6 @@ class Sproduct extends MY_Controller {
 					}
 					elseif($de['ls_lock_num']<$ls_lock_num)
 					{
-						
 						//修改 增加的数量
 						$num_str="+".($ls_lock_num-$de['ls_lock_num']);
 						

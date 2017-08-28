@@ -17,6 +17,7 @@ class Cat extends MY_Controller
 		   $this->load->model('Admin_Cat_model');  
 		   $cat_arr['pid'] = $this->input->post('new_pid',true);
 		   $cat_arr['cat'] = $this->input->post('new_cat',true);
+		   $cat_arr['profit'] =5;
 		   if(!empty($cat_arr['cat']))
 		   {
 				//添加分类
@@ -34,6 +35,8 @@ class Cat extends MY_Controller
 			  if(!empty($_POST['cat'][$id])) 
 			  {
 				  $cat_arr['cat']=$_POST['cat'][$id];
+				  $profit=$_POST['profit'][$id]*1;
+				  $cat_arr['profit']=$profit<=5?5:$profit;
 				  $this->Admin_Cat_model->cat_updata($id,$cat_arr);
 			  }
 			}
@@ -51,7 +54,7 @@ class Cat extends MY_Controller
 		
 		$this->load->model('Admin_Cat_model');       
 		$res_cat=$this->Admin_Cat_model->cat_list();
-		$this->ci_smarty->assign('res_cat',$this->Admin_Cat_model->cat_list());
+		$this->ci_smarty->assign('res_cat',$res_cat);
 		$this->ci_smarty->display_ini('cat_list.htm');
 	}
 

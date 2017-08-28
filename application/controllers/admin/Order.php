@@ -7,10 +7,8 @@ class Order extends MY_Controller
         parent::__construct();
         $this->load->library('CI_Smarty');
         $this->load_sp_menu();
-        //model
         //零售订单模型
         $this->load->model('Base_Orderls_model');
-
         $this->load->model('Seller_product_model');
         $this->load->model('Sp_Product_model');
     }
@@ -18,22 +16,18 @@ class Order extends MY_Controller
 	 //订单列表
     public function order_list_ls()
     {
-
         //***************************
         //         查询开始	
         $this->load->library('CI_page');
         $this->ci_page->Page();
         $this->ci_page->url=site_url($this->class."/".$this->method);
-		
-		if(!isset($_GET['search_status'])||isset($_GET['search_status'])&&in_array($_GET['search_status'],array('','all')))
-       		 $wsql=" `status`!=-1 ";
-		else
-			 $wsql=" 1=1 ";
+
+		$wsql=" 1=1 ";
 			 
         if(isset($_GET))
         {
             //非模糊查询的字段
-            $search_key_ar=array('status','payment_status','id');
+            $search_key_ar=array('status','payment_status','id','sp_userid');
             //姓名模糊查询字段
             $search_key_ar_more=array('consignee_mobile');
             foreach($_GET as $k=>$v)
@@ -50,7 +44,6 @@ class Order extends MY_Controller
                     //模糊查询
                     if(in_array($skey,$search_key_ar_more))
                     {
-
                         $wsql.=" and {$skey} like '%{$v}%'";
                     }
                 }
@@ -133,29 +126,153 @@ class Order extends MY_Controller
 	//账期审核
 	public function order_accountperiod()
 	{
-      
+		//审核分期付款 每笔账
+		//如果付最后1笔款的时候 改为付款完毕
+		if(!empty($_POST['act_type']))
+		{
+			$id=$_POST['id']*1;
+			
+			if($id)
+			{
+				$status=$_POST['act_type']*1;  //3=通过 -1=不通过
+				
+				$price=$_POST['payment_money'];
+				$this->load->model('Base_update_model');
+				
+				if(in_array($status,array(-1,3)))
+				{
+					$flag=$this->Base_update_model->update_sql("update  ".tab_m('order_accountperiod')
+						  ."  set  payment_money='".$price."',status='$status'  where  id='$id' and status=2  ");
+					$price1=",payment_money=payment_money+".$price;	  
+				//未付款
+				}
+				elseif($status==-2)
+				{
+					$flag=$this->Base_update_model->update_sql("update  ".tab_m('order_accountperiod')
+						  ."  set  payment_money='".$price."',status='$status'  where  id='$id' and status=1  ");
+					$price1='';	  	  
+				}
+				//查询下次付款时间 
+				if($flag)
+				{
+					$dd=$this->db->query("SELECT  `order_id`  FROM ".tab_m('order_accountperiod')." WHERE  id=".$id."  ")->row_array();
+					$da=$this->db->query("SELECT  `AccountPeriod_time`  FROM  " 
+					    .tab_m('order_accountperiod')."  WHERE  `order_id`=".$dd['order_id']." and status in (-1,1)  order by  q_num asc ")->row_array();
+					$d=$this->db->query("SELECT  `id`  FROM  " .tab_m('order_accountperiod')." WHERE  `order_id`=".$dd['order_id']." and status=2  ")->row_array();
+					
+					//有款未确认
+					if(!empty($d))	
+						$flag=$this->Base_update_model->update_sql("update  ".tab_m('order')
+					          ."  set  AccountPeriod_End_Time='".$da['AccountPeriod_time']."'".$price1.",payment_status=1   where  id=".$dd['order_id']."  "); 
+					//无已付款账单
+					elseif(!empty($da)) 
+						$flag=$this->Base_update_model->update_sql("update  ".tab_m('order')
+					          ."  set  AccountPeriod_End_Time='".$da['AccountPeriod_time']."'".$price1.",payment_status=0    where  id=".$dd['order_id']."  "); 
+					else
+					{
+						//查询分期付款内容
+						$dnum=$this->db->query("SELECT  count(*) as num  FROM  " 
+					          .tab_m('order_accountperiod')."  WHERE  `order_id`=".$dd['order_id']." and status=3   ")->row_array();
+						
+						if($dnum['num']==0)
+							$flag=$this->Base_update_model->update_sql("update  ".tab_m('order')
+					               ."  set  AccountPeriod_End_Time=NULL,AccountPeriod_status=3,payment_status=0".$price1."  where  id=".$dd['order_id']."  "); 
+					    else
+							$flag=$this->Base_update_model->update_sql("update  ".tab_m('order')
+					               ."  set  AccountPeriod_End_Time=NULL,AccountPeriod_status=3,payment_status=2".$price1."  where  id=".$dd['order_id']."  "); 		   
+					}
+				}
+				
+				$msg = array(
+								'msg'  => "操作成功",
+								'type' => 2
+							   );
+				echo json_encode($msg);
+				die;
+				
+			}
+		}
+		
 		if(!empty($_GET['id']))
 		{
 			$this->load->model('Base_Order_model');
 			$id = $_GET['id']*1;
-			$res=$this->Base_Order_model->get_order_info('userid,AccountPeriod_status,id,status,logcs_price,product_price,status,AccountPeriod_End_Time,logcs_weight,',array('id'=>$id));
+			$res=$this->Base_Order_model->get_order_info('userid,AccountPeriod_status,AccountPeriod_type,id,status
+			      ,logcs_price,product_price,status,AccountPeriod_End_Time,logcs_weight,',array('id'=>$id));
 			$company = $this->db->query("SELECT `company` FROM " . tab_m('seller_user') . " WHERE id=" . $res['userid'])->row_array();
 			$res['company']=$company['company'];
 			$this->ci_smarty->assign('re',$res);
-			
+			$dd=$this->db->query("SELECT `order_id`,`id`,`userid`, `AccountPeriod_moeny`,`payment_money`, `payment_time`, `AccountPeriod_time`,`q_num`,`cashflow_id`,`payor`,`status` 
+			                      FROM " . tab_m('order_accountperiod')." WHERE order_id=".$id."  order  by q_num asc")->result_array();
+			$this->ci_smarty->assign('accountperiod',$dd);				 
 		}
-        if(!empty($_POST))
+	    
+		//初审分期 设定最近需要付款时间		
+        if(!empty( $_POST['act']))
         {
             $this->load->model('Base_Order_model');
-            $id     = $_POST['id']*1;
             $AccountPeriod_status = $_POST['act']*1;
             $order_id=$_POST['id'];
-            $status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_status',array('id'=>$order_id));
-            if( $status['AccountPeriod_status']<2 )
+            $d=$this->Base_Order_model->get_order_info('status,userid,product_price,logcs_price,payment_status,AccountPeriod_status,AccountPeriod_type',array('id'=>$order_id));
+            if($d['AccountPeriod_status']<2 )
             {
-                $res= $this->Base_Order_model->order_update(array('AccountPeriod_status'=>$AccountPeriod_status),array('id'=>$id));
+				//判断前面是否有未付款的内容。。。。。如有不能审核通过
+				$this->load->model('Order_accountperiod_model');
+				if($AccountPeriod_status==2)
+				{
+					$de=$this->db->query("select  id  from   ".tab_m('order_accountperiod')."   where  userid='".$d['userid']."' and  status in(0,1)  ")->row_array();
+					if(!empty($de['id']))
+					{
+						$msg = array(
+								'msg'  => "有分期未付款",
+								'type' => 1
+							   );
+						echo json_encode($msg);
+						die;
+					}
+				}
+				
+                $res=$this->Base_Order_model->order_update(array('AccountPeriod_status'=>$AccountPeriod_status),array('id'=>$order_id));
                 if( $res )
                 {
+					$ainfo=date('Y-m-d H:i:s');
+					if($AccountPeriod_status==2)
+					{
+						//AccountPeriod_type
+						$AccountPeriod_moeny=$d['product_price']+$d['logcs_price'];
+						$type=$d['AccountPeriod_type']==4?3:$d['AccountPeriod_type'];
+						$AccountPeriod_moeny=ceil($AccountPeriod_moeny/$type);
+						$ar=array(
+								1=>array(1=>30),
+								2=>array(1=>30,2=>30),
+								3=>array(1=>30,2=>30,3=>15),
+								4=>array(1=>30,2=>30,3=>30)
+							);
+						$tm=time();
+						$day=0;
+						$dd=$ar[$type];
+						$pay_time='';
+						//审核通过
+						foreach($dd as $k=>$v)
+						{
+							$day+=$v;
+							$AccountPeriod_End_Time=date('Y-m-d H:i:s',strtotime($ainfo." +".($day)." day "));
+							if(empty($pay_time))
+								$pay_time=$AccountPeriod_End_Time;	
+							$arr=array(
+									'order_id'=>$order_id,
+									'userid'=>$d['userid'],
+									'AccountPeriod_moeny'=>$AccountPeriod_moeny,
+									'AccountPeriod_time'=>$AccountPeriod_End_Time,
+									'status'=>1,
+									'q_num'=>$k
+						         );
+							$this->Order_accountperiod_model->insert($arr);	 
+						}
+						
+						//最近一期付款时间
+						$this->Base_Order_model->order_update(array('AccountPeriod_End_Time'=>$pay_time),array('id'=>$order_id));
+					}
                     $msg = array(
                         'msg'  => "操作成功",
                         'type' => 3
@@ -265,10 +382,8 @@ class Order extends MY_Controller
         $this->load->library('CI_page');
         $this->ci_page->Page();
         $this->ci_page->url=site_url($this->class."/".$this->method);
-        if(!isset($_GET['search_status']) OR in_array($_GET['search_status'],array('','all')))
-            $wsql=" `status`!='-1'";
-        else
-            $wsql='1=1';
+
+        $wsql='1=1';
         if(isset($_GET))
         {
             //非模糊查询的字段
@@ -297,11 +412,17 @@ class Order extends MY_Controller
             }
         }
 
-         if(!empty($_GET['search_stime']))
+        if(!empty($_GET['search_stime']))
             $wsql.= " AND add_time>='".date("Y-m-d H:i:s",strtotime($_GET['search_stime']))."'";
 
         if(!empty($_GET['search_etime']))
             $wsql.= " AND add_time<='".date("Y-m-d H:i:s",strtotime( $_GET['search_etime']."+ 1 day -1second"))."'";
+
+	    if(!empty($_GET['search_pay_stime']))
+            $wsql.= " AND AccountPeriod_End_Time>='".date("Y-m-d H:i:s",strtotime($_GET['search_pay_stime']))."'";
+
+        if(!empty($_GET['search_pay_etime']))
+            $wsql.= " AND AccountPeriod_End_Time<='".date("Y-m-d H:i:s",strtotime( $_GET['search_pay_etime']."+ 1 day -1second"))."'";
 
         $search_page_num=array('all'=>15,1=>15,2=>30,3=>50);
         //===================查询 end=========================
@@ -397,6 +518,7 @@ class Order extends MY_Controller
         $this->ci_smarty->display_ini('order_info1.htm');
     }
     
+	/*
     //订单详情修改
     public  function order_pro_change()
     {
@@ -500,7 +622,7 @@ class Order extends MY_Controller
                 die;
             }
         }
-    }
+    }*/
 
 
     /**
@@ -568,9 +690,7 @@ class Order extends MY_Controller
         {
             //model
             $this->load->model('Base_Order_model');
-
             $id = $_GET['id'];
-
             $res= array();
             $res['id'] = $id;
             $res['order']=$this->Base_Order_model->get_order_info('userid,status,logcs_price,logcs_weight',array('id'=>$id));
@@ -596,11 +716,12 @@ class Order extends MY_Controller
             foreach ($sp_order as $k=>$v )
             {
                 $new_array[$k]=$v;
-                if($v['sp_id'])
+                if(!empty($v['sp_id']))
                 {
                     $sql="SELECT `company` FROM ".tab_m('sp_user')." WHERE id=".$v['sp_id'];
                     $company=$this->db->query($sql)->row_array();
                     $new_array[$k]['sp_company']=$company['company'];
+				    $new_array[$k]['sp_id']=$v['sp_id'];
                 }
             }
             $res['id']=$order_id;
@@ -628,11 +749,11 @@ class Order extends MY_Controller
                         $this->db->query($sql);
 
                     }
+					
                     if($arr[0]=='logcs_total_weight')
                     {
                         $sql="UPDATE ".tab_m('sp_order')." SET `logcs_total_weight`={$v} WHERE id=".$arr[1];
                         $this->db->query($sql);
-
                     }
                 }
 
@@ -678,8 +799,6 @@ class Order extends MY_Controller
         }
     }
 
-
-
     //审核操作
     public function order_action()
     {
@@ -715,34 +834,65 @@ class Order extends MY_Controller
                 echo json_encode($msg);
                 die;
             }
-            else {
+            else 
+			{
                 if ($_POST['status'] == -1)
-                {//作废订单
-
+                {
+					//作废订单
                     $id = $_POST['id'];
-                    $status = $this->Base_Order_model->get_order_info('status,payment_status', array('id' => $id));
-                    if ($status['status'] == 1 || $status['status'] == 2) {
-                        $arr = $this->Base_Order_model->get_order_pro_info('stock_id,num', array('order_id' => $id));
-                        $res = $this->Base_Order_model->order_update(array('status'=>-1), array('id' => $id));
-						if(!empty($res))
-						{
-							//减去库存
-							foreach ($arr as $k => $v) {
-								$this->db->where('stock_id', $v['stock_id']);
-								$this->db->set('online_num', "online_num - $v[num]", FALSE);
-								$this->db->update(tab_m('sp_product'));
-							}
-						}
-                    }
-                    else
-                    {
-                        $msg = array(
-                            'msg' => '请刷新页面后继续操作',
+                    $order = $this->Base_Order_model->get_order_info('status,AccountPeriod_status,payment_status', array('id' => $id));
+
+					if($order['payment_status']>=1)
+					{
+						$msg = array(
+                            'msg' => '有账务未处理完成不能作废',
                             'type' => 1
                         );
                         echo json_encode($msg);
                         die;
-                    }
+					}
+					
+					$d1=$this->db->query("select  count(*)  as  num    from   ".tab_m('sp_order')."   
+						                      where  delivery_status='-1' and   order_id='$id'  ")->row_array();
+					//全部分单
+					$d2=$this->db->query("select  count(*)  as  num    from   ".tab_m('sp_order')."   
+										  where  order_id='$id'  ")->row_array();
+										  			
+					if($d1['num']!=$d2['num'])
+					{
+						$msg = array(
+                            'msg' => '供应分单未作废',
+                            'type' => 1
+                        );
+                        echo json_encode($msg);
+                        die;
+							
+					}
+					
+					if($order['AccountPeriod_status']>=2)
+					{  
+						if($order['AccountPeriod_status']!=3)
+						{
+							$msg = array(
+								'msg' => '分期未销账,不能作废',
+								'type' => 1
+							);
+							echo json_encode($msg);
+							die;
+						}
+					}
+					
+					$flag=$this->db->query("update  ".tab_m('order')."  set   status=-1  where   id='".$id."'  and   status=4   ");	
+					
+					//已付款不能作废 申请过分期付款不能作废
+
+					$msg = array(
+						'msg' => '请刷新页面后继续操作',
+						'type' => 3
+					);
+					echo json_encode($msg);
+					die;
+
                 }
                 else
                 {//审核订单
@@ -751,7 +901,7 @@ class Order extends MY_Controller
                     //查询运费是否已经全部填写完毕
                     $fee = $this->Base_Order_model->get_sp_order_info_result('logcs_total_weight', array('order_id' => $id));
                     foreach ($fee as $k => $v) {
-                        if ($v['logcs_total_weight'] <= '0.00') {
+                        if ($v['logcs_total_weight'] <= 0) {
                             $msg = array(
                                 'msg' => '请将所有订单重量填写完毕后提交',
                                 'type' => 1
@@ -806,7 +956,7 @@ class Order extends MY_Controller
             $id = $_GET['id'];
             $res= array();
             $res['id'] = $id;
-            $res['order']=$this->Base_Order_model->get_order_info('payor,cashflow_id,userid,payment_status,product_price,logcs_price',array('id'=>$id));
+            $res['order']=$this->Base_Order_model->get_order_info('payor,cashflow_id,AccountPeriod_type,userid,payment_status,not_pay_money,AccountPeriod_status,AccountPeriod_End_Time ,product_price,logcs_price',array('id'=>$id));
             $sql = "SELECT `company` FROM " . tab_m('seller_user') . " WHERE id=" . $res['order']['userid'];
             $company = $this->db->query($sql)->row_array();
             $res['company']=$company['company'];
@@ -836,15 +986,37 @@ class Order extends MY_Controller
                 //model
                 $this->load->model('Base_Order_model');
                 $id = $_POST['id'];
-                $status=$this->Base_Order_model->get_order_info('status,payment_status',array('id'=>$id));
-                if($status['status']==2 && $status['payment_status']==1)
+                $order=$this->Base_Order_model->get_order_info('status,cashflow_id,pay_uptime,product_price
+				                                                ,logcs_price,not_pay_money,userid,payor,payment_status',array('id'=>$id));
+                if($order['status']>=2 && $order['payment_status']==1)
                 {
                     $address= array();
                     $address['payment_status']=$this->input->post('payment_status',true);
-                    $res =  $this->Base_Order_model->order_update($address,array('id'=>$id));
-
+                    $res =  $this->Base_Order_model->order_update($address,array('payment_status'=>1,'id'=>$id));
                     if( $res )
                     {
+						if($address['payment_status']==2)
+						{
+							$this->load->model('Order_accountperiod_model');
+							$this->Order_accountperiod_model->insert(
+								   array(
+										 'order_id'=>$id,
+										 'userid'=>$order['userid'], 
+										 'AccountPeriod_moeny'=>$order['product_price']+$order['logcs_price']-$order['not_pay_money'],
+										 'payment_money'=>$_POST['payment_money'], 
+										 'payment_time'=>$order['pay_uptime'], 
+										 'q_num'=>0, 
+										 'cashflow_id'=>$order['cashflow_id'], 
+										 'payor'=>$order['payor'], 
+										 'status'=>3
+						           ));
+							//销账
+							$this->Base_Order_model->order_update(array('AccountPeriod_status'=>3),array('payment_status'=>2,'AccountPeriod_status'=>2,'id'=>$id));
+							
+							//实际付款金额
+							$this->Base_Order_model->order_update(array('payment_money'=>$_POST['payment_money']*1),array('id'=>$id));
+						}
+						
                         $msg = array(
                             'msg'  => "操作成功",
                             'type' => 3
@@ -918,21 +1090,27 @@ class Order extends MY_Controller
             //model
             $this->load->model('Base_Order_model');
             $order_id=$_POST['id'];
-            $status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_status,AccountPeriod_End_Time',array('id'=>$order_id));
-            if(($status['status']==2 || $status['status']==3) && ($status['payment_status']==2 OR $status['AccountPeriod_status']>=2 ))
-            {//只有在订单处于  确认付款 或 账期审核通过   和 部分发货  未发货 的状态才能修改
+            $status=$this->Base_Order_model->get_order_info('status,payment_status,AccountPeriod_type,pay_uptime,AccountPeriod_status,AccountPeriod_status,AccountPeriod_End_Time',array('id'=>$order_id));
+            if($status['status']>=1&&$status['status']!=4)
+            {   
+				//只有在订单处于  确认付款 或 账期审核通过   和 部分发货  未发货 的状态才能修改
                 unset($_POST['id']);
                 $new_arr=array();
                 foreach ($_POST['logcs_num'] as $k=>$v)
                 {
                     if(empty($_POST['delivery_status'][$k]))
-                    {
                         continue;
-                    }
                     else
                     {
                         if($_POST['delivery_status'][$k]==1)
-                        {//已发货
+                        {
+							//未付款 无分期付款
+							if($status['payment_status']!=2 OR $status['AccountPeriod_status']<=1)
+							{
+								continue;
+							}
+							
+							//已发货
                             if(empty($v) || empty($_POST['logistics_type'][$k]) )
                             {
                                 $msg = array(
@@ -946,7 +1124,20 @@ class Order extends MY_Controller
                             $new_arr[$k]['logistics_type']=$_POST['logistics_type'][$k];
                             $new_arr[$k]['delivery_status']=$_POST['delivery_status'][$k];
                             $new_arr[$k]['delivery_time']=dateformat(time());
-                            $new_arr[$k]['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+30days',strtotime($status['AccountPeriod_End_Time'])));
+							
+							//如果是分期付款 按最后一期加7天付款 
+							if($status['AccountPeriod_status']>=2)
+							{
+								$ar_day=array(1=>30,2=>60,3=>75,4=>90);
+								$day=!empty($ar[$status['AccountPeriod_type']])?$ar[$status['AccountPeriod_type']]:90;
+								$new_arr[$k]['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+'.($day+5).' day'));
+							}
+							//如果已经一次性付款
+							elseif($status['payment_status']==2)
+								$new_arr[$k]['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+30 day'));
+							
+							
+                            //$new_arr[$k]['estimated_date_payment']=date('Y-m-d H:i:s',strtotime('+30 day',strtotime($status['AccountPeriod_End_Time'])));
                         }
                         elseif($_POST['delivery_status'][$k]==-1)
                         {//作废
@@ -975,6 +1166,7 @@ class Order extends MY_Controller
                         $sql='UPDATE '.tab_m('order').' SET `not_pay_money`=`not_pay_money`+'.$back_money.', `invalid_sp_order_num`=`invalid_sp_order_num`+1  WHERE id='.$order_id;
                         $this->db->query($sql);
                         $res=$this->Base_Order_model->sp_order_abolish($v,$k,0);
+						
                     }
                     else
                     {//订单发货
@@ -982,7 +1174,6 @@ class Order extends MY_Controller
                         $this->db->query($sql);
                         $res=$this->Base_Order_model->sp_order_delivery($v,$k,0);
                     }
-
                 }
 
                 if( $res )
@@ -1046,26 +1237,19 @@ class Order extends MY_Controller
             {
                 if($v['sp_uid'])
                 {
-
                     $sql  ='SELECT company FROM '.tab_m('sp_user').' WHERE id='.$v['sp_uid'];
                     $temp =$this->db->query($sql)->row_array();
                     $v['sp_uid'] = $temp['company'];
-
                 }
 
                 if($v['userid'])
                 {
-
                     $sql='SELECT company FROM '.tab_m('seller_user').' WHERE id='.$v['userid'];
                     $temp =$this->db->query($sql)->row_array();
                     $v['userid']= $temp['company'];
-
                 }
-
                 $order_info_arr[]=$v;
-
             }
-            
             $order_info_title=array('供应商商品id','供应商','公共库id','分销商商品id','分销商','产品名','销售价','供应价','单位重量','数量');
             get_explode_xls($order_title,array($order_arr),"订单($order_id)表"
                 ,array(array('订单详情表'
@@ -1077,7 +1261,6 @@ class Order extends MY_Controller
 
     public function sp_order_list()
     {
-
         if(isset($_GET['export'])) 
         {
             //model
@@ -1108,8 +1291,8 @@ class Order extends MY_Controller
                     {
                         $new_arr2[]=$this->Base_Order_model->get_sp_order_log_info_result('sp_order_id,sp_id,name,sp_price,num,weight',array('sp_order_id'=>$v['id']));
                     }
-
                 }
+				
                 $new_arr4=array();
                 foreach ($new_arr2 as $key => $value) 
                 {   
@@ -1137,8 +1320,6 @@ class Order extends MY_Controller
                 $order_title=array('供应商订单id','供应商','供应总价','运费','运单号','发货时间','订单重量','订单id','运单类型','对账单号');
                 $order_info_title=array('供应商订单id','供应商','商品名','供应单价','数量','单位重量');
                 get_explode_xls($order_title,$new_arr,'对账-供应商订单',array(array('对账-供应商订单详情',$new_arr3,$order_info_title)));
-
-
             }
         }
 
@@ -1187,7 +1368,6 @@ class Order extends MY_Controller
                          $new_arr4[$key][$k]['sp_id']=$company['company'];
                        }
                    }
-                   
                 }
                 $new_arr3=array();//order_log
                 foreach ( $new_arr4 as $k=>$v)
@@ -1213,9 +1393,8 @@ class Order extends MY_Controller
         $s_status='  `delivery_status`!=-1';
         if(isset($_GET))
         {
-
             //非模糊查询的字段
-            $search_key_ar=array('delivery_status','payment_status','order_id','id','reconciliation_no');
+            $search_key_ar=array('delivery_status','payment_status','order_id','sp_id','id','reconciliation_no','reconciliation_status');
             //姓名模糊查询字段
             $search_key_ar_more=array('consignee_mobile');
             foreach($_GET as $k=>$v)
@@ -1236,11 +1415,8 @@ class Order extends MY_Controller
                     //模糊查询
                     if(in_array($skey,$search_key_ar_more))
                     {
-
                         $wsql.=" and {$skey} like '%{$v}%'";
                     }
-
-
                 }
             }
         }
@@ -1250,6 +1426,12 @@ class Order extends MY_Controller
 
         if(!empty($_GET['search_etime']))
             $wsql.= " AND delivery_time<='".date("Y-m-d H:i:s",strtotime( $_GET['search_etime']."+ 1 day -1second"))."'";
+			
+		if(!empty($_GET['search_pay_stime']))
+            $wsql.= " AND estimated_date_payment>='".date("Y-m-d H:i:s",strtotime($_GET['search_pay_stime']))."'";
+
+        if(!empty($_GET['search_pay_etime']))
+            $wsql.= " AND estimated_date_payment<='".date("Y-m-d H:i:s",strtotime($_GET['search_pay_etime']."+ 1 day -1second"))."'";
 
         $search_page_num=array('all'=>15,1=>15,2=>30,3=>50);
         //===================查询 end=========================
@@ -1291,7 +1473,9 @@ class Order extends MY_Controller
         //***************************
         $this->ci_smarty->display_ini('sp_order_list.htm');
     }
-
+	
+	
+    /*
     public function sp_order_info()
     {
         if(!empty($_GET))
@@ -1301,8 +1485,9 @@ class Order extends MY_Controller
         }
         $this->ci_smarty->display('sp_order_info.htm');
     }
+	*/
 
-    public function sp_order_info_1()
+    public function sp_order_info()
     {
         if(!empty($_GET))
         {
@@ -1404,6 +1589,93 @@ class Order extends MY_Controller
             }
 
 
+        }
+    }
+
+
+    /**
+     *  给供应商结算货款
+     */
+    public function sp_order_payment()
+    {
+
+        if(!empty($_GET['id']))
+        {
+            $this->load->model('Base_Order_model');
+            $this->load->model('Admin_Spuser_model');
+            $id = $_GET['id'];
+            $res=$this->Base_Order_model->get_sp_order_info('id,sp_id,order_id,sp_total,logcs_price',array('id'=>$id));
+            $sp_user=$this->Admin_Spuser_model->get_spuser($res['sp_id'],'company');
+            $res['company']= $sp_user['company'];
+            $this->ci_smarty->assign('re',$res);
+            $this->ci_smarty->display_ini('sp_order_payment.htm');
+        }
+
+        if(!empty($_POST))
+        {
+            //表单验证
+            $this->load->library('MY_form_validation');
+            $this->form_validation->set_rules('cashflow_id','银行流水号','required');
+            if ($this->form_validation->run() == FALSE)
+            {
+                $msg = array(
+                    'msg'  => validation_errors("<i class='icon-comment-alt'></i>"),
+                    'type' => 1
+                );
+                echo json_encode($msg);
+                die;
+            }
+            else
+            {
+                //model
+                $this->load->model('Base_Order_model');
+                $id = $_POST['id'];
+                $status=$this->Base_Order_model->get_sp_order_info('reconciliation_status,delivery_status',array('id'=>$id));
+
+                //已发货或者未发货
+                if($status['reconciliation_status']==0 && $status['delivery_status']==1)
+                {
+                    $address= array();
+                    $remark=$this->input->post('remark',true);
+                    $remark=empty($remark)?'':'暂无备注';
+                    $remark_accout=json_encode(array(
+                        'cashflow_id'=>$this->input->post('cashflow_id',true),
+                        'remark'=>$remark
+                    ));
+                    $address['remark_accout']=$remark_accout;
+                    $address['reconciliation_status'] = 1;
+                    $address['date_payment'] = date('Y-m-d H:i:s',time());
+                    $res =  $this->Base_Order_model->sp_order_update($address,array('id'=>$id));
+                    if( $res )
+                    {
+                        $msg = array(
+                            'msg'  => "操作成功",
+                            'type' => 3
+                        );
+                        echo json_encode($msg);
+                        die;
+                    }
+                    else
+                    {
+                        $msg = array(
+                            'msg'  => '提交失败',
+                            'type' => 1
+                        );
+                        echo json_encode($msg);
+                        die;
+                    }
+                }else
+                {
+                    $msg = array(
+                        'msg'  => '操作无效,请刷新页面确认是否已经操作',
+                        'type' => 1
+                    );
+                    echo json_encode($msg);
+                    die;
+                }
+
+
+            }
         }
     }
 }
