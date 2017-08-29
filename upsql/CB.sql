@@ -25,3 +25,10 @@ CREATE TABLE IF NOT EXISTS `dferp_order_accountperiod` (
   KEY `userid` (`userid`),
   KEY `q_num` (`q_num`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='导入订单表' AUTO_INCREMENT=1;
+ALTER TABLE `dferp_seller_user` ADD `api_pass` VARCHAR( 32 ) NULL DEFAULT NULL COMMENT '对接秘钥' AFTER `act_pass` ;
+CREATE TABLE IF NOT EXISTS `dferp_admin_login_log` (
+  `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `user` char(30) NOT NULL COMMENT '帐号',
+  `lastlogotime` datetime DEFAULT NULL COMMENT '登录时间',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='管理员登陆记录' AUTO_INCREMENT=1;
