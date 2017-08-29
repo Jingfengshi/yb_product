@@ -97,7 +97,7 @@ class  pmemcache
 		return  $de;	
 	}	
 	
-	//查询
+	//关闭
 	public function close()
 	{
 		if(!empty($this->memcache))

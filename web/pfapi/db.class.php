@@ -143,16 +143,17 @@ class dba {
 	//----------------------------
 	function query($sql,$upfate=false)
 	{	
-		global $config;
+		global $config;//引入配置文件
 		$t1 = microtime(true);
-		$sql=trim($sql);
+		$sql=trim($sql);//过滤sql语句
+
 		if(!empty($upfate))
 			$sql.=' FOR UPDATE';//（排它锁）
 			
 		$sqlr=explode(" ",$sql);
-		$type=strtolower(trim($sqlr[0]));
+		$type=strtolower(trim($sqlr[0]));//sql语句的类型
 
-		$filename=$config['webpath']."../../application/cache/error_sql_log.php";
+		$filename=$config['webpath']."../../application/cache/error_sql_log.php";//错误日志文件位置
 		if($type=='drop')
 		{
 			error_log("\n--------非法操作---".$type."------"
@@ -163,7 +164,6 @@ class dba {
 		}
 		unset($sqlr,$ar,$amd5,$ar);
 		$flag=$this->Query_ID=mysql_query($sql);
-		
 		if(!$flag)
 		{
 			if(file_exists($filename))

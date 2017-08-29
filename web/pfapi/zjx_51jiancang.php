@@ -17,14 +17,15 @@ if(empty($_POST['data']))
 	die('{"code":"S2","msg":"data is null"}');	
 	
 header('Content-Type: text/html; charset=utf-8');
-$config['webpath']=dirname(__FILE__)."/";	
+$config['webpath']=dirname(__FILE__)."/";
+
 function get_base_config()
 {
 	global $config;
 	define('BASEPATH','1');
-	include($config['webpath'].'../../application/config/config.php');
+	include($config['webpath'].'../../application/config/config.php');//引入配置文件
 	$conf['weburl']=$config['base_url_www'];
-	include($config['webpath'].'../../application/config/database.php');
+	include($config['webpath'].'../../application/config/database.php');//引入数据库配置文件
 	$conf['hostname']=$db['default']['hostname'];
 	$conf['username']=$db['default']['username'];
 	$conf['password']=$db['default']['password'];
@@ -35,10 +36,12 @@ function get_base_config()
 }
 
 $config=get_base_config();
+
 include($config['webpath'].'../lib/ini_api.php');	
 include($config['webpath'].'db.class.php');	
 
 $p_data=authcode($data,'DECODE',0,"zjx_ls".$_POST['sellerid'].$_POST['time'].$_POST['num']);
+
 $data=json_decode($p_data,true);
 $db=new dba($config['hostname'],$config['username'],$config['password'],$config['database'],$config['dbprefix']);
 $pmemcache=NULL;
